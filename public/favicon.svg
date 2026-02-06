@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 128 128">
+  <!-- Background with gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2A4793;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1f356d;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="64" cy="64" r="64" fill="url(#bgGradient)"/>
+  
+  <!-- Yellow circle for contrast -->
+  <circle cx="64" cy="64" r="50" fill="#F7CE47"/>
+  
+  <!-- Logo image centered and scaled -->
+  <image href="/logocm.png" x="24" y="24" width="80" height="80" preserveAspectRatio="xMidYMid meet"/>
+</svg>
