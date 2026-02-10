@@ -31,7 +31,7 @@ export default function AssistantLayout() {
         <div className="p-6 border-b border-[#1f356d]">
           <h2 className="text-2xl font-bold text-[#F7CE47]">Cash Moov</h2>
           <p className="text-sm mt-2 opacity-90">Assistant Panel</p>
-          <p className="text-xs mt-1 opacity-75">{user?.name}</p>
+          <p className="text-xs mt-1 opacity-75">{user?.first_name} {user?.last_name}</p>
         </div>
 
         <nav className="flex-1 py-6">
@@ -91,7 +91,7 @@ export default function AssistantLayout() {
                 <div className="p-6 border-b border-[#1f356d] flex items-center justify-between">
                   <div>
                     <h2 className="text-2xl font-bold text-[#F7CE47]">Cash Moov</h2>
-                    <p className="text-xs mt-1 opacity-75">{user?.name}</p>
+                    <p className="text-xs mt-1 opacity-75">{user?.first_name} {user?.last_name}</p>
                   </div>
                   <button onClick={() => setSidebarOpen(false)}>
                     <X className="w-6 h-6" />
@@ -147,15 +147,15 @@ export default function AssistantLayout() {
           </button>
 
           <div className="flex items-center gap-4">
-            <div className="text-right">
-              <p className="text-sm font-medium text-gray-900">{user?.name}</p>
-              <p className="text-xs text-gray-500 capitalize">{user?.role}</p>
-            </div>
+            <NavLink to="/assistant/profile" className="text-right hover:opacity-80 transition">
+              <p className="text-sm font-medium text-gray-900">{user?.last_name} {user?.first_name}</p>
+              <p className="text-xs text-gray-500 capitalize">{user?.user_type}</p>
+            </NavLink>
             <motion.div 
               whileHover={{ scale: 1.1 }}
               className="w-10 h-10 bg-[#2A4793] rounded-full flex items-center justify-center text-white font-semibold"
             >
-              {user?.name.charAt(0).toUpperCase()}
+              {user?.last_name.charAt(0).toUpperCase()} {user?.first_name.charAt(0).toUpperCase()}
             </motion.div>
           </div>
         </motion.header>

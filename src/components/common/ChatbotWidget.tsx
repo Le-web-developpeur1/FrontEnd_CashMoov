@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MessageCircle, X, Send } from 'lucide-react';
+import { X, Send } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Message } from '@/types';
 import { chatbotAPI } from '@/utils/api';
@@ -11,6 +11,8 @@ export function Chatbot() {
 
     const [input, setInput] = useState("");
     const [loading, setLoading] = useState(false);
+    const [conversationId] = useState<string | null>(null);
+    const [escalatedToHuman, setEscalatedToHuman] = useState(false);
 
     const sendMessage = async () => {
         if (!input.trim()) return;
@@ -23,17 +25,37 @@ export function Chatbot() {
 
         try {
             const data = await chatbotAPI.sendMessage({
-                question: userInput
+                question: userInput,
+                conversationId: conversationId || undefined
             });
+                        
+            // Vérifier si le bot ne peut pas répondre
+            const botResponse = data.response?.message || data.answer || '';
+            const botCannotAnswer = 
+                data.needs_human || 
+                data.escalate || 
+                data.confidence < 0.5 ||
+                botResponse.includes('response_none') ||
+                botResponse === 'response_none';
             
-            const botMessage: Message = { 
-                sender: "bot", 
-                text: data.response || data.answer || "Pas de réponse"
-            };
-            setMessages((prev) => [...prev, botMessage]);
+            if (botCannotAnswer && !escalatedToHuman) {
+                setEscalatedToHuman(true);
+                
+                const botMessage: Message = { 
+                    sender: "bot", 
+                    text: "Je n'ai pas la réponse à votre question. Je vais transférer votre demande à un de nos assistants qui pourra mieux vous aider. Un instant s'il vous plaît..."
+                };
+                setMessages((prev) => [...prev, botMessage]);
+            } else {
+                const cleanResponse = botResponse.replace('response_none', '').trim();
+                const botMessage: Message = { 
+                    sender: "bot", 
+                    text: cleanResponse || "Je n'ai pas compris votre question. Pouvez-vous reformuler ?"
+                };
+                setMessages((prev) => [...prev, botMessage]);
+            }
             
         } catch (error) {
-            console.error('Erreur chatbot:', error);
             setMessages((prev) => [
                 ...prev,
                 { sender: "bot", text: "Désolé, une erreur est survenue. Veuillez réessayer."}
@@ -138,10 +160,10 @@ export default function ChatbotWidget() {
           }
         }}
         onClick={() => setOpen(!open)}
-        className={`rounded-full shadow-xl flex items-center justify-center text-white transition cursor-pointer
+        className={`rounded-full shadow-xl flex items-center justify-center text-white transition cursor-pointer overflow-hidden
           ${open 
-            ? "w-12 h-12 bg-red-500 hover:bg-red-600"      
-            : "w-16 h-16 bg-[#2A4793] hover:bg-[#1f356d]"   
+            ? "w-12 h-12 bg-[#F7CE47] hover:bg-[#F7CE47]"      
+            : "w-16 h-16 bg-[#2A4793] hover:bg-[#2A4793]"   
           }
         `}
       >
@@ -163,8 +185,13 @@ export default function ChatbotWidget() {
               animate={{ rotate: 0, opacity: 1 }}
               exit={{ rotate: -90, opacity: 0 }}
               transition={{ duration: 0.2 }}
+              className="w-full h-full flex items-center justify-center"
             >
-              <MessageCircle className="w-8 h-8" />
+              <img 
+                src='/images/sticker.png' 
+                alt="Chat"
+                className="w-14 h-14 object-contain" 
+              />
             </motion.div>
           )}
         </AnimatePresence>

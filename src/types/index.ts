@@ -1,4 +1,4 @@
-import { LucideIcon } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 export interface ServiceCardProps {
   title: string;
@@ -32,7 +32,6 @@ export interface Partner {
 export interface Testimonial {
   name: string;
   country: string;
-  flag: string;
   photo: string;
   text: string;
   rating: number;

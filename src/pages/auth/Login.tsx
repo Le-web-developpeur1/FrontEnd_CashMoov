@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { Mail, Lock, AlertCircle } from 'lucide-react';
@@ -12,6 +12,16 @@ export default function Login() {
   
   const { login, user } = useAuth();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user) {
+      if (user.user_type === 'admin') {
+        navigate('/admin/dashboard', { replace: true });
+      } else if (user.user_type === 'assistant') {
+        navigate('/assistant/dashboard', { replace: true });
+      }
+    }
+  }, [user, navigate]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,13 +37,6 @@ export default function Login() {
     }
   };
 
-  if (user) {
-    if (user.role === 'admin') {
-      navigate('/admin/dashboard', { replace: true });
-    } else if (user.role === 'assistant') {
-      navigate('/assistant/dashboard', { replace: true });
-    }
-  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#2A4793] to-[#1f356d] flex items-center justify-center p-4">

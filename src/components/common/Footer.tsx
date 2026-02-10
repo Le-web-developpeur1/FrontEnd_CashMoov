@@ -32,7 +32,7 @@ const Footer = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 max-w-7xl mx-auto"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full md:m-8 mx-auto"
       >
 
         <motion.div variants={itemVariants}>
@@ -49,7 +49,7 @@ const Footer = () => {
               whileHover={{ scale: 1.2, x: -10 }}
               transition={{ type: "keyframes", stiffness: 200 }}
               href="#"
-              className="flex items-center w-38 h-14 gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm border-2 border-[#F7CE47] rounded-lg px-3 transition"
+              className="flex items-center w-38 h-14 gap-3 backdrop-blur-sm border-2 border-[#F7CE47] rounded-lg px-3 transition"
             >
               <FaApple className="h-6 w-6" />
               <div className="text-left">
@@ -62,7 +62,7 @@ const Footer = () => {
               whileHover={{ scale: 1.2, x: 10 }}
               transition={{ type: "keyframes", stiffness: 200 }}
               href="#"
-              className="flex items-center w-38 h-14 gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm border-2 border-[#F7CE47] rounded-lg px-3 transition"
+              className="flex items-center w-38 h-14 gap-3 backdrop-blur-sm border-2 border-[#F7CE47] rounded-lg px-3 transition"
             >
               <FaGooglePlay className="h-6 w-6"/>
               <div className="text-left">
@@ -107,7 +107,7 @@ const Footer = () => {
           </motion.div>
         </motion.div>
 
-        <motion.div variants={itemVariants}>
+        <motion.div variants={itemVariants} className="md:ml-16">
           <h3 className="text-[#F7CE47] font-bold text-xl mb-4">Liens rapides</h3>
           <div className="flex flex-col space-y-3">
             <motion.div whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300 }}>
@@ -125,7 +125,7 @@ const Footer = () => {
           </div>
         </motion.div>
 
-        <motion.div variants={itemVariants}>
+        <motion.div variants={itemVariants} className="">
           <h3 className="text-[#F7CE47] font-bold text-xl mb-4">Services</h3>
           <div className="flex flex-col space-y-3">
             <motion.p whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300 }}>
@@ -143,7 +143,7 @@ const Footer = () => {
           </div>
         </motion.div>
 
-        <motion.div variants={itemVariants}>
+        <motion.div variants={itemVariants} className="md:-ml-16">
           <h3 className="text-[#F7CE47] font-bold text-xl mb-4">Contact</h3>
           <div className="space-y-3 opacity-90 leading-relaxed">
             <div>
@@ -185,7 +185,7 @@ const Footer = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.7 }}
-        className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-[#F7CE47] text-sm"
+        className="w-full mx-auto grid grid-cols-1 md:ml-20 md:grid-cols-2 lg:grid-cols-4 gap-10 text-[#F7CE47] text-sm"
       >
         <p>&copy; {date} Cash Moov | Tous droits réservés.</p>
         <motion.a 

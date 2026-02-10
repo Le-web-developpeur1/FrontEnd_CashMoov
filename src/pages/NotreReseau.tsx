@@ -1,6 +1,6 @@
 import { FaGlobe, FaMapMarkerAlt, FaMoneyBillWave, FaUsers } from "react-icons/fa";
 import { motion } from "framer-motion";
-import Globe3D from "@/components/common/Glob";
+// import Globe3D from "@/components/common/Glob";
 
 export default function NotreReseau() {
   const stats = [

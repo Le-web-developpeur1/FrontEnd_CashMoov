@@ -2,10 +2,12 @@ import { createContext, useContext, useState, useEffect, type ReactNode } from '
 import { authAPI } from '@/utils/api';
 
 interface User {
-  id: string;
-  name: string;
+  slug: string;
+  first_name: string;
+  last_name: string;
   email: string;
-  role: 'admin' | 'assistant';
+  address: string | null;
+  user_type: 'admin' | 'assistant';
 }
 
 interface AuthContextType {
@@ -22,17 +24,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Vérifier si l'utilisateur est déjà connecté au chargement
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('access');
     const storedUser = localStorage.getItem('user');
     
     if (token && storedUser) {
       try {
         setUser(JSON.parse(storedUser));
       } catch (error) {
-        console.error('Erreur lors de la récupération de l\'utilisateur:', error);
-        localStorage.removeItem('token');
+        localStorage.removeItem('access');
         localStorage.removeItem('user');
       }
     }
@@ -42,58 +42,42 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const login = async (email: string, password: string) => {
     try {
-      const testAccounts = [
-        {
-          email: 'admin@cashmoov.com',
-          password: 'admin123',
-          user: {
-            id: '1',
-            name: 'Admin Cash Moov',
-            email: 'admin@cashmoov.com',
-            role: 'admin' as const,
-          },
-          token: 'test-admin-token-123',
-        },
-        {
-          email: 'assistant@cashmoov.com',
-          password: 'assistant123',
-          user: {
-            id: '2',
-            name: 'Assistant Cash Moov',
-            email: 'assistant@cashmoov.com',
-            role: 'assistant' as const,
-          },
-          token: 'test-assistant-token-456',
-        },
-      ];
-
-      const testAccount = testAccounts.find(
-        acc => acc.email === email && acc.password === password
-      );
-
-      if (testAccount) {
-        localStorage.setItem('token', testAccount.token);
-        localStorage.setItem('user', JSON.stringify(testAccount.user));
-        setUser(testAccount.user);
-        return;
-      }
-
-      // Sinon, appel à l'API réelle
       const data = await authAPI.login(email, password);
+            
+      if (data.access) {
+        localStorage.setItem('access', data.access);
+      }
       
-      // Stocker le token et les infos utilisateur
-      localStorage.setItem('token', data.token);
-      localStorage.setItem('user', JSON.stringify(data.user));
-      setUser(data.user);
+      if (data.refresh) {
+        localStorage.setItem('refresh', data.refresh);
+      }
       
-    } catch (error) {
-      console.error('Erreur de connexion:', error);
+      const storedToken = localStorage.getItem('access');
+      
+      if (!storedToken) {
+        throw new Error('Erreur lors du stockage du token');
+      }
+      
+      // Petit délai pour s'assurer que tout est bien synchronisé
+      await new Promise(resolve => setTimeout(resolve, 100));
+      
+      try {
+        const userInfo = await authAPI.getUserInfo();
+        
+        // Stockage des infos utilisateur
+        localStorage.setItem('user', JSON.stringify(userInfo));
+        setUser(userInfo);
+      } catch (userError: any) {
+        throw userError;
+      }
+      
+    } catch (error: any) {
       throw error;
     }
   };
 
   const logout = () => {
-    localStorage.removeItem('token');
+    localStorage.removeItem('access');
     localStorage.removeItem('user');
     setUser(null);
   };
@@ -118,3 +102,40 @@ export const useAuth = () => {
   }
   return context;
 };
+
+
+ // const testAccounts = [
+      //   {
+      //     email: 'admin@cashmoov.com',
+      //     password: 'admin123',
+      //     user: {
+      //       id: '1',
+      //       name: 'Admin Cash Moov',
+      //       email: 'admin@cashmoov.com',
+      //       user_type: 'admin' as const,
+      //     },
+      //     token: 'test-admin-token-123',
+      //   },
+      //   {
+      //     email: 'assistant@cashmoov.com',
+      //     password: 'assistant123',
+      //     user: {
+      //       id: '2',
+      //       name: 'Assistant Cash Moov',
+      //       email: 'assistant@cashmoov.com',
+      //       user_type: 'assistant' as const,
+      //     },
+      //     token: 'test-assistant-token-456',
+      //   },
+      // ];
+
+      // const testAccount = testAccounts.find(
+      //   acc => acc.email === email && acc.password === password
+      // );
+
+      // if (testAccount) {
+      //   localStorage.setItem('token', testAccount.token);
+      //   localStorage.setItem('user', JSON.stringify(testAccount.user));
+      //   setUser(testAccount.user);
+      //   return;
+      // }

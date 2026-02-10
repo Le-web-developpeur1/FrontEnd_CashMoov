@@ -19,12 +19,13 @@ import Login from './pages/auth/Login'
 
 import AdminDashboard from './pages/admin/AdminDashboard'
 import AdminConversations from './pages/admin/AdminConversations'
-import AdminTestimonials from './pages/admin/AdminTestimonials'
-import AdminPartners from './pages/admin/AdminPartners'
+import AdminUsers from './pages/admin/AdminUsers'
+import AdminFeedback from './pages/admin/AdminFeedback'
 
 import AssistantDashboard from './pages/assistant/AssistantDashboard'
 import AssistantConversations from './pages/assistant/AssistantConversations'
 import AssistantChat from './pages/assistant/AssistantChat'
+import ProfilePage from './pages/ProfilePage'
 
 function App() {
   return (
@@ -47,9 +48,10 @@ function App() {
           <Route element={<ProtectedRoute allowedRoles={['admin']} />}>
             <Route element={<AdminLayout />}>
               <Route path='/admin/dashboard' element={<AdminDashboard />} />
+              <Route path='/admin/users' element={<AdminUsers/>} />
               <Route path='/admin/conversations' element={<AdminConversations />} />
-              <Route path='/admin/testimonials' element={<AdminTestimonials />} />
-              <Route path='/admin/partners' element={<AdminPartners />} />
+              <Route path='/admin/feedback' element={<AdminFeedback />} />
+              <Route path='/admin/profile' element={<ProfilePage />} />
             </Route>
           </Route>
 
@@ -58,6 +60,7 @@ function App() {
               <Route path='/assistant/dashboard' element={<AssistantDashboard />} />
               <Route path='/assistant/conversations' element={<AssistantConversations />} />
               <Route path='/assistant/chat/:id' element={<AssistantChat />} />
+              <Route path='/assistant/profile' element={<ProfilePage />} />
             </Route>
           </Route>
         </Routes>

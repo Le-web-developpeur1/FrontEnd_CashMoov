@@ -1,28 +1,43 @@
+import axios from 'axios';
+
 // Configuration de base pour les appels API
 const API_URL = import.meta.env.VITE_API_URL || '/api';
 
-// Fonction helper pour les appels API
-async function fetchAPI(endpoint: string, options: RequestInit = {}) {
-  const token = localStorage.getItem('token');
-  
-  const config: RequestInit = {
-    ...options,
-    headers: {
-      'Content-Type': 'application/json',
-      ...(token && { Authorization: `Bearer ${token}` }),
-      ...options.headers,
-    },
-  };
+// Créer une instance axios
+const api = axios.create({
+  baseURL: API_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
 
-  const response = await fetch(`${API_URL}${endpoint}`, config);
-
-  if (!response.ok) {
-    const error = await response.json().catch(() => ({ message: 'Erreur réseau' }));
-    throw new Error(error.message || 'Une erreur est survenue');
+// Intercepteur pour ajouter automatiquement le token à toutes les requêtes
+api.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('access');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+      config.headers['X-CSRFToken'] = token;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
   }
+);
 
-  return response.json();
-}
+api.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    const message = error.response?.data?.message || 
+                    error.response?.data?.detail || 
+                    error.message || 
+                    'Une erreur est survenue';
+    return Promise.reject(new Error(message));
+  }
+);
 
 // ============================================
 // AUTHENTIFICATION
@@ -31,154 +46,33 @@ async function fetchAPI(endpoint: string, options: RequestInit = {}) {
 export const authAPI = {
 
   login: async (email: string, password: string) => {
-    return fetchAPI('/auth/login', {
-      method: 'POST',
-      body: JSON.stringify({ email, password}),
-    });
+    try {
+      const { data } = await api.post('/auth/token/', { email, password });
+      return data;
+    } catch (error: any) {
+      throw new Error(error.message || 'Email ou mot de passe incorrect');
+    }
   },
 
-  verifyToken: async () => {
-    return fetchAPI('/auth/verify');
-  },
+  getUserInfo: async () => {
+  try {
+    const { data } = await api.get('/profile/users/me/');
+    return data;
+  } catch (error: any) {
+    throw new Error(error.response?.data?.detail || error.message || 'Erreur récupération infos utilisateur');
+  }
+},
 
-  logout: async () => {
-    return fetchAPI('/auth/logout', { method: 'POST' });
-  },
+
 };
 
 // ============================================
-// TÉMOIGNAGES
+// CONTACT FORM Feedback
 // ============================================
 
-export const testimonialsAPI = {
+export const feedbackAPI = {
 
-  getAll: async () => {
-    return fetchAPI('/testimonials');
-  },
-
-  getById: async (id: string) => {
-    return fetchAPI(`/testimonials/${id}`);
-  },
-
-  create: async (data: {
-    name: string;
-    role: string;
-    content: string;
-    rating: number;
-  }) => {
-    return fetchAPI('/testimonials', {
-      method: 'POST',
-      body: JSON.stringify(data),
-    });
-  },
-
-  update: async (id: string, data: {
-    name: string;
-    role: string;
-    content: string;
-    rating: number;
-  }) => {
-    return fetchAPI(`/testimonials/${id}`, {
-      method: 'PUT',
-      body: JSON.stringify(data),
-    });
-  },
-
-  delete: async (id: string) => {
-    return fetchAPI(`/testimonials/${id}`, {
-      method: 'DELETE',
-    });
-  },
-};
-
-// ============================================
-// PARTENAIRES
-// ============================================
-
-export const partnersAPI = {
-
-  getAll: async () => {
-    return fetchAPI('/partners');
-  },
-
-  create: async (data: {
-    name: string;
-    logo: string;
-    description?: string;
-  }) => {
-    return fetchAPI('/partners', {
-      method: 'POST',
-      body: JSON.stringify(data),
-    });
-  },
-
-  update: async (id: string, data: {
-    name: string;
-    logo: string;
-    description?: string;
-  }) => {
-    return fetchAPI(`/partners/${id}`, {
-      method: 'PUT',
-      body: JSON.stringify(data),
-    });
-  },
-
-  delete: async (id: string) => {
-    return fetchAPI(`/partners/${id}`, {
-      method: 'DELETE',
-    });
-  },
-};
-
-// ============================================
-// CONVERSATIONS
-// ============================================
-
-export const conversationsAPI = {
-
-  getAll: async (filters?: {
-    status?: 'waiting' | 'active' | 'resolved';
-    assistantId?: string;
-  }) => {
-    const params = new URLSearchParams(filters as any);
-    return fetchAPI(`/conversations?${params}`);
-  },
-
-  getById: async (id: string) => {
-    return fetchAPI(`/conversations/${id}`);
-  },
-
-  getMessages: async (conversationId: string) => {
-    return fetchAPI(`/conversations/${conversationId}/messages`);
-  },
-
-  sendMessage: async (conversationId: string, message: string) => {
-    return fetchAPI(`/conversations/${conversationId}/messages`, {
-      method: 'POST',
-      body: JSON.stringify({ message }),
-    });
-  },
-
-  resolve: async (conversationId: string) => {
-    return fetchAPI(`/conversations/${conversationId}/resolve`, {
-      method: 'POST',
-    });
-  },
-
-  assign: async (conversationId: string, assistantId: string) => {
-    return fetchAPI(`/conversations/${conversationId}/assign`, {
-      method: 'POST',
-      body: JSON.stringify({ assistantId }),
-    });
-  },
-};
-
-// ============================================
-// CONTACT FORM
-// ============================================
-
-export const contactAPI = {
-
+  //Envoie du message
   send: async (data: {
     last_name: string;
     first_name: string;
@@ -186,10 +80,42 @@ export const contactAPI = {
     phone_number?: string;
     message?: string;
   }) => {
-    return fetchAPI('/feedback/', {
-      method: 'POST',
-      body: JSON.stringify(data),
-    });
+    try {
+      const response = await api.post('/feedback/', data);
+      return response.data;
+    } catch (error: any) {
+      throw new Error(error.message || 'Erreur lors de l\'envoi du message');
+    }
+  },
+
+  // Récupérer tous les messages de contact
+  getAll: async () => {
+    try {
+      const { data } = await api.get('/feedback/');
+      return data;
+    } catch (error: any) {
+      throw new Error(error.message || 'Erreur lors de la récupération des messages');
+    }
+  },
+
+  // Récupérer un message spécifique par slug
+  getById: async (slug: string) => {
+    try {
+      const { data } = await api.get(`/feedback/${slug}/`);
+      return data;
+    } catch (error: any) {
+      throw new Error(error.message || 'Erreur lors de la récupération du message');
+    }
+  },
+
+  // Supprimer un message
+  delete: async (slug: string) => {
+    try {
+      const { data } = await api.delete(`/feedback/${slug}/`);
+      return data;
+    } catch (error: any) {
+      throw new Error(error.message || 'Erreur lors de la suppression');
+    }
   },
 };
 
@@ -197,53 +123,191 @@ export const contactAPI = {
 // CHATBOT
 // ============================================
 
-
 export const chatbotAPI = {
 
   sendMessage: async (data: {
     question: string, 
     conversationId?: string
   }) => {
-    return fetchAPI('/chatbot/chatbots/ask/', {
-      method: "POST",
-      body: JSON.stringify(data)
-    });
-  },
-};
-
-// ============================================
-// UPLOAD
-// ============================================
-
-export const uploadAPI = {
-  // Upload une image
-  uploadImage: async (file: File) => {
-    const formData = new FormData();
-    formData.append('file', file);
-
-    const token = localStorage.getItem('token');
-    const response = await fetch(`${API_URL}/upload`, {
-      method: 'POST',
-      headers: {
-        ...(token && { Authorization: `Bearer ${token}` }),
-      },
-      body: formData,
-    });
-
-    if (!response.ok) {
-      throw new Error('Erreur lors de l\'upload');
+    try {
+      const response = await api.post('/chatbot/chatbots/ask/', data);
+      return response.data;
+    } catch (error: any) {
+      throw new Error(error.message || 'Erreur lors de l\'envoi du message');
     }
-
-    return response.json();
   },
 };
 
-export default {
-  auth: authAPI,
-  testimonials: testimonialsAPI,
-  partners: partnersAPI,
-  conversations: conversationsAPI,
-  contact: contactAPI,
-  chatbot: chatbotAPI,
-  upload: uploadAPI,
+
+// // ============================================
+// // CONVERSATIONS (Admin & Assistants)
+// // ============================================
+
+// export const conversationsAPI = {
+
+//   getAll: async (filters?: {
+//     status?: 'waiting' | 'active' | 'resolved';
+//   }) => {
+//     try {
+//       const params = new URLSearchParams();
+//       if (filters?.status) params.append('status', filters.status);
+      
+//       const { data } = await api.get(`/conversations/?${params.toString()}`);
+//       return data;
+//     } catch (error: any) {
+//       throw new Error(error.message || 'Erreur lors de la récupération des conversations');
+//     }
+//   },
+
+//   getById: async (id: string) => {
+//     try {
+//       const { data } = await api.get(`/conversations/${id}/`);
+//       return data;
+//     } catch (error: any) {
+//       throw new Error(error.message || 'Erreur lors de la récupération de la conversation');
+//     }
+//   },
+
+//   resolve: async (conversationId: string) => {
+//     try {
+//       const { data } = await api.post(`/conversations/${conversationId}/resolve/`);
+//       return data;
+//     } catch (error: any) {
+//       throw new Error(error.message || 'Erreur lors de la résolution');
+//     }
+//   },
+// };
+
+
+// ============================================
+// PROFILE (User Settings)
+// ============================================
+
+export const profileAPI = {
+
+  // Mettre à jour le profil (partiel)
+  updateProfile: async (data: {
+    first_name?: string;
+    last_name?: string;
+    address?: string;
+  }) => {
+    try {
+      const response = await api.patch('/profile/users/me/', data);
+      return response.data;
+    } catch (error: any) {
+      throw new Error(error.message || 'Erreur lors de la mise à jour du profil');
+    }
+  },
+
+  // Changer l'email
+  changeEmail: async (newEmail: string, currentPassword: string) => {
+    try {
+      const response = await api.post('/profile/users/set_email/', {
+        new_email: newEmail,
+        current_password: currentPassword,
+      });
+      return response.data;
+    } catch (error: any) {
+      throw new Error(error.message || 'Erreur lors du changement d\'email');
+    }
+  },
+
+  // Demander réinitialisation du mot de passe
+  requestPasswordReset: async (email: string) => {
+    try {
+      const response = await api.post('/profile/users/reset_password/', { email });
+      return response.data;
+    } catch (error: any) {
+      throw new Error(error.message || 'Erreur lors de la demande de réinitialisation');
+    }
+  },
+
+  // Confirmer réinitialisation du mot de passe
+  confirmPasswordReset: async (uid: string, token: string, newPassword: string) => {
+    try {
+      const response = await api.post('/profile/users/reset_password_confirm/', {
+        uid,
+        token,
+        new_password: newPassword,
+      });
+      return response.data;
+    } catch (error: any) {
+      throw new Error(error.message || 'Erreur lors de la réinitialisation');
+    }
+  },
+
+  // Changer le mot de passe (utilisateur connecté)
+  changePassword: async (currentPassword: string, newPassword: string) => {
+    try {
+      const response = await api.post('/profile/users/set_password/', {
+        current_password: currentPassword,
+        new_password: newPassword,
+      });
+      return response.data;
+    } catch (error: any) {
+      throw new Error(error.message || 'Erreur lors du changement de mot de passe');
+    }
+  },
+};
+
+// ============================================
+// USERS (Admin)
+// ============================================
+
+export const usersAPI = {
+
+  // Récupérer tous les utilisateurs
+  getAll: async () => {
+    try {
+      // Demander une grande limite pour avoir tous les utilisateurs
+      const { data } = await api.get('/profile/users/?limit=1000');
+      return data;
+    } catch (error: any) {
+      throw new Error(error.message || 'Erreur lors de la récupération des utilisateurs');
+    }
+  },
+
+  // Créer un nouvel utilisateur
+  create: async (userData: {
+    first_name: string;
+    last_name: string;
+    email: string;
+    user_type: string;
+    address?: string;
+  }) => {
+    try {
+      const { data } = await api.post('/profile/users/', userData);
+      return data;
+    } catch (error: any) {
+      throw new Error(error.message || 'Erreur lors de la création de l\'utilisateur');
+    }
+  },
+
+  // Mettre à jour un utilisateur
+  update: async (slug: string, userData: {
+    first_name?: string;
+    last_name?: string;
+    email?: string;
+    user_type?: string;
+    address?: string;
+  }) => {
+    try {
+      const { data } = await api.patch(`/profile/users/${slug}/`, userData);
+      return data;
+    } catch (error: any) {
+      throw new Error(error.message || 'Erreur lors de la mise à jour');
+    }
+  },
+
+  // Supprimer un utilisateur
+  delete: async (slug: string, currentPassord: string) => {
+    try {
+      const { data } = await api.delete(`/profile/users/${slug}/`, {
+        data: {current_password: currentPassord }
+      });
+      return data;
+    } catch (error: any) {
+      throw new Error(error.message || 'Erreur lors de la suppression');
+    }
+  },
 };

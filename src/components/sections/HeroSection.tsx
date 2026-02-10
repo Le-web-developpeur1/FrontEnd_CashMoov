@@ -4,12 +4,12 @@ import { FaGooglePlay, FaApple } from "react-icons/fa";
 
 export function HeroSection() {
   return (
-    <div className="relative min-h-screen pt-28 pb-20 flex items-center overflow-hidden bg-gradient-to-br from-[#2A4793] via-[#1f356d] to-[#2A4793]">
+    <div className="relative min-h-screen pt-16 sm:pt-20 md:pt-25 flex items-center overflow-hidden bg-gradient-to-br from-[#2A4793] via-[#1f356d] to-[#2A4793]">
       
-      <div className="absolute inset-0 overflow-hidden flex items-center justify-center ml-72 mb-20">
+      <div className="absolute inset-0 overflow-hidden flex items-start sm:items-center justify-center -mt-20 sm:mt-0">
         
         <motion.div 
-          className="w-[1200px] h-[1200px]"
+          className="w-[600px] h-[600px] sm:w-[800px] sm:h-[800px] md:w-[1000px] md:h-[1000px] lg:w-[1200px] lg:h-[1200px]"
           animate={{
             y: [0, 0, 0],
             rotate: [0, 0, 0],
@@ -24,20 +24,20 @@ export function HeroSection() {
           <img
             src="/images/PNG (1).png"
             alt="Background"
-            className="w-full h-full object-contain opacity-50"
+            className="w-full h-full object-contain opacity-30 sm:opacity-40 md:opacity-50"
           />
         </motion.div>
 
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-0">
+      <div className="relative z-10 md:ml-12 mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-0">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-white space-y-6 text-center lg:text-left"
+            className="text-white space-y-6 text-center lg:text-left -mt-8 lg:-mt-30"
           >
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -69,14 +69,16 @@ export function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start"
+                className="flex flex-col sm:flex-row gap-4 pt-10 justify-center lg:justify-start"
               >
                 
                 <motion.a 
                   whileHover={{ scale: 1.05, y: 5 }}
                   whileTap={{ scale: 0.95 }}
-                  href="#"
-                  className="group flex items-center justify-center sm:justify-start gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm border-2 border-[#F7CE47] rounded-xl px-3 py-3 transition-all duration-300"
+                  href="https://apps.apple.com/us/app/cashmoov-client/id6642668233?l=fr-FR"
+                  target="blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-center sm:justify-start gap-3 backdrop-blur-sm border-2 border-[#F7CE47] rounded-xl px-3 py-3 transition-all duration-300"
                 >
                   <FaApple className="text-3xl text-white flex-shrink-0" />
                   <div className="text-left">
@@ -88,8 +90,10 @@ export function HeroSection() {
                 <motion.a 
                   whileHover={{ scale: 1.05, y: -5 }}
                   whileTap={{ scale: 0.95 }}
-                  href="#"
-                  className=" group flex items-center justify-center sm:justify-start  gap-2 sm:gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm border-2 border-[#F7CE47] rounded-xl px-2 py-2 sm:px-3 sm:py-3 transition-all duration-300 "                
+                  href="https://play.google.com/store/apps/details?id=com.estel.cashmoovsubscriberapp"
+                  target="blank"
+                  rel="noopener noreferrer"
+                  className=" group flex items-center justify-center sm:justify-start  gap-2 sm:gap-3   backdrop-blur-sm border-2 border-[#F7CE47] rounded-xl px-2 py-2 sm:px-3 sm:py-3 transition-all duration-300 "                
                 >
                   <FaGooglePlay className="text-2xl text-white flex-shrink-0" />
                   <div className="text-left">
@@ -107,6 +111,7 @@ export function HeroSection() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             className="relative flex justify-center items-center"
+            style={{ perspective: "1000px" }}
           >
             <motion.div
               className="absolute w-96 h-96 bg-[#F7CE47] rounded-full opacity-30 blur-3xl"
@@ -122,18 +127,22 @@ export function HeroSection() {
             />
 
             <motion.div
-              className="relative z-10 w-72 sm:w-80 md:w-96"
+              style={{ 
+                rotateX: 5,
+                rotateY: -10
+              }}
+              className="relative z-10 w-80 sm:w-96 md:w-[450px] lg:w-[500px]"              
               animate={{
                 y: [0, -20, 0],
               }}
               transition={{
                 duration: 4,
                 repeat: Infinity,
-                ease: "linear",
+                ease: "easeInOut",
               }}
             >
               <img
-                src="/images/phone.png"
+                src="/images/App CashMoov.png"
                 alt="Cash Moov App"
                 className="w-full h-auto drop-shadow-2xl"
               />

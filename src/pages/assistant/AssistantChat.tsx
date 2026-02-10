@@ -4,39 +4,20 @@ import { Send, ArrowLeft, User, CheckCircle, Clock } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 
 interface Message {
-  id: string;
-  sender: 'user' | 'assistant' | 'bot';
-  text: string;
-  timestamp: Date;
+  type: string;
+  username: string;
+  message: string;
+  user_type: string;
+  timestamp?: Date;
 }
 
 export default function AssistantChat() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { } = useAuth();
+  const { user } = useAuth();
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: '1',
-      sender: 'user',
-      text: 'Bonjour, j\'aimerais savoir comment effectuer un transfert vers la France ?',
-      timestamp: new Date(Date.now() - 600000),
-    },
-    {
-      id: '2',
-      sender: 'bot',
-      text: 'Bonjour ! Je vais transférer votre demande à un assistant humain qui pourra mieux vous aider.',
-      timestamp: new Date(Date.now() - 590000),
-    },
-    {
-      id: '3',
-      sender: 'user',
-      text: 'D\'accord, merci !',
-      timestamp: new Date(Date.now() - 580000),
-    },
-  ]);
-
+  const [messages, setMessages] = useState<Message[]>([]);
   const [inputMessage, setInputMessage] = useState('');
   const [conversationStatus, setConversationStatus] = useState<'active' | 'resolved'>('active');
 
@@ -56,16 +37,17 @@ export default function AssistantChat() {
     
     if (!inputMessage.trim()) return;
 
+    // Ajouter le message localement (en attendant l'intégration WebSocket)
     const newMessage: Message = {
-      id: Date.now().toString(),
-      sender: 'assistant',
-      text: inputMessage,
+      type: 'chat.message',
+      username: user?.first_name || 'Assistant',
+      message: inputMessage,
+      user_type: 'assistant',
       timestamp: new Date(),
     };
 
-    setMessages([...messages, newMessage]);
+    setMessages((prev) => [...prev, newMessage]);
     setInputMessage('');
-
   };
 
   const handleResolve = () => {
@@ -76,6 +58,12 @@ export default function AssistantChat() {
 
   const formatTime = (date: Date) => {
     return date.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+  };
+
+  const getSenderType = (msg: Message) => {
+    if (msg.user_type === 'ia') return 'bot';
+    if (msg.user_type === 'assistant') return 'assistant';
+    return 'user';
   };
 
   return (
@@ -119,34 +107,47 @@ export default function AssistantChat() {
         </div>
 
         <div className="flex-1 overflow-y-auto p-6 space-y-4 bg-gray-50">
-          {messages.map((message) => (
-            <div
-              key={message.id}
-              className={`flex ${message.sender === 'assistant' ? 'justify-end' : 'justify-start'}`}
-            >
+          {messages.length === 0 && (
+            <div className="text-center text-gray-500 py-8">
+              <p>Aucun message pour le moment</p>
+              <p className="text-sm mt-2">Les messages apparaîtront ici une fois le WebSocket configuré</p>
+            </div>
+          )}
+          
+          {messages.map((message, index) => {
+            const senderType = getSenderType(message);
+            return (
               <div
-                className={`max-w-[70%] rounded-2xl px-4 py-3 ${
-                  message.sender === 'assistant'
-                    ? 'bg-[#2A4793] text-white rounded-br-none'
-                    : message.sender === 'bot'
-                    ? 'bg-yellow-100 text-gray-800 rounded-bl-none border border-yellow-200'
-                    : 'bg-white text-gray-800 rounded-bl-none shadow-sm'
-                }`}
+                key={index}
+                className={`flex ${senderType === 'assistant' ? 'justify-end' : 'justify-start'}`}
               >
-                {message.sender === 'bot' && (
-                  <p className="text-xs font-semibold text-yellow-700 mb-1">🤖 Bot</p>
-                )}
-                <p className="text-sm leading-relaxed">{message.text}</p>
-                <p
-                  className={`text-xs mt-1 ${
-                    message.sender === 'assistant' ? 'text-white/70' : 'text-gray-500'
+                <div
+                  className={`max-w-[70%] rounded-2xl px-4 py-3 ${
+                    senderType === 'assistant'
+                      ? 'bg-[#2A4793] text-white rounded-br-none'
+                      : senderType === 'bot'
+                      ? 'bg-yellow-100 text-gray-800 rounded-bl-none border border-yellow-200'
+                      : 'bg-white text-gray-800 rounded-bl-none shadow-sm'
                   }`}
                 >
-                  {formatTime(message.timestamp)}
-                </p>
+                  {senderType === 'bot' && (
+                    <p className="text-xs font-semibold text-yellow-700 mb-1">🤖 {message.username}</p>
+                  )}
+                  {senderType === 'user' && (
+                    <p className="text-xs font-semibold text-gray-600 mb-1">{message.username}</p>
+                  )}
+                  <p className="text-sm leading-relaxed">{message.message}</p>
+                  <p
+                    className={`text-xs mt-1 ${
+                      senderType === 'assistant' ? 'text-white/70' : 'text-gray-500'
+                    }`}
+                  >
+                    {formatTime(message.timestamp || new Date())}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
           <div ref={messagesEndRef} />
         </div>
 

@@ -114,7 +114,7 @@ export default function ServicesParticuliers() {
                                 variants={itemVariants}
                                 whileHover={{ y: -5 }}
                                 transition={{ duration: 0.3 }}
-                                className="bg-gradient-to-br from-white to-gray-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-gray-200 hover:border-[#2A4793]/50 hover:shadow-2xl transition-all duration-300 group"
+                                className="bg-gradient-to-br from-white to-gray-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-gray-200 hover:border-[#2A4793]/50 hover:shadow-lg transition-all duration-300 group"
                             >
                                 <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-[#2A4793] to-[#1f356d] rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
                                     <step.icon className="w-8 h-8 sm:w-10 sm:h-10 text-[#F7CE47]" />

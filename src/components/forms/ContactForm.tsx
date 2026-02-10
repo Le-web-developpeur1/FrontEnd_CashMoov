@@ -1,13 +1,13 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { contactAPI } from "@/utils/api";
+import { feedbackAPI } from "@/utils/api";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface ContactFormData {
   last_name: string;
   first_name: string;
   email: string;
-  phon_number: string;
+  phone_number: string;
   message: string;
 }
 
@@ -26,7 +26,7 @@ export default function ContactForm() {
       last_name: "",
       first_name: "",
       email: "",
-      phon_number: "",
+      phone_number: "",
       message: "",
     },
   });
@@ -40,7 +40,7 @@ export default function ContactForm() {
     try {
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      await contactAPI.send(data);
+      await feedbackAPI.send(data);
       setSuccess('Message envoyé avec succès !');
 
       setTimeout(() => {
@@ -48,7 +48,6 @@ export default function ContactForm() {
       }, 2000);
         reset();
     } catch (error: any) {
-      console.error('Erreur:', error);
       setLoading(false);
       alert(error.message || 'Erreur lors de l\'envoi du message');
     } finally {
@@ -133,15 +132,15 @@ export default function ContactForm() {
 
         <div className="flex flex-col gap-2 md:col-span-5 relative">
           <input
-            {...register("phon_number")}
-            onFocus={() => setFocusedField("phon_number")}
+            {...register("phone_number")}
+            onFocus={() => setFocusedField("phone_number")}
             onBlur={() => setFocusedField(null)}
             placeholder=" "
             className="border border-gray-300 p-3 rounded-lg focus:ring-2 focus:ring-[#2A4793] focus:border-[#2A4793] outline-none peer"
           />
           <label 
             className={`absolute left-3 bg-white px-1 transition-all duration-200 pointer-events-none
-              ${isFieldActive("phon_number") ? "-top-2.5 text-xs text-[#2A4793] font-medium" : "top-3 text-base text-gray-500"}
+              ${isFieldActive("phone_number") ? "-top-2.5 text-xs text-[#2A4793] font-medium" : "top-3 text-base text-gray-500"}
             `}
           >
             Téléphone
@@ -150,7 +149,7 @@ export default function ContactForm() {
 
         <div className="flex flex-col gap-2 md:col-span-5 relative ">
           <textarea
-            {...register("message")}
+            {...register("message", {required: "Le message est obligatoire"})}
             rows={6}
             onFocus={() => setFocusedField("message")}
             onBlur={() => setFocusedField(null)}
@@ -164,12 +163,13 @@ export default function ContactForm() {
           >
             Message
           </label>
+          {errors.message && <p className="text-red-500 text-sm">{errors.message.message}</p>}
         </div>
 
         <div className="md:col-span-5 flex justify-center">
           <button
             type="submit"
-            className="flex items-center justify-center gap-2 bg-[#2A4793] text-white px-4 py-2 rounded-md disabled:opacity-50"
+            className="flex w-full items-center justify-center gap-2 bg-[#2A4793] text-white px-4 py-2 rounded-md disabled:opacity-50"
             disabled={loading}
           >
             {loading ? (

@@ -23,7 +23,7 @@ export default function ProtectedRoute({ allowedRoles }: ProtectedRouteProps) {
   }
 
   // Connecté mais pas le bon rôle, redirection vers accueil
-  if (user && !allowedRoles.includes(user.role)) {
+  if (user && !allowedRoles.includes(user.user_type)) {
     return <Navigate to="/" replace />;
   }
 

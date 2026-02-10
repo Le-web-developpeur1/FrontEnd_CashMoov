@@ -40,18 +40,19 @@ export default function TestimonialsSlider() {
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.4 }}
                 className="min-w-[260px] sm:min-w-[300px] md:min-w-[350px] 
+                           h-[280px] flex flex-col
                            mb-8 bg-white shadow-lg rounded-2xl 
-                           p-2 sm:p-2 text-left"
+                           p-6 text-left"
               >
-                <div className="flex text-yellow-400 text-xl mb-2">
+                <div className="flex text-yellow-400 text-xl mb-3">
                   {"★".repeat(t.rating)}
                 </div>
 
-                <p className="text-gray-700 italic mb-6">
+                <p className="text-gray-700 italic mb-6 flex-1 line-clamp-4">
                   "{t.text}"
                 </p>
 
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4 mt-auto">
                   <img
                     src={t.photo}
                     alt={t.name}
@@ -61,7 +62,7 @@ export default function TestimonialsSlider() {
                   <div>
                     <p className="font-semibold text-gray-900">{t.name}</p>
                     <p className="text-gray-600 text-sm">
-                      {t.flag} {t.country}
+                     {t.country}
                     </p>
                   </div>
                 </div>

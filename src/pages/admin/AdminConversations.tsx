@@ -1,70 +1,25 @@
 import { useState } from 'react';
-import { MessageSquare, Clock, Search, User, Star } from 'lucide-react';
+import { MessageSquare, Clock, Search, User, Star, Eye } from 'lucide-react';
 
 interface Conversation {
   id: string;
   userName: string;
+  userEmail?: string;
   assistantName: string;
   lastMessage: string;
   timestamp: string;
   status: 'waiting' | 'active' | 'resolved';
   rating?: number;
   duration: string;
+  messageCount: number;
 }
 
 export default function AdminConversations() {
   const [filter, setFilter] = useState<'all' | 'waiting' | 'active' | 'resolved'>('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedConversation, setSelectedConversation] = useState<Conversation | null>(null);
 
-  const conversations: Conversation[] = [
-    {
-      id: '1',
-      userName: 'Utilisateur #1',
-      assistantName: 'Marie Dupont',
-      lastMessage: 'Comment puis-je effectuer un transfert vers la France ?',
-      timestamp: 'Il y a 5min',
-      status: 'active',
-      duration: '10min',
-    },
-    {
-      id: '2',
-      userName: 'Utilisateur #2',
-      assistantName: 'Jean Martin',
-      lastMessage: 'Merci pour votre aide !',
-      timestamp: 'Il y a 15min',
-      status: 'resolved',
-      rating: 5,
-      duration: '8min',
-    },
-    {
-      id: '3',
-      userName: 'Utilisateur #3',
-      assistantName: 'Non assigné',
-      lastMessage: 'Quels sont les frais de transfert ?',
-      timestamp: 'Il y a 20min',
-      status: 'waiting',
-      duration: '20min',
-    },
-    {
-      id: '4',
-      userName: 'Utilisateur #4',
-      assistantName: 'Sophie Bernard',
-      lastMessage: 'Problème résolu, merci !',
-      timestamp: 'Il y a 1h',
-      status: 'resolved',
-      rating: 4,
-      duration: '15min',
-    },
-    {
-      id: '5',
-      userName: 'Utilisateur #5',
-      assistantName: 'Non assigné',
-      lastMessage: 'Je n\'arrive pas à me connecter',
-      timestamp: 'Il y a 2min',
-      status: 'waiting',
-      duration: '2min',
-    },
-  ];
+  const conversations: Conversation[] = [];
 
   const filteredConversations = conversations.filter((conv) => {
     const matchesFilter = filter === 'all' || conv.status === filter;
@@ -103,9 +58,9 @@ export default function AdminConversations() {
   return (
     <div>
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Toutes les conversations</h1>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">Supervision des conversations</h1>
         <p className="text-gray-600">
-          Supervision et analyse des conversations
+          Vue d'ensemble de toutes les conversations
         </p>
       </div>
 
@@ -130,7 +85,6 @@ export default function AdminConversations() {
 
       <div className="bg-white rounded-xl shadow-md p-6 mb-6">
         <div className="flex flex-col md:flex-row gap-4">
-          
           <div className="flex-1 relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
             <input
@@ -191,7 +145,11 @@ export default function AdminConversations() {
         {filteredConversations.length === 0 ? (
           <div className="bg-white rounded-xl shadow-md p-12 text-center">
             <MessageSquare className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-            <p className="text-gray-600">Aucune conversation trouvée</p>
+            <p className="text-gray-600">
+              {conversations.length === 0 
+                ? 'Aucune conversation pour le moment' 
+                : 'Aucune conversation trouvée'}
+            </p>
           </div>
         ) : (
           filteredConversations.map((conversation) => (
@@ -200,9 +158,8 @@ export default function AdminConversations() {
               className="bg-white rounded-xl shadow-md hover:shadow-lg transition p-6"
             >
               <div className="flex items-start gap-4">
-                
                 <div className="w-12 h-12 bg-[#2A4793] rounded-full flex items-center justify-center text-white font-semibold flex-shrink-0">
-                  U{conversation.id}
+                  {conversation.userName.charAt(0).toUpperCase()}
                 </div>
 
                 <div className="flex-1 min-w-0">
@@ -234,13 +191,21 @@ export default function AdminConversations() {
                       <span>Assistant: {conversation.assistantName}</span>
                     </div>
                     <div className="flex items-center gap-2">
+                      <MessageSquare className="w-4 h-4" />
+                      <span>{conversation.messageCount} messages</span>
+                    </div>
+                    <div className="flex items-center gap-2">
                       <Clock className="w-4 h-4" />
                       <span>Durée: {conversation.duration}</span>
                     </div>
                   </div>
                 </div>
 
-                <button className="bg-[#2A4793] text-white px-4 py-2 rounded-lg hover:bg-[#1f356d] transition font-medium flex-shrink-0">
+                <button 
+                  onClick={() => setSelectedConversation(conversation)}
+                  className="bg-[#2A4793] text-white px-4 py-2 rounded-lg hover:bg-[#1f356d] transition font-medium flex-shrink-0 flex items-center gap-2"
+                >
+                  <Eye className="w-4 h-4" />
                   Voir détails
                 </button>
               </div>
@@ -248,6 +213,39 @@ export default function AdminConversations() {
           ))
         )}
       </div>
+
+      {selectedConversation && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6 border-b sticky top-0 bg-white">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900">
+                    Conversation avec {selectedConversation.userName}
+                  </h2>
+                  <p className="text-sm text-gray-600 mt-1">
+                    Assistant: {selectedConversation.assistantName}
+                  </p>
+                </div>
+                <button
+                  onClick={() => setSelectedConversation(null)}
+                  className="text-gray-400 hover:text-gray-600"
+                >
+                  ✕
+                </button>
+              </div>
+            </div>
+
+            <div className="p-6">
+              <div className="text-center py-12 text-gray-500">
+                <MessageSquare className="w-12 h-12 mx-auto mb-3 opacity-30" />
+                <p>Historique des messages à implémenter</p>
+                <p className="text-xs mt-1">Une fois que le backend aura les endpoints REST</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

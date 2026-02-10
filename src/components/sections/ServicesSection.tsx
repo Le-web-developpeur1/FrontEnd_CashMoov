@@ -60,7 +60,7 @@ export default function ServicesSection() {
               variants={itemVariants}
               whileHover={{ y: -5 }}
               transition={{ duration: 0.3 }}
-              className="bg-gradient-to-br from-gray-50 to-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 border border-gray-200 hover:border-[#2A4793]/50 hover:shadow-2xl transition-all duration-300 group"
+              className="bg-gradient-to-br from-gray-50 to-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 border border-gray-200 hover:border-[#2A4793]/50 hover:shadow-lg transition-all duration-300 group"
             >
               
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">

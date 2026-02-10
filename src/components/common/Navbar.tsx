@@ -6,12 +6,15 @@ function Navbar() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // Bordure sur le header
+  // border-b border-[#F7CE47]/50
+
   return (
     <motion.nav
       initial={{ y: -40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="bg-gradient-to-r from-[#2A4793] to-[#1f356d] shadow-md fixed top-0 w-full z-50 border-b border-[#F7CE47]/50"
+      className="bg-gradient-to-r from-[#2A4793] to-[#1f356d] shadow-md fixed top-0 w-full z-50 "
     >
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
 

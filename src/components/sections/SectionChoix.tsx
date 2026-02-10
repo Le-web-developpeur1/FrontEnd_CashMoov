@@ -54,7 +54,7 @@ export default function SectionChoix() {
               variants={itemVariants}
               whileHover={{ scale: 1.05, y: -5 }}
               transition={{ duration: 0.3 }}
-              className="bg-[#D9DEEB] p-6 rounded-2xl shadown-xl text-center cursor-pointer"
+              className="bg-[#D9DEEB] p-6 rounded-2xl shadow-lg text-center cursor-pointer"
             >
               <div className="w-14 h-14 bg-[#F7CE47] rounded-full flex items-center justify-center mx-auto mb-4">
                 <Zap className="w-8 h-8 text-[#2A4793]" />
@@ -69,7 +69,7 @@ export default function SectionChoix() {
               variants={itemVariants}
               whileHover={{ scale: 1.05, y: -5 }}
               transition={{ duration: 0.3 }}
-              className="bg-[#D9DEEB] p-6 rounded-2xl shadown-xl text-center cursor-pointer"
+              className="bg-[#D9DEEB] p-6 rounded-2xl shadow-lg text-center cursor-pointer"
             >
               <div className="w-14 h-14 bg-[#F7CE47] rounded-full flex items-center justify-center mx-auto mb-4">
                 <Shield className="w-8 h-8 text-[#2A4793]" />
@@ -84,7 +84,7 @@ export default function SectionChoix() {
               variants={itemVariants}
               whileHover={{ scale: 1.05, y: -5 }}
               transition={{ duration: 0.3 }}
-              className="bg-[#D9DEEB] p-6 rounded-2xl shadown-xl text-center cursor-pointer"
+              className="bg-[#D9DEEB] p-6 rounded-2xl shadow-lg text-center cursor-pointer"
             >
               <div className="w-14 h-14 bg-[#F7CE47] rounded-full flex items-center justify-center mx-auto mb-4">
                 <Globe className="w-8 h-8 text-[#2A4793]" />
@@ -99,7 +99,7 @@ export default function SectionChoix() {
               variants={itemVariants}
               whileHover={{ scale: 1.05, y: -5 }}
               transition={{ duration: 0.3 }}
-              className="bg-[#D9DEEB] p-6 rounded-2xl shadown-xl text-center cursor-pointer"
+              className="bg-[#D9DEEB] p-6 rounded-2xl shadow-lg text-center cursor-pointer"
             >
               <div className="w-14 h-14 bg-[#F7CE47] rounded-full flex items-center justify-center mx-auto mb-4">
                 <Headphones className="w-8 h-8 text-[#2A4793]" />
