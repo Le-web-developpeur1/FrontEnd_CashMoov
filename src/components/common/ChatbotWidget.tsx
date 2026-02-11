@@ -1,147 +1,197 @@
-import { useState } from 'react';
-import { X, Send } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Send, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Message } from '@/types';
-import { chatbotAPI } from '@/utils/api';
 
-export function Chatbot() {
-    const [messages, setMessages] = useState<Message[]>([
-        { sender: "bot", text: "Bonjour ! Comment puis-je vous aider aujourd'hui ?"}
-    ]);
-
-    const [input, setInput] = useState("");
-    const [loading, setLoading] = useState(false);
-    const [conversationId] = useState<string | null>(null);
-    const [escalatedToHuman, setEscalatedToHuman] = useState(false);
-
-    const sendMessage = async () => {
-        if (!input.trim()) return;
-
-        const userMessage: Message = { sender: "user", text: input };
-        setMessages((prev) => [...prev, userMessage]);
-        const userInput = input;
-        setInput("");
-        setLoading(true);
-
-        try {
-            const data = await chatbotAPI.sendMessage({
-                question: userInput,
-                conversationId: conversationId || undefined
-            });
-                        
-            // Vérifier si le bot ne peut pas répondre
-            const botResponse = data.response?.message || data.answer || '';
-            const botCannotAnswer = 
-                data.needs_human || 
-                data.escalate || 
-                data.confidence < 0.5 ||
-                botResponse.includes('response_none') ||
-                botResponse === 'response_none';
-            
-            if (botCannotAnswer && !escalatedToHuman) {
-                setEscalatedToHuman(true);
-                
-                const botMessage: Message = { 
-                    sender: "bot", 
-                    text: "Je n'ai pas la réponse à votre question. Je vais transférer votre demande à un de nos assistants qui pourra mieux vous aider. Un instant s'il vous plaît..."
-                };
-                setMessages((prev) => [...prev, botMessage]);
-            } else {
-                const cleanResponse = botResponse.replace('response_none', '').trim();
-                const botMessage: Message = { 
-                    sender: "bot", 
-                    text: cleanResponse || "Je n'ai pas compris votre question. Pouvez-vous reformuler ?"
-                };
-                setMessages((prev) => [...prev, botMessage]);
-            }
-            
-        } catch (error) {
-            setMessages((prev) => [
-                ...prev,
-                { sender: "bot", text: "Désolé, une erreur est survenue. Veuillez réessayer."}
-            ]);
-        }
-
-        setLoading(false);
-    };
-
-    return (
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.9, y: 20 }}
-          transition={{ duration: 0.3 }}
-          className="w-[90vw] max-w-md bg-white shadow-2xl rounded-2xl overflow-hidden border border-gray-200"
-        >
-      
-          <motion.div 
-            initial={{ y: -20 }}
-            animate={{ y: 0 }}
-            className="bg-[#2A4793] text-white p-4 font-semibold text-lg"
-          >
-            Cash Moov Assistant
-          </motion.div>
-      
-          <div className="h-[450px] overflow-y-auto p-4 space-y-4 bg-gray-50">
-            <AnimatePresence>
-              {messages.map((msg, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  transition={{ duration: 0.3 }}
-                  className={`px-4 py-2 rounded-xl max-w-[75%] text-sm shadow ${
-                    msg.sender === "user"
-                      ? "bg-[#2A4793] text-white rounded-br-none ml-auto"
-                      : "bg-white text-gray-800 border rounded-bl-none"
-                  }`}
-                >
-                  {msg.text}
-                </motion.div>
-              ))}
-            </AnimatePresence>
-      
-            {loading && (
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="flex justify-start"
-              >
-                <div className="px-4 py-2 bg-white border rounded-xl text-gray-500 text-sm animate-pulse">
-                  Le bot écrit…
-                </div>
-              </motion.div>
-            )}
-          </div>
-      
-            <div className="p-4 bg-white border-t flex flex-col sm:flex-row gap-2">
-                <input
-                    type="text"
-                    className="flex-1 border rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#2A4793]"
-                    placeholder="Écrire un message…"
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
-                    onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-                />
-
-                <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={sendMessage}
-                    className="bg-[#2A4793] text-white px-4 py-2 rounded-xl hover:bg-[#1f356d] transition w-full sm:w-auto flex items-center justify-center gap-2"
-                >
-                    <Send className="w-4 h-4" />
-                    <span>Envoyer</span>
-                </motion.button>
-            </div>
-
-        </motion.div>
-    );
+interface ChatbotProps {
+  ws: WebSocket | null;
+  roomName: string | null;
 }
+
+export function Chatbot({ ws, roomName }: ChatbotProps) {
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (!ws) return;
+
+    ws.onmessage = (event: MessageEvent) => {
+      const data = JSON.parse(event.data);
+
+      if (data.type === "welcome") {
+        setMessages(prev => [
+          ...prev,
+          { sender: 'bot', text: data.message }
+        ]);
+        return;
+      } 
+
+      if (data.type === "ia.message") {
+        setLoading(false);
+
+        setMessages(prev => [
+          ...prev,
+          { sender: "bot", text: data.message}
+        ])
+      }
+
+      if (data.type === "waiting") {
+        setLoading(false);
+
+        setMessages(prev => [
+          ...prev,
+          { sender: "bot", text: data.message}
+        ])
+      }
+
+      if (data.type === "chat.message") {
+        if (data.user_type === "customer") return;
+        
+        setLoading(false);
+        
+        setMessages(prev => [
+          ...prev,
+          { sender: "bot", text: data.message }
+        ]);
+      }
+    };
+  }, [ws]);
+
+  const sendMessage = () => {
+    if (!input.trim() || !ws) return;
+
+    const userMessage: Message = { sender: "user", text: input };
+    setMessages(prev => [...prev, userMessage]);
+
+    setLoading(true);
+
+    ws.send(JSON.stringify({
+      type: "chat.message",
+      username: "customer",
+      message: input,
+      groupe_name: roomName,
+      user_type: "customer",
+    }));
+
+    setInput("");
+  };
+
+  const getAvatar = (sender: string) => {
+    if (sender === "bot") {
+      return "🤖";
+    }
+    return "👤";
+  }
+
+  return (
+    <motion.div 
+      initial={{ opacity: 0, scale: 0.9, y: 20 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.9, y: 20 }}
+      transition={{ duration: 0.3 }}
+      className="w-[90vw] max-w-md bg-white shadow-2xl rounded-2xl overflow-hidden border border-gray-200"
+    >
+      <motion.div 
+        initial={{ y: -20 }}
+        animate={{ y: 0 }}
+        className="bg-[#2A4793] text-white p-4 font-semibold text-lg"
+      >
+        Cash Moov Assistant
+      </motion.div>
+
+      <div className="h-[450px] overflow-y-auto p-4 space-y-4 bg-gray-50">
+        <AnimatePresence>
+          {messages.map((msg, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 10, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.3 }}
+              className={`flex items-start gap-2 ${
+                msg.sender === "user" ? "justify-end" : "justify-start"
+              }`}
+            >
+              {msg.sender != "user" && (
+                <div className="text-2xl">
+                  {getAvatar(msg.sender)}
+                </div>
+              )}
+              <div 
+                className={`px-4 py-2 rounded-xl max-w-[75%] text-sm shadow ${
+                  msg.sender === "user"
+                    ? "bg-[#2A4793] text-white rounded-br-none ml-auto"
+                    : "bg-white text-gray-800 border rounded-bl-none"
+                }`}
+              >
+                {msg.text}
+              </div>
+
+              {msg.sender === "user" && (
+                <div className="text-2xl">
+                  {getAvatar(msg.sender)}
+                </div>
+              )}
+            </motion.div>
+          ))}
+        </AnimatePresence>
+
+        {loading && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="flex justify-start"
+          >
+            <div className="px-4 py-2 bg-white border rounded-xl text-gray-500 text-sm animate-pulse">
+              Le bot écrit…
+            </div>
+          </motion.div>
+        )}
+      </div>
+
+      <div className="p-4 bg-white border-t flex flex-col sm:flex-row gap-2">
+        <input
+          type="text"
+          className="flex-1 border rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#2A4793]"
+          placeholder="Écrire un message…"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+        />
+
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={sendMessage}
+          className="bg-[#2A4793] text-white px-4 py-2 rounded-xl hover:bg-[#1f356d] transition w-full sm:w-auto flex items-center justify-center gap-2"
+        >
+          <Send className="w-4 h-4" />
+          <span>Envoyer</span>
+        </motion.button>
+      </div>
+    </motion.div>
+  );
+}
+
 
 export default function ChatbotWidget() {
   const [open, setOpen] = useState(false);
   const [showChat, setShowChat] = useState(false);
+  const [ws, setWs] = useState<WebSocket | null>(null);
+  const [roomName, setRoomName] = useState<string | null>(null);
+
+  const openChat = () => {
+    const newRoom = "conv_" + Date.now().toString();   
+    setRoomName(newRoom);
+
+    const baseUrl = import.meta.env.VITE_WS_BASE_URL;
+    const wsUrl = `${baseUrl}/${newRoom}/`;
+
+    const socket = new WebSocket(wsUrl);     
+    setWs(socket);
+
+    setShowChat(true);
+  };
 
   return (
     <div className="fixed bottom-6 right-6 z-50">
@@ -149,9 +199,7 @@ export default function ChatbotWidget() {
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        animate={{ 
-          scale: open ? 1 : [1, 1.1, 1],
-        }}
+        animate={{ scale: open ? 1 : [1, 1.1, 1] }}
         transition={{
           scale: {
             repeat: open ? 0 : Infinity,
@@ -162,8 +210,8 @@ export default function ChatbotWidget() {
         onClick={() => setOpen(!open)}
         className={`rounded-full shadow-xl flex items-center justify-center text-white transition cursor-pointer overflow-hidden
           ${open 
-            ? "w-12 h-12 bg-[#F7CE47] hover:bg-[#F7CE47]"      
-            : "w-16 h-16 bg-[#2A4793] hover:bg-[#2A4793]"   
+            ? "w-12 h-12 bg-[#F7CE47]"      
+            : "w-16 h-16 bg-[#2A4793]"   
           }
         `}
       >
@@ -206,7 +254,6 @@ export default function ChatbotWidget() {
             transition={{ duration: 0.3 }}
             className="mt-4 w-[90vw] max-w-sm bg-white shadow-2xl rounded-2xl p-6"
           >
-
             <motion.h3 
               initial={{ y: -10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -215,6 +262,7 @@ export default function ChatbotWidget() {
             >
               Bonjour 
             </motion.h3>
+
             <motion.p 
               initial={{ y: -10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -233,55 +281,11 @@ export default function ChatbotWidget() {
               <motion.button
                 whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={() => setShowChat(true)}
                 className="w-full bg-[#2A4793] text-white py-3 rounded-xl font-medium hover:bg-[#1f356d] transition shadow-md"
+                onClick={openChat}
               >
                 Envoyer un message
               </motion.button>
-
-              <motion.button 
-                whileHover={{ scale: 1.02, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full border py-3 rounded-xl font-medium text-gray-700 hover:bg-gray-100 transition"
-              >
-                Trouver une réponse
-              </motion.button>
-            </motion.div>
-
-            <motion.div 
-              initial={{ y: 10, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.3 }}
-              className="mt-6 space-y-3"
-            >
-              <p className="text-gray-700 font-medium">Questions fréquentes</p>
-
-              <div className="text-sm text-gray-600 space-y-2">
-                <motion.p 
-                  whileHover={{ x: 5, color: "#2A4793" }}
-                  className="cursor-pointer"
-                >
-                  Quels sont les frais CashMoov ?
-                </motion.p>
-                <motion.p 
-                  whileHover={{ x: 5, color: "#2A4793" }}
-                  className="cursor-pointer"
-                >
-                  Comment envoyer de l'argent ?
-                </motion.p>
-                <motion.p 
-                  whileHover={{ x: 5, color: "#2A4793" }}
-                  className="cursor-pointer"
-                >
-                  Comment changer mon code secret ?
-                </motion.p>
-                <motion.p 
-                  whileHover={{ x: 5, color: "#2A4793" }}
-                  className="cursor-pointer"
-                >
-                  Où trouver un point CashMoov ?
-                </motion.p>
-              </div>
             </motion.div>
           </motion.div>
         )}
@@ -290,7 +294,7 @@ export default function ChatbotWidget() {
       <AnimatePresence>
         {open && showChat && (
           <div className="mt-4">
-            <Chatbot />
+            <Chatbot ws={ws} roomName={roomName} /> 
           </div>
         )}
       </AnimatePresence>

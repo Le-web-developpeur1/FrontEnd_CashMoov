@@ -48,7 +48,9 @@ const Footer = () => {
             <motion.a 
               whileHover={{ scale: 1.2, x: -10 }}
               transition={{ type: "keyframes", stiffness: 200 }}
-              href="#"
+              href="https://apps.apple.com/us/app/cashmoov-client/id6642668233?l=fr-FR"
+              target="blank"
+              rel="noopener noreferrer"
               className="flex items-center w-38 h-14 gap-3 backdrop-blur-sm border-2 border-[#F7CE47] rounded-lg px-3 transition"
             >
               <FaApple className="h-6 w-6" />
@@ -61,7 +63,9 @@ const Footer = () => {
             <motion.a 
               whileHover={{ scale: 1.2, x: 10 }}
               transition={{ type: "keyframes", stiffness: 200 }}
-              href="#"
+              href="https://play.google.com/store/apps/details?id=com.estel.cashmoovsubscriberapp"
+              target="blank"
+              rel="noopener noreferrer"
               className="flex items-center w-38 h-14 gap-3 backdrop-blur-sm border-2 border-[#F7CE47] rounded-lg px-3 transition"
             >
               <FaGooglePlay className="h-6 w-6"/>
