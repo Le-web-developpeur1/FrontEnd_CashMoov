@@ -46,6 +46,8 @@ export function Chatbot({ ws, roomName }: ChatbotProps) {
       }
 
       if (data.type === "chat.message") {
+        const group = data.groupe_name || data.group_name;
+        if (!group) return
 
         if (data.user_type === "customer") return;
         
