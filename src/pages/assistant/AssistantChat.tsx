@@ -62,6 +62,7 @@ export default function AssistantChat() {
       }
       if (data.type === "ia.message") {
         const group = data.groupe_name || data.group_name;
+        if (!group) return;
 
         setMessages(prev => [
           ...prev,
@@ -76,6 +77,9 @@ export default function AssistantChat() {
 
       if (data.type === "chat.message") {
         const group = data.groupe_name || data.group_name;
+        if (!group) return;
+
+        if (data.user_type === "assistant") return;
 
         setMessages(prev => [
           ...prev,
@@ -113,8 +117,7 @@ export default function AssistantChat() {
     user_type: "assistant",
   };
 
-  console.log("📤 Tentative d'envoi :", msg);
-  console.log("📡 WebSocket state :", wsRef.current?.readyState);
+ 
 
   wsRef.current?.send(JSON.stringify(msg));
 
@@ -157,7 +160,6 @@ export default function AssistantChat() {
           <h2 className="font-bold text-gray-900">Conversation {id}</h2>
         </div>
 
-        {/* MESSAGES */}
         <div className="flex-1 overflow-y-auto p-6 space-y-4 bg-gray-50">
           {messages.map((message, index) => {
             const senderType = getSenderType(message);
@@ -177,7 +179,7 @@ export default function AssistantChat() {
                 >
                   {senderType !== 'assistant' && (
                     <p className="text-xs font-semibold mb-1 opacity-70">
-                      {senderType === 'bot' ? `🤖 ${message.username}` : message.username}
+                      {senderType === 'bot' ? `🤖 ${message.username}` : `👤 ${message.username}`}
                     </p>
                   )}
 
@@ -194,7 +196,6 @@ export default function AssistantChat() {
           <div ref={messagesEndRef} />
         </div>
 
-        {/* INPUT */}
         <form onSubmit={handleSendMessage} className="p-4 border-t bg-white">
           <div className="flex gap-2">
             <input
