@@ -104,7 +104,6 @@ export function Chatbot({ ws, roomName }: ChatbotProps) {
       </motion.div>
 
       <div className="h-[450px] overflow-y-auto p-4 space-y-4 bg-gray-50">
-        <AnimatePresence>
           {messages.map((msg, index) => (
             <motion.div
               key={index}
@@ -137,7 +136,6 @@ export function Chatbot({ ws, roomName }: ChatbotProps) {
               )}
             </motion.div>
           ))}
-        </AnimatePresence>
 
         {loading && (
           <motion.div 
@@ -189,9 +187,11 @@ export default function ChatbotWidget() {
 
     const baseUrl = import.meta.env.VITE_WS_BASE_URL;
     const wsUrl = `${baseUrl}${newRoom}/`;
-
-    const socket = new WebSocket(wsUrl);     
-    setWs(socket);
+//ici modification
+    if (!ws) {
+      const socket = new WebSocket(wsUrl);     
+      setWs(socket);
+    }
 
     setShowChat(true);
   };
