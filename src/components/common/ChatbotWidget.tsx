@@ -103,7 +103,7 @@ export function Chatbot({ ws, roomName }: ChatbotProps) {
         Cash Moov Assistant
       </motion.div>
 
-      <div className="h-[450px] overflow-y-auto p-4 space-y-4 bg-gray-50">
+      <div className="h-[350px] sm:h-[400px] lg:h-[450px] overflow-y-auto p-4 space-y-4 bg-gray-50">
           {messages.map((msg, index) => (
             <motion.div
               key={index}
@@ -197,7 +197,7 @@ export default function ChatbotWidget() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
 
       <motion.button
         whileHover={{ scale: 1.1 }}
@@ -213,8 +213,8 @@ export default function ChatbotWidget() {
         onClick={() => setOpen(!open)}
         className={`rounded-full shadow-xl flex items-center justify-center text-white transition cursor-pointer overflow-hidden
           ${open 
-            ? "w-12 h-12 bg-[#F7CE47]"      
-            : "w-16 h-16 bg-[#2A4793]"   
+            ? "w-10 h-10 sm:w-12 sm:h-12 bg-[#F7CE47]"      
+            : "w-12 h-12 sm:w-16 sm:h-16 bg-[#2A4793]"   
           }
         `}
       >
@@ -227,7 +227,7 @@ export default function ChatbotWidget() {
               exit={{ rotate: 90, opacity: 0 }}
               transition={{ duration: 0.2 }}
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5 sm:w-6 sm:h-6" />
             </motion.div>
           ) : (
             <motion.div
@@ -241,7 +241,7 @@ export default function ChatbotWidget() {
               <img 
                 src='/images/sticker.png' 
                 alt="Chat"
-                className="w-14 h-14 object-contain" 
+              className="w-10 h-10 sm:w-14 sm:h-14 object-contain" 
               />
             </motion.div>
           )}

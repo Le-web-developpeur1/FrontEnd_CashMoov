@@ -69,7 +69,7 @@ export function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="flex flex-col sm:flex-row gap-4 pt-10 justify-center lg:justify-start"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-6 sm:pt-10 justify-center lg:justify-start w-full max-w-md mx-auto lg:mx-0 lg:max-w-none px-10 sm:px-0"
               >
                 
                 <motion.a 
@@ -78,12 +78,12 @@ export function HeroSection() {
                   href="https://apps.apple.com/us/app/cashmoov-client/id6642668233?l=fr-FR"
                   target="blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center justify-center sm:justify-start gap-3 backdrop-blur-sm border-2 border-[#F7CE47] rounded-xl px-3 py-3 transition-all duration-300"
+                  className="group flex items-center justify-center gap-3 sm:gap-3 backdrop-blur-sm border-2 border-[#F7CE47] rounded-2xl px-6 py-3 sm:px-5 sm:py-3 transition-all duration-300 w-full sm:w-auto"
                 >
-                  <FaApple className="text-3xl text-white flex-shrink-0" />
+                  <FaApple className="text-3xl sm:text-3xl text-white flex-shrink-0" />
                   <div className="text-left">
-                    <p className="text-xs text-white/80">Télécharger sur</p>
-                    <p className="text-base font-bold text-white">App Store</p>
+                    <p className="text-xs sm:text-xs text-white/80">Télécharger sur</p>
+                    <p className="text-base sm:text-base font-bold text-white">App Store</p>
                   </div>
                 </motion.a>
 
@@ -93,12 +93,12 @@ export function HeroSection() {
                   href="https://play.google.com/store/apps/details?id=com.estel.cashmoovsubscriberapp"
                   target="blank"
                   rel="noopener noreferrer"
-                  className=" group flex items-center justify-center sm:justify-start  gap-2 sm:gap-3   backdrop-blur-sm border-2 border-[#F7CE47] rounded-xl px-2 py-2 sm:px-3 sm:py-3 transition-all duration-300 "                
+                  className="group flex items-center justify-center gap-3 sm:gap-3 backdrop-blur-sm border-2 border-[#F7CE47] rounded-2xl px-4 py-3 sm:px-5 sm:py-3 transition-all duration-300 w-full sm:w-auto"                
                 >
-                  <FaGooglePlay className="text-2xl text-white flex-shrink-0" />
+                  <FaGooglePlay className="text-2xl sm:text-2xl text-white flex-shrink-0" />
                   <div className="text-left">
-                    <p className="text-xs text-white/80">Disponible sur</p>
-                    <p className="text-base font-bold text-white">Google Play</p>
+                    <p className="text-xs sm:text-xs text-white/80">Disponible sur</p>
+                    <p className="text-base sm:text-base font-bold text-white">Google Play</p>
                   </div>
                 </motion.a>
               </motion.div>
