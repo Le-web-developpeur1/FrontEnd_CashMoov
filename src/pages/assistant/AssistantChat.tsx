@@ -6,12 +6,12 @@ import { useAuth } from '@/contexts/AuthContext';
 interface Message {
   message: string;
   username: string;
-  user_type: string; // 'customer' | 'assistant' | 'ia'
+  user_type: string; 
   timestamp?: Date;
 }
 
 export default function AssistantChat() {
-  const { id } = useParams(); // room name
+  const { id } = useParams(); 
   const navigate = useNavigate();
   const location = useLocation();
   const { user } = useAuth();
@@ -23,12 +23,10 @@ export default function AssistantChat() {
 
   const wsRef = useRef<WebSocket | null>(null);
 
-  // Scroll automatique
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  // 🔥 Connexion WebSocket CHAT
   useEffect(() => {
     const token = localStorage.getItem("access");
     if (!token || !id) return;
@@ -36,22 +34,16 @@ export default function AssistantChat() {
     const ws = new WebSocket(
       `${import.meta.env.VITE_WS_BASE_URL}${id}/?token=${token}`
     );
-
     wsRef.current = ws;
+    console.log("WS URL:", `${import.meta.env.VITE_WS_CHAT_URL}${id}/?token=${token}`);
 
     ws.onopen = () => {
-      console.log("🔗 Assistant connecté au chat", id);
-      console.log("WS URL :", `${import.meta.env.VITE_WS_BASE_URL}/${id}/?token=${token}`);
-      console.log("ROOM ID :", id);
-
-      // Message de connexion de l'assistant
       ws.send(JSON.stringify({
         type: "chat.message",
         groupe_name: id,
-        username: user?.first_name || "Assistant",
-        message: `${user?.first_name || "L'assistant"} a rejoint la conversation`,
-        user_type: "assistant"
+        username: user?.first_name
       }));
+
     };
 
     ws.onmessage = (event) => {
@@ -68,8 +60,23 @@ export default function AssistantChat() {
         setMessages(historyMessages);
         return;
       }
+      if (data.type === "ia.message") {
+        const group = data.groupe_name || data.group_name;
+
+        setMessages(prev => [
+          ...prev,
+          {
+            message: data.message,
+            username: data.username,
+            user_type: data.user_type,
+            timestamp: new Date(),
+          }
+        ])
+      }
 
       if (data.type === "chat.message") {
+        const group = data.groupe_name || data.group_name;
+
         setMessages(prev => [
           ...prev,
           {
@@ -84,7 +91,7 @@ export default function AssistantChat() {
 
     ws.onerror = () => {
       console.error("WS ERROR :", event);
-      console.log("❌ Erreur WebSocket chat")
+      console.log("Erreur WebSocket chat")
     };
     ws.onclose = () => {
       console.log("🔌 Chat fermé");
@@ -101,7 +108,7 @@ export default function AssistantChat() {
   const msg = {
     type: "chat.message",
     username: user?.first_name || "Assistant",
-    group_name: id,
+    groupe_name: id,
     message: inputMessage,
     user_type: "assistant",
   };
@@ -135,7 +142,6 @@ export default function AssistantChat() {
     <div className="h-[calc(100vh-8rem)] flex">
       <div className="flex-1 bg-white rounded-xl shadow-md flex flex-col">
         
-        {/* HEADER */}
         <div className="p-4 border-b flex items-center gap-4">
           <button
             onClick={() => navigate('/assistant/conversations')}

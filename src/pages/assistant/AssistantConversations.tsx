@@ -41,7 +41,7 @@ export default function AssistantConversations() {
 
       if (data.type === "notification") {
         setConversations(prev => {
-          const exists = prev.find(c => c.id === data.groupe_name);
+          const exists = prev.find(c => c.id === data.groupe_name || data.group_name);
 
           if (exists) {
             return prev.map(c =>
@@ -57,7 +57,7 @@ export default function AssistantConversations() {
 
           return [
             {
-              id: data.groupe_name,
+              id: data.groupe_name || data.group_name,
               userName: data.username || "Client",
               lastMessage: data.message,
               unreadCount: data.count,
@@ -65,7 +65,7 @@ export default function AssistantConversations() {
                 {
                   message: data.message,
                   username: data.username,
-                  groupe_name: data.groupe_name,
+                  groupe_name: data.groupe_name || data.group_name,
                   user_type: "customer"
                 }
               ]

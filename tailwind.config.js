@@ -10,9 +10,9 @@ export default {
         'lato': ['Lato', 'sans-serif'],
         'roboto-slab': ['Roboto Slab', 'serif'],
         'arial': ['Arial', 'sans-serif'],
-        'sans': ['Arial', 'sans-serif'], // Default body font
-        'heading': ['Lato', 'sans-serif'], // Default heading font
-        'accent': ['Roboto Slab', 'serif'], // Accent font
+        'sans': ['Arial', 'sans-serif'],
+        'heading': ['Lato', 'sans-serif'],
+        'accent': ['Roboto Slab', 'serif'],
       },
     },
   },

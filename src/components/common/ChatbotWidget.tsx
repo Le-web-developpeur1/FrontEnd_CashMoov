@@ -46,6 +46,7 @@ export function Chatbot({ ws, roomName }: ChatbotProps) {
       }
 
       if (data.type === "chat.message") {
+        const group = data.groupe_name || data.group_name
         if (data.user_type === "customer") return;
         
         setLoading(false);
@@ -185,7 +186,7 @@ export default function ChatbotWidget() {
     setRoomName(newRoom);
 
     const baseUrl = import.meta.env.VITE_WS_BASE_URL;
-    const wsUrl = `${baseUrl}/${newRoom}/`;
+    const wsUrl = `${baseUrl}${newRoom}/`;
 
     const socket = new WebSocket(wsUrl);     
     setWs(socket);
