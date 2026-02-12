@@ -16,7 +16,7 @@ function Navbar() {
       transition={{ duration: 0.5 }}
       className="bg-gradient-to-r from-[#2A4793] to-[#1f356d] shadow-md fixed top-0 left-0 right-0 z-50"
     >
-      <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-4 py-2 md:py-2.5 flex justify-between items-center">
 
         <NavLink to="/" className="flex items-center">
           <motion.img
@@ -24,7 +24,7 @@ function Navbar() {
             transition={{ type: "spring", stiffness: 200 }}
             src="/images/logocm.png"
             alt="Logo Cash Moov"
-            className="w-40 md:w-48 h-auto"
+            className="w-36 md:w-40 h-auto"
           />
         </NavLink>
 
@@ -94,7 +94,7 @@ function Navbar() {
           className="md:hidden"
         >
           <svg
-            className="w-7 h-7 text-white"
+            className="w-6 h-6 text-white"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"

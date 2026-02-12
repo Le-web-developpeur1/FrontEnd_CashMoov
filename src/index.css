@@ -74,7 +74,14 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 }
 
 .animate-scroll {
-  animation: scroll 30s linear infinite;
+  animation: scroll 20s linear infinite;
+}
+
+/* Animation plus rapide sur mobile */
+@media (max-width: 640px) {
+  .animate-scroll {
+    animation: scroll 10s linear infinite;
+  }
 }
 
 /* Animation pour le chatbot */

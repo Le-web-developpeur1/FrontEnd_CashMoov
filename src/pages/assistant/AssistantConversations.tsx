@@ -40,12 +40,15 @@ export default function AssistantConversations() {
       const data = JSON.parse(event.data);
 
       if (data.type === "notification") {
+        const group = data.groupe_name || data.group_name;
+
+
         setConversations(prev => {
-          const exists = prev.find(c => c.id === data.groupe_name || data.group_name);
+          const exists = prev.find(c => c.id === group );
 
           if (exists) {
             return prev.map(c =>
-              c.id === data.groupe_name
+              c.id === group
                 ? {
                     ...c,
                     lastMessage: data.message,
@@ -57,16 +60,16 @@ export default function AssistantConversations() {
 
           return [
             {
-              id: data.groupe_name || data.group_name,
-              userName: data.username || "Client",
+              id: group,
+              userName: group,
               lastMessage: data.message,
               unreadCount: data.count,
               messages: [
                 {
                   message: data.message,
                   username: data.username,
-                  groupe_name: data.groupe_name || data.group_name,
-                  user_type: "customer"
+                  groupe_name: group,
+                  user_type: data.user_type
                 }
               ]
             },

@@ -39,29 +39,29 @@ export default function TestimonialsSlider() {
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.4 }}
-                className="min-w-[260px] sm:min-w-[300px] md:min-w-[350px] 
-                           h-[280px] flex flex-col
-                           mb-8 bg-white shadow-lg rounded-2xl 
-                           p-6 text-left"
+                className="min-w-[200px] sm:min-w-[280px] md:min-w-[350px] 
+                           h-[180px] sm:h-[240px] md:h-[280px] flex flex-col
+                           mb-8 bg-white shadow-lg rounded-xl sm:rounded-2xl 
+                           p-3 sm:p-5 md:p-6 text-left"
               >
-                <div className="flex text-yellow-400 text-xl mb-3">
+                <div className="flex text-yellow-400 text-sm sm:text-lg md:text-xl mb-1.5 sm:mb-3">
                   {"★".repeat(t.rating)}
                 </div>
 
-                <p className="text-gray-700 italic mb-6 flex-1 line-clamp-4">
+                <p className="text-gray-700 italic mb-3 sm:mb-5 md:mb-6 flex-1 line-clamp-2 sm:line-clamp-3 md:line-clamp-4 text-[11px] sm:text-sm md:text-base leading-tight">
                   "{t.text}"
                 </p>
 
-                <div className="flex items-center gap-4 mt-auto">
+                <div className="flex items-center gap-2 sm:gap-3 md:gap-4 mt-auto">
                   <img
                     src={t.photo}
                     alt={t.name}
-                    className="w-14 h-14 rounded-full object-cover"
+                    className="w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full object-cover flex-shrink-0"
                   />
 
-                  <div>
-                    <p className="font-semibold text-gray-900">{t.name}</p>
-                    <p className="text-gray-600 text-sm">
+                  <div className="min-w-0 flex-1">
+                    <p className="font-semibold text-gray-900 text-[11px] sm:text-sm md:text-base truncate">{t.name}</p>
+                    <p className="text-gray-600 text-[9px] sm:text-xs md:text-sm truncate">
                      {t.country}
                     </p>
                   </div>

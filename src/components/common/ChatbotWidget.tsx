@@ -103,7 +103,7 @@ export function Chatbot({ ws, roomName }: ChatbotProps) {
         Cash Moov Assistant
       </motion.div>
 
-      <div className="h-[350px] sm:h-[400px] lg:h-[450px] overflow-y-auto p-4 space-y-4 bg-gray-50">
+      <div className="h-[280px] sm:h-[400px] lg:h-[450px] overflow-y-auto p-4 space-y-4 bg-gray-50">
           {messages.map((msg, index) => (
             <motion.div
               key={index}

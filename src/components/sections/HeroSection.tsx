@@ -37,7 +37,7 @@ export function HeroSection() {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-white space-y-6 text-center lg:text-left -mt-8 lg:-mt-30"
+            className="text-white space-y-6 text-center -mt-8 lg:-mt-30"
           >
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -63,14 +63,8 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4  justify-center lg:justify-start"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-6 sm:pt-8 justify-center w-full max-w-md mx-auto lg:max-w-none px-10 sm:px-0 lg:justify-start"
             >
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-6 sm:pt-10 justify-center lg:justify-start w-full max-w-md mx-auto lg:mx-0 lg:max-w-none px-10 sm:px-0"
-              >
                 
                 <motion.a 
                   whileHover={{ scale: 1.05, y: 5 }}
@@ -101,8 +95,6 @@ export function HeroSection() {
                     <p className="text-base sm:text-base font-bold text-white">Google Play</p>
                   </div>
                 </motion.a>
-              </motion.div>
-
             </motion.div>
           </motion.div>
 

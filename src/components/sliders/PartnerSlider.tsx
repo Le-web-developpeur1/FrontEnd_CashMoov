@@ -11,7 +11,7 @@ export default function PartnerSlider() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="m-3 text-center font-bold mb-10 text-3xl text-[#2A4793]"
+        className="m-3 text-center font-bold mb-6 sm:mb-8 md:mb-10 text-2xl sm:text-3xl text-[#2A4793]"
       >
         Nos partenaires de confiance
       </motion.h1>
@@ -20,7 +20,7 @@ export default function PartnerSlider() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className=" text-center mb-20 text-gray-600 mt-2"
+        className="text-center mb-12 sm:mb-16 md:mb-20 text-gray-600 mt-2 text-sm sm:text-base px-4"
       >
         Nous travaillons avec les meilleurs pour vous offrir un service d'excellence
       </motion.p>
@@ -38,14 +38,14 @@ export default function PartnerSlider() {
 
             <div
               key={index}
-              className="min-w-[260px] h-[90px] rounded-xl flex flex-row items-center justify-center gap-3 p-2"
+              className="min-w-[180px] sm:min-w-[220px] md:min-w-[260px] h-[70px] sm:h-[80px] md:h-[90px] rounded-lg sm:rounded-xl flex flex-row items-center justify-center gap-2 sm:gap-3 p-2"
             >
               <img
                 src={partner.logo}
                 alt={partner.name}
-                className="w-16 h-16 object-contain"
+                className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 object-contain flex-shrink-0"
               />
-              <p className="text-gray-800 font-semibold text-center text-sm">
+              <p className="text-gray-800 font-semibold text-center text-xs sm:text-sm">
                 {partner.name}
               </p>
             </div>
