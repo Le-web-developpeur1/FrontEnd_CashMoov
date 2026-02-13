@@ -1,6 +1,6 @@
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
-import { LayoutDashboard, MessageSquare, Users, LogOut, Menu, X, Mail } from 'lucide-react';
+import { MessageSquare, Users, LogOut, Menu, X, Mail } from 'lucide-react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -15,7 +15,6 @@ export default function AdminLayout() {
   };
 
   const menuItems = [
-    { to: '/admin/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
     { to: '/admin/users', icon: Users, label: 'Utilisateurs' },
     { to: '/admin/conversations', icon: MessageSquare, label: 'Conversations' },
     { to: '/admin/feedback', icon: Mail, label: 'Messages clients' },

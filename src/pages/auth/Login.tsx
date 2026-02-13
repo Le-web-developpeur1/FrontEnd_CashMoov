@@ -16,9 +16,9 @@ export default function Login() {
   useEffect(() => {
     if (user) {
       if (user.user_type === 'admin') {
-        navigate('/admin/dashboard', { replace: true });
+        navigate('/admin/users', { replace: true });
       } else if (user.user_type === 'assistant') {
-        navigate('/assistant/dashboard', { replace: true });
+        navigate('/assistant/conversations', { replace: true });
       }
     }
   }, [user, navigate]);

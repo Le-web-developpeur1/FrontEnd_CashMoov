@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Send, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Message } from '@/types';
@@ -12,6 +12,12 @@ export function Chatbot({ ws, roomName }: ChatbotProps) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
 
   useEffect(() => {
     if (!ws) return;
@@ -52,10 +58,20 @@ export function Chatbot({ ws, roomName }: ChatbotProps) {
         if (data.user_type === "customer") return;
         
         setLoading(false);
+
+        let sender: "user" | "assistant" | "bot" = "bot";
+
+        if (data.user_type === "assistant") {
+          sender = "assistant";
+        } else if (data.user_type === "ia") {
+          sender = "bot";
+        } else if (data.user_type === "customer") {
+          sender = "user";
+        }
         
         setMessages(prev => [
           ...prev,
-          { sender: "bot", text: data.message }
+          { sender, text: data.message }
         ]);
       }
     };
@@ -80,10 +96,9 @@ export function Chatbot({ ws, roomName }: ChatbotProps) {
     setInput("");
   };
 
-  const getAvatar = (sender: string) => {
-    if (sender === "bot") {
-      return "🤖";
-    }
+  const getAvatar = (sender: string ) => {
+    if (sender === "bot") return "🤖";
+    if (sender === "assistant") return "👤"
     return "👤";
   }
 
@@ -100,10 +115,10 @@ export function Chatbot({ ws, roomName }: ChatbotProps) {
         animate={{ y: 0 }}
         className="bg-[#2A4793] text-white p-4 font-semibold text-lg"
       >
-        Cash Moov Assistant
+        Cash Moov Assistant 
       </motion.div>
 
-      <div className="h-[280px] sm:h-[400px] lg:h-[450px] overflow-y-auto p-4 space-y-4 bg-gray-50">
+      <div className="h-[280px] sm:h-[400px] lg:h-[350px] overflow-y-auto p-4 space-y-4 bg-gray-50">
           {messages.map((msg, index) => (
             <motion.div
               key={index}
@@ -143,11 +158,12 @@ export function Chatbot({ ws, roomName }: ChatbotProps) {
             animate={{ opacity: 1 }}
             className="flex justify-start"
           >
-            <div className="px-4 py-2 bg-white border rounded-xl text-gray-500 text-sm animate-pulse">
+            <div className="px-6 py-2 bg-white border rounded-xl text-gray-500 text-sm animate-pulse">
               …
             </div>
           </motion.div>
         )}
+        <div ref={messagesEndRef}></div>
       </div>
 
       <div className="p-4 bg-white border-t flex flex-col sm:flex-row gap-2">
@@ -242,7 +258,7 @@ export default function ChatbotWidget() {
               initial={{ rotate: 90, opacity: 0 }}
               animate={{ rotate: 0, opacity: 1 }}
               exit={{ rotate: -90, opacity: 0 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.1, ease: 'linear' }}
               className="w-full h-full flex items-center justify-center"
             >
               <img 

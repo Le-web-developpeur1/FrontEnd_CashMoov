@@ -1,9 +1,7 @@
-// import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Smartphone, CreditCard, Send, Banknote, Users, Building2, Wallet, ArrowRight } from "lucide-react";
 
 export default function ServicesSection() {
-  // const navigate = useNavigate();
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -116,7 +114,7 @@ export default function ServicesSection() {
                 </div>
 
                
-                <ul className="space-y-2.5 sm:space-y-3 mb-6 sm:mb-8">
+                <ul className="space-y-2.5 sm:space-y-3 sm:mb-8">
                   <li className="flex items-center gap-3 text-gray-700">
                     <div className="w-8 h-8 sm:w-10 sm:h-10 bg-[#F7CE47]/10 rounded-full flex items-center justify-center flex-shrink-0">
                       <Banknote className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#F7CE47]" />

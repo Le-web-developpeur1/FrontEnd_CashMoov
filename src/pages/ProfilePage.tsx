@@ -10,20 +10,17 @@ export default function ProfilePage() {
   const [success, setSuccess] = useState('');
   const [error, setError] = useState('');
 
-  // Formulaire infos personnelles
   const [profileForm, setProfileForm] = useState({
     first_name: user?.first_name || '',
     last_name: user?.last_name || '',
     address: user?.address || '',
   });
 
-  // Formulaire changement email
   const [emailForm, setEmailForm] = useState({
     new_email: '',
     current_password: '',
   });
 
-  // Formulaire changement mot de passe
   const [passwordForm, setPasswordForm] = useState({
     current_password: '',
     new_password: '',

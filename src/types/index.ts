@@ -56,6 +56,6 @@ export interface ServiceFeature {
 }
 
 export interface Message {
-  sender: "user" | "bot";
+  sender: "user" | "bot" | "assistant";
   text: string;
 }

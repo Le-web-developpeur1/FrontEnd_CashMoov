@@ -1,6 +1,6 @@
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
-import { LayoutDashboard, MessageSquare, LogOut, Menu, X } from 'lucide-react';
+import { MessageSquare, LogOut, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -15,7 +15,6 @@ export default function AssistantLayout() {
   };
 
   const menuItems = [
-    { to: '/assistant/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
     { to: '/assistant/conversations', icon: MessageSquare, label: 'Conversations' },
   ];
 

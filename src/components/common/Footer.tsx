@@ -83,28 +83,36 @@ const Footer = () => {
             <motion.a 
               whileHover={{ scale: 1.2, rotate: 5 }}
               transition={{ type: "spring", stiffness: 300 }}
-              href="https://facebook.com"
+              href="https://www.facebook.com/Cashmoov01/"
+              target="blank"
+              rel="noopener noreferrer"
             >
               <FaFacebook />
             </motion.a>
             <motion.a 
               whileHover={{ scale: 1.2, rotate: 5 }}
               transition={{ type: "spring", stiffness: 300 }}
-              href="https://twitter.com"
+              href="https://x.com/CashMoov"
+              target="blank"
+              rel="noopener noreferrer"
             >
               <FaTwitter />
             </motion.a>
             <motion.a 
               whileHover={{ scale: 1.2, rotate: 5 }}
               transition={{ type: "spring", stiffness: 300 }}
-              href="https://instagram.com"
+              href="https://www.instagram.com/cashmoov/"
+              target="blank"
+              rel="noopener noreferrer"
             >
               <FaInstagram />
             </motion.a>
             <motion.a 
               whileHover={{ scale: 1.2, rotate: 5 }}
               transition={{ type: "spring", stiffness: 300 }}
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/company/cash-moov/"
+              target="blank"
+              rel="noopener noreferrer"
             >
               <FaLinkedinIn />
             </motion.a>
