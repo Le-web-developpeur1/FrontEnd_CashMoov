@@ -3,6 +3,7 @@ import { Send, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Message } from '@/types';
 
+
 interface ChatbotProps {
   ws: WebSocket | null;
   roomName: string | null;
@@ -106,11 +107,18 @@ export function Chatbot({ ws, roomName }: ChatbotProps) {
     setInput("");
   };
 
-  const getAvatar = (sender: string ) => {
-    if (sender === "bot") return "🤖";
-    if (sender === "assistant") return "👤"
-    return "👤";
-  }
+  const getAvatar = (sender: string) => {
+    if (sender === "assistant") {
+      return (
+        <img src="/images/assistant.jpg" alt="assistant" className="w-8 h-8 rounded-full object-cover" />
+      );
+    }
+    if (sender === "bot") {
+      return <img src='/images/bot.jpg' className="w-8 h-8 rounded-full object-cover" />;
+    }
+    return <img src='/images/client.png' className="w-8 h-8 rounded-full object-cover" />;
+  };
+  
 
   return (
     <motion.div 
@@ -151,7 +159,7 @@ export function Chatbot({ ws, roomName }: ChatbotProps) {
               }`}
             >
               {msg.sender != "user" && (
-                <div className="text-2xl">
+                <div className="w-8 h-8">
                   {getAvatar(msg.sender)}
                 </div>
               )}
@@ -166,7 +174,7 @@ export function Chatbot({ ws, roomName }: ChatbotProps) {
               </div>
 
               {msg.sender === "user" && (
-                <div className="text-2xl">
+                <div className="w-8 h-8">
                   {getAvatar(msg.sender)}
                 </div>
               )}
