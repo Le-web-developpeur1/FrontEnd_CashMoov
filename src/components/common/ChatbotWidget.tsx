@@ -51,6 +51,16 @@ export function Chatbot({ ws, roomName }: ChatbotProps) {
         ])
       }
 
+      if (data.type === "chat.joingned") {
+        setMessages(prev => [
+          ...prev,
+          {
+            sender: "system",
+            text: data.message
+          }
+        ])
+      }
+
       if (data.type === "chat.message") {
         const group = data.groupe_name || data.group_name;
         if (!group) return
@@ -119,7 +129,18 @@ export function Chatbot({ ws, roomName }: ChatbotProps) {
       </motion.div>
 
       <div className="h-[280px] sm:h-[400px] lg:h-[350px] overflow-y-auto p-4 space-y-4 bg-gray-50">
-          {messages.map((msg, index) => (
+          {messages.map((msg, index) => {
+            if (msg.sender === "system") {
+              return (
+                <div key={index} className="w-full flex justify-center my-3">
+                  <div className="text-xs text-gray-500 bg-gray-200 px-3 py-1 rounded-full">
+                    {msg.text}
+                  </div>
+                </div>
+              )
+            }
+          
+          return (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 10, scale: 0.95 }}
@@ -150,7 +171,9 @@ export function Chatbot({ ws, roomName }: ChatbotProps) {
                 </div>
               )}
             </motion.div>
-          ))}
+          );
+        })}
+ 
 
         {loading && (
           <motion.div 
