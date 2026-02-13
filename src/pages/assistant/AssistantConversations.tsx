@@ -1,95 +1,12 @@
-import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MessageSquare } from 'lucide-react';
-
-interface ChatMessages {
-  message: string;
-  username: string;
-  groupe_name: string;
-  user_type: string;
-}
-
-interface Conversation {
-  id: string;          
-  userName: string;    
-  lastMessage: string; 
-  unreadCount: number;
-  messages: ChatMessages[]; 
-}
+import { useConversations } from '@/contexts/ConversationsContext';
 
 export default function AssistantConversations() {
   const navigate = useNavigate();
-  const [conversations, setConversations] = useState<Conversation[]>([]);
+  const { conversations } = useConversations();
 
-  useEffect(() => {
-    const token = localStorage.getItem("access");
-    const url = import.meta.env.VITE_WS_NOTIF_URL;
-
-    if (!token || !url) {
-      console.warn("Token ou URL WebSocket manquant");
-      return;
-    }
-
-    const wsNotif = new WebSocket(`${url}?token=${token}`);
-
-    wsNotif.onopen = () => {
-      console.log("🔗 WebSocket notifications connecté");
-    };
-
-    wsNotif.onmessage = (event) => {
-      const data = JSON.parse(event.data);
-
-      if (data.type === "notification") {
-        const group = data.groupe_name || data.group_name;
-
-
-        setConversations(prev => {
-          const exists = prev.find(c => c.id === group );
-
-          if (exists) {
-            return prev.map(c =>
-              c.id === group
-                ? {
-                    ...c,
-                    lastMessage: data.message,
-                    unreadCount: data.count
-                  }
-                : c
-            );
-          }
-
-          return [
-            {
-              id: group,
-              userName: group,
-              lastMessage: data.message,
-              unreadCount: data.count,
-              messages: [
-                {
-                  message: data.message,
-                  username: data.username,
-                  groupe_name: group,
-                  user_type: data.user_type
-                }
-              ]
-            },
-            ...prev
-          ];
-        });
-      }
-    };
-
-    wsNotif.onerror = () => {
-      console.error("❌ Erreur WebSocket notifications");
-    };
-
-    wsNotif.onclose = () => {
-      console.log("🔌 WebSocket notifications fermé");
-    };
-
-    return () => wsNotif.close();
-  }, []);
-
+  
   return (
     <div>
       <div className="mb-8">
@@ -98,7 +15,7 @@ export default function AssistantConversations() {
       </div>
 
       <div className="space-y-4">
-        {conversations.length === 0 ? (
+        {(!conversations || conversations.length === 0) ? (
           <div className="bg-white rounded-xl shadow-md p-12 text-center">
             <MessageSquare className="w-16 h-16 text-gray-300 mx-auto mb-4" />
             <p className="text-gray-600 mb-2">Aucune conversation assignée</p>
@@ -110,15 +27,10 @@ export default function AssistantConversations() {
           conversations.map((conversation) => (
             <div
               key={conversation.id}
-              onClick={() => { 
-                navigate(`/assistant/chat/${conversation.id}`, {
-                  state: { messages: conversation.messages }
-                }); 
-              }}
+              onClick={() => navigate(`/assistant/chat/${conversation.id}`)}
               className="bg-white rounded-xl shadow-md hover:shadow-lg transition p-6 cursor-pointer"
             >
               <div className="flex items-start gap-4">
-                
                 <div className="w-12 h-12 bg-[#2A4793] rounded-full flex items-center justify-center text-white font-semibold flex-shrink-0 relative">
                   {conversation.userName.charAt(0).toUpperCase()}
 

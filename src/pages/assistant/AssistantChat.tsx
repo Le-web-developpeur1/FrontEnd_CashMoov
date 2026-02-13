@@ -3,6 +3,7 @@ import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { Send, ArrowLeft } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 
+
 interface Message {
   message: string;
   username: string;

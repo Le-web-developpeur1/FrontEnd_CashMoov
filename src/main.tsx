@@ -1,10 +1,13 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import { createRoot } from 'react-dom/client';
+import './index.css';
+import App from './App';
+import { ConversationsProvider } from './contexts/ConversationsContext';
+import { NotifProvider } from './contexts/NotifContext';
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+createRoot(document.getElementById('root') as HTMLElement).render(
+  <ConversationsProvider>
+    <NotifProvider>
+      <App />
+    </NotifProvider>
+  </ConversationsProvider>
+);
