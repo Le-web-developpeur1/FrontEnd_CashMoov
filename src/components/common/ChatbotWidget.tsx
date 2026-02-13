@@ -187,7 +187,6 @@ export default function ChatbotWidget() {
 
     const baseUrl = import.meta.env.VITE_WS_BASE_URL;
     const wsUrl = `${baseUrl}${newRoom}/`;
-//ici modification
     if (!ws) {
       const socket = new WebSocket(wsUrl);     
       setWs(socket);
@@ -198,7 +197,15 @@ export default function ChatbotWidget() {
 
   return (
     <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
-
+      {!open && (
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          className="absolute -top-7 translate-x-2  bg-[#F7CE47] text-[#2A4793] text-xs font-bold px-2 py-1 rounded-full shadow-lg"
+        >
+            Hi ?
+        </motion.div>
+      )}
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}

@@ -27,12 +27,12 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="mt-8">
+    <div className="">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="mt-20 bg-[#2A4793] text-center py-12 px-4"
+        className="mt-15 bg-[#2A4793] text-center py-12 px-4"
       >
         <h2 className="text-[#F7CE47] text-4xl md:text-5xl font-bold mb-4">Contactez-nous</h2>
         <p className="text-white text-lg md:text-xl max-w-2xl mx-auto">
