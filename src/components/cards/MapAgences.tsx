@@ -6,17 +6,17 @@ export default function MapAgences() {
 
   useEffect(() => {
     if (!mapContainer.current) return;
-  
+
     mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_TOKEN;
-  
+
     const map = new mapboxgl.Map({
       container: mapContainer.current,
       style: import.meta.env.VITE_MAPBOX_STYLE_URL,
-      center: [-13.6878, 9.6412],
-      zoom: 6,
-      projection: 'globe',
+      center: [-13.6878, 9.6412], 
+      zoom: 6, 
+      projection: 'globe', 
     });
-  
+
     map.on('style.load', () => {
       map.setFog({
         color: 'rgb(186, 210, 235)',
@@ -26,58 +26,28 @@ export default function MapAgences() {
         'star-intensity': 0.6
       });
     });
-  
-    map.on("load", () => {
-      // Changer le curseur au survol
-      map.on('mouseenter', 'agences-c6qpi8', () => {
-        map.getCanvas().style.cursor = 'pointer';
-      });
 
-      map.on('mouseleave', 'agences-c6qpi8', () => {
-        map.getCanvas().style.cursor = '';
-      });
-
-      // Afficher popup au clic
-      map.on("click", "agences-c6qpi8", (e) => {
-        if (!e.features || e.features.length === 0) return;
+    map.on("click", "agences-c6qpi8", (e) => {
+      if (!e.features || e.features.length === 0) return;
       
-        const props = e.features[0].properties as {
-          name?: string;
-          city?: string;
-          phone?: string;
-          address?: string;
-          region?: string;
-          agence?: string;
-        };
-  
-        const popupHTML = `
-          <div style="font-family: Arial, sans-serif; min-width: 250px; padding: 8px;">
-            <h3 style="margin: 0 0 12px 0; font-size: 18px; font-weight: bold; color: #2A4793;">
-              ${props.name || props.agence || 'Agence Cashmoov'}
-            </h3>
-            ${props.agence ? `<p style="margin: 8px 0;"><strong>Agence :</strong> ${props.agence}</p>` : ''}
-            ${props.region ? `<p style="margin: 8px 0;"><strong>Région :</strong> ${props.region}</p>` : ''}
-            ${props.city ? `<p style="margin: 8px 0;"><strong>Ville :</strong> ${props.city}</p>` : ''}
-            ${props.address ? `<p style="margin: 8px 0;"><strong>Adresse :</strong> ${props.address}</p>` : ''}
-            ${props.phone ? `<p style="margin: 8px 0;"><strong>Téléphone :</strong> <a href="tel:${props.phone}" style="color: #2A4793; text-decoration: none;">${props.phone}</a></p>` : ''}
-          </div>
-        `;
+      const props = e.features[0].properties as {
+        name: string;
+        city: string;
+        phone: string;
+      };
 
-        new mapboxgl.Popup({
-          closeButton: true,
-          closeOnClick: false,
-          maxWidth: '350px',
-          offset: 25
-        })
-          .setLngLat(e.lngLat)
-          .setHTML(popupHTML)
-          .addTo(map);
-      });
+      new mapboxgl.Popup()
+        .setLngLat(e.lngLat)
+        .setHTML(`
+          <strong>${props.name}</strong><br>
+          Ville : ${props.city}<br>
+          Téléphone : ${props.phone}
+        `)
+        .addTo(map);
     });
-  
+
     return () => map.remove();
   }, []);
-  
 
   return (
     <div className="py-16 sm:py-20 bg-white">
