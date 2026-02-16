@@ -35,7 +35,7 @@ export default function SectionChoix() {
             className="text-center mb-10 sm:mb-12 lg:mb-16 "
           >
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">
-              Pourquoi choisir <span className="text-[#2A4793]">Cash Moov</span> ?
+              Pourquoi choisir <span className="text-[#F7CE47]">Cash Moov</span> ?
             </h2>
             <p className="text-gray-600 mt-2 sm:mt-3 max-w-2xl mx-auto text-sm sm:text-base">
               Une solution complète pour tous vos besoins de transfert
