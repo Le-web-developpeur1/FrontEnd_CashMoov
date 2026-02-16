@@ -4,7 +4,7 @@ import { FaGooglePlay, FaApple } from "react-icons/fa";
 
 export function HeroSection() {
   return (
-    <div className="relative min-h-screen pt-16 sm:pt-20 md:pt-24 flex items-center overflow-hidden bg-gradient-to-br from-[#2A4793] via-[#1f356d] to-[#2A4793]">
+    <div className="relative min-h-screen pt-14 sm:pt-20 md:pt-20 flex items-center overflow-hidden bg-gradient-to-br from-[#2A4793] via-[#1f356d] to-[#2A4793]">
       
       <div className="absolute inset-0 overflow-hidden flex items-center justify-center">
         <motion.div 
@@ -57,7 +57,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
-              className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto lg:mx-0"
+              className="text-base sm:text-lg md:text-xl pt-2 sm:pt-4 text-white/90 max-w-2xl mx-auto lg:mx-0"
             >
               Téléchargez et Partagez le sourire
             </motion.p>
@@ -66,7 +66,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.8 }}
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 sm:pt-6 justify-center lg:justify-start w-full max-w-md mx-auto lg:mx-0 px-4 sm:px-0"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start w-full max-w-md mx-auto lg:mx-0 px-4 sm:px-0"
             >
               <motion.a 
                 whileHover={{ scale: 1.05 }}

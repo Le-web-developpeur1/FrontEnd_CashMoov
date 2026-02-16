@@ -1,33 +1,34 @@
 import { motion } from "framer-motion";
+import { Wallet, Users, Building2, HandCoins, TrendingUp, Layers } from "lucide-react";
 
 const enterpriseOffers = [
   {
-    img: "/images/salaires.png",
+    icon: Wallet,
     title: "Paiement de salaires",
     description: "Versez les salaires de vos employés rapidement et en toute sécurité"
   },
   {
-    img: "/images/paiements-tiers.png",
+    icon: Users,
     title: "Paiements à tiers",
     description: "Réglez vos fournisseurs et partenaires en quelques clics"
   },
   {
-    img: "/images/caisse-deplacee.png",
+    icon: Building2,
     title: "Caisse déplacée",
     description: "Effectuez vos opérations bancaires directement dans vos locaux"
   },
   {
-    img: "/images/cash-collection.png",
+    icon: HandCoins,
     title: "Cash collection",
     description: "Collectez les paiements de vos clients en toute simplicité"
   },
   {
-    img: "/images/tresorerie.png",
+    icon: TrendingUp,
     title: "Gestion de trésorerie",
     description: "Optimisez la gestion de vos flux financiers"
   },
   {
-    img: "/images/bulk-payment.png",
+    icon: Layers,
     title: "Paiements en masse",
     description: "Effectuez plusieurs paiements simultanément"
   }
@@ -98,12 +99,8 @@ export default function EnterpriseOffersSection() {
                   className="bg-gradient-to-br from-gray-50 to-white p-4 rounded-xl border border-gray-100 hover:border-[#F7CE47]/30 hover:shadow-md transition-all duration-300"
                 >
                   <div className="flex items-start gap-3">
-                    <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden bg-gradient-to-br from-[#F7CE47]/10 to-[#2A4793]/10 p-2.5">
-                      <img 
-                        src={offer.img} 
-                        alt={offer.title}
-                        className="w-full h-full object-contain" 
-                      />
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-lg flex items-center justify-center flex-shrink-0 bg-gradient-to-br from-[#F7CE47] to-[#e6bd3a]">
+                      <offer.icon className="w-7 h-7 sm:w-8 sm:h-8 text-[#2A4793]" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <h3 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 leading-tight">
