@@ -65,7 +65,6 @@ export default function HistorySection() {
           
           <div className="relative order-2 lg:order-1">
             <div className="relative max-w-md mx-auto">
-              <div className="absolute -inset-3 border-3 border-[#2A4793] rounded-2xl"></div>
              
               <div className="relative rounded-xl overflow-hidden shadow-xl">
                 <AnimatePresence mode="wait">

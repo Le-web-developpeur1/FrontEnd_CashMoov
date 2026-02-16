@@ -24,7 +24,7 @@ export default function SectionChoix() {
     };
 
     return (
-      <section className="py-12 sm:py-16 lg:py-20 bg-[#2A4793]">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
   
           <motion.div
@@ -32,12 +32,12 @@ export default function SectionChoix() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-10 sm:mb-12 lg:mb-16 text-white"
+            className="text-center mb-10 sm:mb-12 lg:mb-16 "
           >
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">
-              Pourquoi choisir <span className="text-[#F7CE47]">Cash Moov</span> ?
+              Pourquoi choisir <span className="text-[#2A4793]">Cash Moov</span> ?
             </h2>
-            <p className="text-white/90 mt-2 sm:mt-3 max-w-2xl mx-auto text-sm sm:text-base">
+            <p className="text-gray-600 mt-2 sm:mt-3 max-w-2xl mx-auto text-sm sm:text-base">
               Une solution complète pour tous vos besoins de transfert
             </p>
           </motion.div>
