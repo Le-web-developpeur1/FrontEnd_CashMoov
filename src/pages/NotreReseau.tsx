@@ -1,5 +1,6 @@
 import { FaGlobe, FaMapMarkerAlt, FaMoneyBillWave, FaUsers } from "react-icons/fa";
 import { motion } from "framer-motion";
+import MapAgences from "@/components/cards/MapAgences";
 // import Globe3D from "@/components/common/Glob";
 
 export default function NotreReseau() {
@@ -213,7 +214,7 @@ export default function NotreReseau() {
           </motion.div>
         </div>
       </div>
-          {/* <Globe3D/>   */}
+      <MapAgences/>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -238,7 +239,6 @@ export default function NotreReseau() {
             
         </div>
       </motion.div>
-
     </div>
   );
 }

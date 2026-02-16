@@ -114,7 +114,7 @@ export function Chatbot({ ws, roomName }: ChatbotProps) {
       );
     }
     if (sender === "bot") {
-      return <img src='/images/bot.jpg' className="w-8 h-8 rounded-full object-cover" />;
+      return <img src='/images/sticker.png' className="w-8 h-8 rounded-full object-cover" />;
     }
     return <img src='/images/client.png' className="w-8 h-8 rounded-full object-cover" />;
   };
@@ -250,7 +250,7 @@ export default function ChatbotWidget() {
           animate={{ scale: 1 }}
           className="absolute -top-7 translate-x-2  bg-[#F7CE47] text-[#2A4793] text-xs font-bold px-2 py-1 rounded-full shadow-lg"
         >
-            Hi ?
+            Salut !
         </motion.div>
       )}
       <motion.button
