@@ -28,58 +28,50 @@ export default function MapAgences() {
     });
   
     map.on("load", () => {
-      // Écouter TOUS les clics sur la carte
-      map.on("click", (e) => {
-        // Chercher toutes les features à la position du clic
-        const features = map.queryRenderedFeatures(e.point);
-        
-        // Filtrer pour trouver les agences (cherche dans tous les layers)
-        const agenceFeature = features.find(f => 
-          f.layer.id.includes('agence') || 
-          f.layer.id.includes('Agence') ||
-          f.properties?.name ||
-          f.properties?.city
-        );
-
-        if (agenceFeature) {
-          const props = agenceFeature.properties as any;
-          
-          console.log('Feature trouvée:', props); // Pour debug
-          
-          const popupHTML = `
-            <div style="font-family: Arial, sans-serif; min-width: 250px; padding: 8px;">
-              <h3 style="margin: 0 0 12px 0; font-size: 18px; font-weight: bold; color: #2A4793;">
-                ${props.name || props.agence || props.title || 'Agence Cashmoov'}
-              </h3>
-              ${props.agence ? `<p style="margin: 8px 0;"><strong>Agence :</strong> ${props.agence}</p>` : ''}
-              ${props.region ? `<p style="margin: 8px 0;"><strong>Région :</strong> ${props.region}</p>` : ''}
-              ${props.city ? `<p style="margin: 8px 0;"><strong>Ville :</strong> ${props.city}</p>` : ''}
-              ${props.address ? `<p style="margin: 8px 0;"><strong>Adresse :</strong> ${props.address}</p>` : ''}
-              ${props.phone ? `<p style="margin: 8px 0;"><strong>Téléphone :</strong> <a href="tel:${props.phone}" style="color: #2A4793; text-decoration: none;">${props.phone}</a></p>` : ''}
-            </div>
-          `;
-
-          new mapboxgl.Popup({
-            closeButton: true,
-            closeOnClick: false,
-            maxWidth: '350px',
-            offset: 25
-          })
-            .setLngLat(e.lngLat)
-            .setHTML(popupHTML)
-            .addTo(map);
-        }
+      // Changer le curseur au survol
+      map.on('mouseenter', 'agences-c6qpi8', () => {
+        map.getCanvas().style.cursor = 'pointer';
       });
 
-      // Changer le curseur au survol de n'importe quelle feature
-      map.on('mousemove', (e) => {
-        const features = map.queryRenderedFeatures(e.point);
-        const hasAgence = features.some(f => 
-          f.layer.id.includes('agence') || 
-          f.layer.id.includes('Agence') ||
-          f.properties?.name
-        );
-        map.getCanvas().style.cursor = hasAgence ? 'pointer' : '';
+      map.on('mouseleave', 'agences-c6qpi8', () => {
+        map.getCanvas().style.cursor = '';
+      });
+
+      // Afficher popup au clic
+      map.on("click", "agences-c6qpi8", (e) => {
+        if (!e.features || e.features.length === 0) return;
+      
+        const props = e.features[0].properties as {
+          name?: string;
+          city?: string;
+          phone?: string;
+          address?: string;
+          region?: string;
+          agence?: string;
+        };
+  
+        const popupHTML = `
+          <div style="font-family: Arial, sans-serif; min-width: 250px; padding: 8px;">
+            <h3 style="margin: 0 0 12px 0; font-size: 18px; font-weight: bold; color: #2A4793;">
+              ${props.name || props.agence || 'Agence Cashmoov'}
+            </h3>
+            ${props.agence ? `<p style="margin: 8px 0;"><strong>Agence :</strong> ${props.agence}</p>` : ''}
+            ${props.region ? `<p style="margin: 8px 0;"><strong>Région :</strong> ${props.region}</p>` : ''}
+            ${props.city ? `<p style="margin: 8px 0;"><strong>Ville :</strong> ${props.city}</p>` : ''}
+            ${props.address ? `<p style="margin: 8px 0;"><strong>Adresse :</strong> ${props.address}</p>` : ''}
+            ${props.phone ? `<p style="margin: 8px 0;"><strong>Téléphone :</strong> <a href="tel:${props.phone}" style="color: #2A4793; text-decoration: none;">${props.phone}</a></p>` : ''}
+          </div>
+        `;
+
+        new mapboxgl.Popup({
+          closeButton: true,
+          closeOnClick: false,
+          maxWidth: '350px',
+          offset: 25
+        })
+          .setLngLat(e.lngLat)
+          .setHTML(popupHTML)
+          .addTo(map);
       });
     });
   
