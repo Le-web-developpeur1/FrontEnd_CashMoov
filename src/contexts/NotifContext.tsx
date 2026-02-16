@@ -12,6 +12,16 @@ export function NotifProvider({ children }: { children: React.ReactNode }) {
     const url = import.meta.env.VITE_WS_NOTIF_URL;
     if (!token || !url) return;
 
+    const rawUser = localStorage.getItem("user");
+    if (!rawUser) return;
+
+    const user = JSON.parse(rawUser);
+    const role = user?.user_type;
+
+    if (role != "assistant") {
+      return;
+    }
+
     const socket = new WebSocket(`${url}?token=${token}`);
     setWs(socket);
 
