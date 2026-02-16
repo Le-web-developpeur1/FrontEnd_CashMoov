@@ -25,7 +25,7 @@ export default function TestimonialsSlider() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-gray-600 mt-2"
         >
-          Plus de 100 000 utilisateurs satisfaits à travers le monde
+          Découvrez les expériences de nos utilisateurs satisfaits
         </motion.p>
 
         <div className="overflow-hidden mt-12">
@@ -56,6 +56,7 @@ export default function TestimonialsSlider() {
                   <img
                     src={t.photo}
                     alt={t.name}
+                    loading="lazy"
                     className="w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full object-cover flex-shrink-0"
                   />
 

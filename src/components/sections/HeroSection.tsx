@@ -21,6 +21,8 @@ export function HeroSection() {
           <img
             src="/images/PNG (1).png"
             alt="Background"
+            loading="eager"
+            fetchPriority="high"
             className="w-full h-full object-contain opacity-30 sm:opacity-40"
           />
         </motion.div>
@@ -138,6 +140,8 @@ export function HeroSection() {
               <img
                 src="/images/App CashMoov.png"
                 alt="Cash Moov App"
+                loading="eager"
+                fetchPriority="high"
                 className="w-full h-auto drop-shadow-2xl"
               />
             </motion.div>

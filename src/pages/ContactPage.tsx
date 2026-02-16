@@ -148,32 +148,37 @@ export default function ContactPage() {
                 </p>
 
                 <div className="flex gap-2 justify-center">
-                  <motion.button
+                  <motion.a
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    href="tel:+224621640000"
                     className="bg-white text-[#2A4793] px-3 py-2 rounded-lg font-medium flex items-center justify-center gap-1 hover:bg-gray-100 transition shadow-lg text-sm flex-1 max-w-[100px]"
                   >
                     <PhoneCall className="h-4 w-4" />
                     <span className="hidden sm:inline">Appel</span>
-                  </motion.button>
+                  </motion.a>
 
-                  <motion.button
+                  <motion.a
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    href="mailto:contact@cashmoov.com"
                     className="bg-white text-[#2A4793] px-3 py-2 rounded-lg font-medium flex items-center justify-center gap-1 hover:bg-gray-100 transition shadow-lg text-sm flex-1 max-w-[100px]"
                   >
                     <Mail className="h-4 w-4" />
                     <span className="hidden sm:inline">Email</span>
-                  </motion.button>
+                  </motion.a>
 
-                  <motion.button
+                  <motion.a
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    href="https://wa.me/224621640000?text=Bonjour%20l'équipe%20Cash%20Moov"
+                    target="blank"
+                    rel="noopener noreferrer"
                     className="bg-green-500 text-white px-3 py-2 rounded-lg font-medium flex items-center justify-center gap-1 hover:bg-green-600 transition shadow-lg text-sm flex-1 max-w-[120px]"
                   >
                     <FaWhatsapp className="h-4 w-4" />
                     <span className="hidden sm:inline">WhatsApp</span>
-                  </motion.button>
+                  </motion.a>
                 </div>
               </div>
             </motion.div>

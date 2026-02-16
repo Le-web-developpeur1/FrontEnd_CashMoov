@@ -43,6 +43,7 @@ export default function PartnerSlider() {
               <img
                 src={partner.logo}
                 alt={partner.name}
+                loading="lazy"
                 className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 object-contain flex-shrink-0"
               />
               <p className="text-gray-800 font-semibold text-center text-xs sm:text-sm">

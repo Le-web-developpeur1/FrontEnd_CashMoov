@@ -55,7 +55,6 @@ export default function AboutPage() {
 
     return (
         <section className="mt-15 pb-12">
-            {/* Hero Section */}
             <div className="relative bg-gradient-to-br from-[#2A4793] via-[#1f356d] to-[#2A4793] py-20 sm:py-24 overflow-hidden">
                 <div className="absolute inset-0 overflow-hidden flex items-center justify-center">
                     <motion.div 
@@ -72,6 +71,7 @@ export default function AboutPage() {
                         <img
                             src="/images/PNG (1).png"
                             alt="Background"
+                            loading="lazy"
                             className="w-full h-full object-contain opacity-20"
                         />
                     </motion.div>
@@ -93,7 +93,6 @@ export default function AboutPage() {
                 </div>
             </div>
 
-            {/* Stats Section */}
             <div className="bg-white py-12 sm:py-16 -mt-12 relative z-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
@@ -120,7 +119,6 @@ export default function AboutPage() {
                 </div>
             </div>
 
-            {/* Notre Histoire */}
             <div className="py-16 sm:py-20 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
@@ -156,6 +154,7 @@ export default function AboutPage() {
                             <img
                                 src="/images/App CashMoov.png"
                                 alt="Cashmoov App"
+                                loading="lazy"
                                 className="w-full max-w-md mx-auto drop-shadow-2xl"
                             />
                         </motion.div>
@@ -163,7 +162,6 @@ export default function AboutPage() {
                 </div>
             </div>
 
-            {/* Notre Approche */}
             <div className="py-16 sm:py-20 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
@@ -240,7 +238,6 @@ export default function AboutPage() {
                 </div>
             </div>
 
-            {/* Nos Valeurs */}
             <div className="py-16 sm:py-20 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
@@ -283,7 +280,6 @@ export default function AboutPage() {
                 </div>
             </div>
 
-            {/* Notre Réseau */}
             <div className="py-16 sm:py-20 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div

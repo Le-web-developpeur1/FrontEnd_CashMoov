@@ -51,6 +51,7 @@ export default function FeaturesSection() {
                 <img
                   src="/images/Portefeuille.png"
                   alt="Cash Moov Features"
+                  loading="lazy"
                   className="w-full h-auto object-cover scale-103"
                 />
               </div>
@@ -102,6 +103,7 @@ export default function FeaturesSection() {
                       <img 
                         src={feature.img} 
                         alt={feature.title}
+                        loading="lazy"
                         className="w-full h-full object-contain" 
                       />
                     </div>

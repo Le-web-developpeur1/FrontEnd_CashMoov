@@ -52,6 +52,7 @@ export default function EnterpriseOffersSection() {
                 <img
                   src="/images/Salaires.jfif"
                   alt="Cash Moov Entreprises"
+                  loading="lazy"
                   className="w-full h-auto object-cover"
                 />
               </div>
