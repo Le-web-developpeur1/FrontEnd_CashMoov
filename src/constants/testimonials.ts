@@ -5,7 +5,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: "Dr Kovana Marcel LOUA",
     country: "Coordinateur Programme MOH-CDC",
     photo: "/testimonials/fatou.jpg",
-    text: "CASH MOOV SA a réalisé pour le compte du programme MOH-CDC, la gestion de paiements décentralisés dans le cadre de l’exécution des activités menées par les partenaires nationaux. Ces prestations ont été réalisées avec diligence et professionnalisme et ont facilité, la mise en œuvre des ateliers et autres paiements en faveur des bénéficiaires sous la supervision de l’agence fudiciaire PWC chargé de la gestion du programme, ce pour la période 2015-2020..",
+    text: "CASH MOOV SA a réalisé pour le compte du programme MOH-CDC, la gestion de paiements décentralisés dans le cadre de l’exécution des activités menées par les partenaires nationaux.",
     rating: 5,
   },
   {

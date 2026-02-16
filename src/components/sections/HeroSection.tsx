@@ -6,7 +6,6 @@ export function HeroSection() {
   return (
     <div className="relative min-h-screen pt-16 sm:pt-20 md:pt-24 flex items-center overflow-hidden bg-gradient-to-br from-[#2A4793] via-[#1f356d] to-[#2A4793]">
       
-      {/* Background Animation */}
       <div className="absolute inset-0 overflow-hidden flex items-center justify-center">
         <motion.div 
           className="w-[600px] h-[600px] sm:w-[800px] sm:h-[800px] md:w-[1000px] md:h-[1000px]"
@@ -27,11 +26,9 @@ export function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Content */}
       <div className="relative z-10 w-full mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-0">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center max-w-7xl mx-auto">
           
-          {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -44,7 +41,7 @@ export function HeroSection() {
               transition={{ delay: 0.4, duration: 0.8 }}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
             >
-              Envoyez de l'argent <span className="text-[#F7CE47]">en toute simplicité</span>
+              Transferez de l'argent et faites vos Paiements <span className="text-[#F7CE47]">en toute simplicité</span>
             </motion.h1>
 
             <motion.p
@@ -54,10 +51,17 @@ export function HeroSection() {
               className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto lg:mx-0"
             >
               Transférez de l'argent rapidement et en toute sécurité avec Cash Moov.
-              Des frais transparents, des transferts instantanés vers plus de 50 pays.
+              Des frais transparents, des transferts instantanés vers plus de 63 pays.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+              className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto lg:mx-0"
+            >
+              Téléchargez et Partagez le sourire
             </motion.p>
 
-            {/* Download Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -96,7 +100,6 @@ export function HeroSection() {
             </motion.div>
           </motion.div>
 
-          {/* Phone Image */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
