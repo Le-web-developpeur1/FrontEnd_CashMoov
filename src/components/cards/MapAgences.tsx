@@ -27,23 +27,53 @@ export default function MapAgences() {
       });
     });
 
-    map.on("click", "agences-c6qpi8", (e) => {
-      if (!e.features || e.features.length === 0) return;
-      
-      const props = e.features[0].properties as {
-        name: string;
-        city: string;
-        phone: string;
-      };
+    map.on("load", () => {
+      // Écouter tous les clics
+      map.on("click", (e) => {
+        const features = map.queryRenderedFeatures(e.point);
+        
+        const agenceFeature = features.find(f => 
+          (f.layer && (f.layer.id.includes('agence') || f.layer.id.includes('Agence'))) ||
+          (f.properties && (f.properties.name || f.properties.city))
+        );
 
-      new mapboxgl.Popup()
-        .setLngLat(e.lngLat)
-        .setHTML(`
-          <strong>${props.name}</strong><br>
-          Ville : ${props.city}<br>
-          Téléphone : ${props.phone}
-        `)
-        .addTo(map);
+        if (agenceFeature && agenceFeature.properties) {
+          const props = agenceFeature.properties;
+          
+          const popupHTML = `
+            <div style="font-family: Arial, sans-serif; min-width: 250px; padding: 8px;">
+              <h3 style="margin: 0 0 12px 0; font-size: 18px; font-weight: bold; color: #2A4793;">
+                ${props.name || props.agence || 'Agence Cashmoov'}
+              </h3>
+              ${props.agence ? `<p style="margin: 8px 0;"><strong>Agence :</strong> ${props.agence}</p>` : ''}
+              ${props.region ? `<p style="margin: 8px 0;"><strong>Région :</strong> ${props.region}</p>` : ''}
+              ${props.city ? `<p style="margin: 8px 0;"><strong>Ville :</strong> ${props.city}</p>` : ''}
+              ${props.address ? `<p style="margin: 8px 0;"><strong>Adresse :</strong> ${props.address}</p>` : ''}
+              ${props.phone ? `<p style="margin: 8px 0;"><strong>Téléphone :</strong> <a href="tel:${props.phone}" style="color: #2A4793;">${props.phone}</a></p>` : ''}
+            </div>
+          `;
+
+          new mapboxgl.Popup({
+            closeButton: true,
+            closeOnClick: false,
+            maxWidth: '350px',
+            offset: 25
+          })
+            .setLngLat(e.lngLat)
+            .setHTML(popupHTML)
+            .addTo(map);
+        }
+      });
+
+      // Curseur pointer au survol
+      map.on('mousemove', (e) => {
+        const features = map.queryRenderedFeatures(e.point);
+        const hasAgence = features.some(f => 
+          (f.layer && (f.layer.id.includes('agence') || f.layer.id.includes('Agence'))) ||
+          (f.properties && f.properties.name)
+        );
+        map.getCanvas().style.cursor = hasAgence ? 'pointer' : '';
+      });
     });
 
     return () => map.remove();
