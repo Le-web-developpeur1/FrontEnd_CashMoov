@@ -3,18 +3,6 @@ import { Wallet, Send, CreditCard, Banknote, Users } from "lucide-react";
 
 export const SERVICES_PARTICULIERS: Omit<ServiceCardProps, 'onDiscover'>[] = [
   {
-    title: "Dépôt et Retrait",
-    description: "Vous pouvez alimenter votre compte ou retirer votre argent grâce à plusieurs options pratiques.",
-    icon: Wallet,
-    iconColor: "#2A4793",
-    image: "/images/services/Retrait.svg",
-    features: [
-      "Via Agent : Dépôt et retrait d'argent auprès du réseau d'agents agréés partout sur le territoire",
-      "Via Banque : Transfert d'argent entre un compte bancaire et le compte mobile pour plus de flexibilité",
-      "Via autres services : Intégration avec d'autres plateformes financières (Orange Money vers CashMoov par exemple)",
-    ],
-  },
-  {
     title: "Transfert d'Argent",
     description: "Envoyez et recevez de l'argent rapidement et en toute sécurité.",
     icon: Send,
@@ -35,6 +23,18 @@ export const SERVICES_PARTICULIERS: Omit<ServiceCardProps, 'onDiscover'>[] = [
       "Paiement de factures : Réglez vos factures (électricité, eau, internet, etc.) sans vous déplacer",
       "Achat de crédit : Rechargez votre téléphone ou celui de vos proches instantanément",
       "Paiement marchand : Payez vos achats chez les commerçants, en face-à-face ou à distance (remote)",
+    ],
+  },
+  {
+    title: "Dépôt et Retrait",
+    description: "Vous pouvez alimenter votre compte ou retirer votre argent grâce à plusieurs options pratiques.",
+    icon: Wallet,
+    iconColor: "#2A4793",
+    image: "/images/services/Retrait.svg",
+    features: [
+      "Via Agent : Dépôt et retrait d'argent auprès du réseau d'agents agréés partout sur le territoire",
+      "Via Banque : Transfert d'argent entre un compte bancaire et le compte mobile pour plus de flexibilité",
+      "Via autres services : Intégration avec d'autres plateformes financières (Orange Money vers CashMoov par exemple)",
     ],
   },
 ];

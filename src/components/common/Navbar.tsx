@@ -94,7 +94,7 @@ function Navbar() {
           className="md:hidden"
         >
           <svg
-            className="w-12 h-16 md:w-6 md:h-6 text-white"
+            className="w-10 h-10 md:w-6 md:h-6 text-white"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
