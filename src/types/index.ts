@@ -6,6 +6,7 @@ export interface ServiceCardProps {
   features: string[];
   icon?: LucideIcon;
   iconColor?: string;
+  image?: string;
   onDiscover?: () => void;
 }
 
