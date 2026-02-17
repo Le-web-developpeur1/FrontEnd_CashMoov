@@ -32,10 +32,15 @@ export default function MapAgences() {
       map.on("click", (e) => {
         const features = map.queryRenderedFeatures(e.point);
         
-        const agenceFeature = features.find(f => 
-          (f.layer && (f.layer.id.includes('agence') || f.layer.id.includes('Agence'))) ||
-          (f.properties && (f.properties.name || f.properties.city))
-        );
+        const agenceFeature = features.find(f => {
+          if (f.layer && f.layer.id) {
+            return f.layer.id.includes('agence') || f.layer.id.includes('Agence');
+          }
+          if (f.properties) {
+            return f.properties.name || f.properties.city;
+          }
+          return false;
+        });
 
         if (agenceFeature && agenceFeature.properties) {
           const props = agenceFeature.properties;
@@ -68,10 +73,15 @@ export default function MapAgences() {
       // Curseur pointer au survol
       map.on('mousemove', (e) => {
         const features = map.queryRenderedFeatures(e.point);
-        const hasAgence = features.some(f => 
-          (f.layer && (f.layer.id.includes('agence') || f.layer.id.includes('Agence'))) ||
-          (f.properties && f.properties.name)
-        );
+        const hasAgence = features.some(f => {
+          if (f.layer && f.layer.id) {
+            return f.layer.id.includes('agence') || f.layer.id.includes('Agence');
+          }
+          if (f.properties) {
+            return !!f.properties.name;
+          }
+          return false;
+        });
         map.getCanvas().style.cursor = hasAgence ? 'pointer' : '';
       });
     });
