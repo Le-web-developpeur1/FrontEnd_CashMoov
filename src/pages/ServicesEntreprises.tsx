@@ -72,10 +72,10 @@ export default function ServicesEntreprises() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="grid grid-cols-1 gap-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"
+                className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"
             >
                 {SERVICES_ENTREPRISES.map((service, index) => (
-                    <motion.div key={index} variants={itemVariants}>
+                    <motion.div key={index} variants={itemVariants} className="flex">
                         <ServiceCard
                             title={service.title}
                             description={service.description}
