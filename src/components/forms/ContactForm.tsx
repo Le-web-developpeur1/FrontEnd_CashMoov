@@ -47,9 +47,14 @@ export default function ContactForm() {
         setSuccess("")
       }, 2000);
         reset();
-    } catch (error: any) {
-      setLoading(false);
-      alert(error.message || 'Erreur lors de l\'envoi du message');
+    } catch (error: unknown) { 
+        setLoading(false); 
+        
+        if (error instanceof Error) { 
+          alert(error.message); 
+        } else { 
+          alert('Erreur lors de l\'envoi du message'); 
+        }
     } finally {
       setLoading(false);
     }

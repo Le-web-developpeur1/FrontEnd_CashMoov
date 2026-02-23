@@ -81,6 +81,9 @@ function Navbar() {
           <NavLink to="/notre-reseau" className="hover:text-[#F7CE47] transition">
             Notre Réseau
           </NavLink>
+          <NavLink to="/about" className="hover:text-[#F7CE47] transition">
+            A propos
+          </NavLink>
 
           <NavLink to="/contact" className="hover:text-[#F7CE47] transition">
             Contact
@@ -166,6 +169,10 @@ function Navbar() {
 
             <NavLink to="/notre-reseau" onClick={() => setMenuOpen(false)}>
               Notre Réseau
+            </NavLink>
+
+            <NavLink to="/about" onClick={() => setMenuOpen(false)}>
+              A propos
             </NavLink>
 
             <NavLink to="/contact" onClick={() => setMenuOpen(false)}>

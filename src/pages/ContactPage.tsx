@@ -32,7 +32,7 @@ export default function ContactPage() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="mt-15 bg-[#2A4793] text-center py-12 px-4"
+        className="mt-15 bg-gradient-to-br from-[#2A4793] via-[#1f356d] to-[#2A4793] text-center py-12 px-4"
       >
         <h2 className="text-[#F7CE47] text-4xl md:text-5xl font-bold mb-4">Contactez-nous</h2>
         <p className="text-white text-lg md:text-xl max-w-2xl mx-auto">
@@ -55,7 +55,7 @@ export default function ContactPage() {
                 variants={itemVariants}
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.3 }}
-                className="bg-gradient-to-br from-white to-gray-50 rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-2xl p-5 sm:p-6 text-center border-t-4 border-[#2A4793] transition-all duration-300 group"
+                className="bg-gradient-to-br from-white to-gray-50 rounded-2xl sm:rounded-3xl shadow-lg p-5 sm:p-6 text-center border-t-4 border-[#2A4793] transition-all duration-300 group"
               >
                 <div
                   className={`inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 ${info.color} rounded-xl sm:rounded-2xl mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}

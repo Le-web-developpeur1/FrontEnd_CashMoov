@@ -20,14 +20,14 @@ export const ServiceCard: React.FC<ServiceCardWithOptionalImageProps> = ({
     <motion.div
       whileHover={{ y: -5 }}
       transition={{ duration: 0.3 }}
-      className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-6 sm:p-8 md:p-10 border border-gray-200 hover:border-[#2A4793]/50 hover:shadow-xl transition-all duration-300 group w-full h-full"
+      className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-6 sm:p-8 md:p-10 border border-gray-200 group w-full h-full"
     >
       <div className={`${imageSrc ? 'grid lg:grid-cols-2 gap-6 lg:gap-8 items-center' : ''}`}>
         
         <div>
           {Icon && (
             <div className="mb-5 sm:mb-6 flex gap-5 items-center">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-[#2A4793] to-[#1f356d] rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-[#2A4793] to-[#1f356d] rounded-2xl flex items-center justify-center ">
                 <Icon className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 flex items-center gap-2">

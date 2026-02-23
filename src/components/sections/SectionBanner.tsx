@@ -4,7 +4,7 @@ import type { SectionBannerProps } from '@/types';
 export const SectionBanner: React.FC<SectionBannerProps> = ({
     title,
     description,
-    bgColor = "bg-[#2A4793]",
+    bgColor = "bg-gradient-to-br from-[#2A4793] via-[#1f356d] to-[#2A4793]",
 }) => {
     return (
         <section className={`${bgColor} w-full py-10 sm:py-12 px-4 sm:px-6 md:px-12`}>

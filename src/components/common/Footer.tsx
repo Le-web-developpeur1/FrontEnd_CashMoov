@@ -25,7 +25,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#2A4793] text-white pt-12 pb-6 px-6 md:px-12">
+    <footer className="bg-gradient-to-br from-[#2A4793] via-[#1f356d] to-[#2A4793] text-white pt-12 pb-6 px-6 md:px-12">
       
       <motion.div 
         variants={containerVariants}

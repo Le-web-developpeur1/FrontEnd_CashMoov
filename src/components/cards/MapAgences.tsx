@@ -1,50 +1,48 @@
-// import { useEffect, useRef } from "react";
-// import mapboxgl from "mapbox-gl";
+import { useEffect } from "react";
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
+import { agences } from "@/agences";
 
-// export default function MapAgences() {
-//   const mapContainer = useRef<HTMLDivElement>(null);
+const MapAgences = () => {
+    useEffect(() => {
+        const kaloum = agences.find(a => a.name.includes("Kaloum"));
+        const map = L.map("map").setView([kaloum?.lat || 9.6412, kaloum?.lng || -13.5784], 14);
+        
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            attribution: "© OpenStreetMap contributors",
+        }).addTo(map);
 
-//   useEffect(() => {
-//     if (!mapContainer.current) return;
+        agences.forEach((agence) => {
+            L.marker([agence.lat, agence.lng])
+              .addTo(map)
+              .bindPopup(
+                `<b>${agence.name}</b><br/>${agence.city}<br/>Tel: ${agence.phone}`
+              );
+        });
 
-//     mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_TOKEN;
+        return () => {
+            map.remove();
+        }
 
-//     const map = new mapboxgl.Map({
-//       container: mapContainer.current,
-//       style: import.meta.env.VITE_MAPBOX_STYLE_URL,
-//       center: [-13.6878, 9.6412], 
-//       zoom: 12,
-//     });
+    }, []);
 
-//     map.on("click", "agences-6cqpi8", (e) => {
-//       if (!e.features || e.features.length === 0) return;
+    return (
+        <div style={{ display: "flex", justifyContent: "center", marginTop: "100px", marginBottom: "50px" }}>
+          <div
+            id="map"
+            style={{
+              height: "500px",
+              width: "100%",
+              maxWidth: "1200px",
+              borderRadius: "8px",
+              overflow: "hidden",
+              position: "relative",
+              zIndex: 1
+            }}
+          ></div>
+        </div>
+      );
       
-//       const props = e.features[0].properties as {
-//         name: string;
-//         city: string;
-//         phone: string;
-//       };
+};
 
-//       new mapboxgl.Popup()
-//         .setLngLat(e.lngLat)
-//         .setHTML(`
-//           <strong>${props.name}</strong><br>
-//           Ville : ${props.city}<br>
-//           Téléphone : ${props.phone}
-//         `)
-//         .addTo(map);
-//     });
-
-//     return () => map.remove();
-//   }, []);
-
-//   return (
-//     <div className="w-full flex justify-center py-8">
-//       <div
-//         ref={mapContainer}
-//         className="w-full max-w-6xl rounded-xl shadow-lg"
-//         style={{ height: "600px" }}
-//       />
-//     </div>
-//   );
-// }
+export default MapAgences;

@@ -1,15 +1,14 @@
-import { FaGlobe, FaMapMarkerAlt, FaMoneyBillWave, FaUsers } from "react-icons/fa";
+import { FaGlobe, FaUsers } from "react-icons/fa";
 import { motion } from "framer-motion";
-// import MapAgences from "@/components/cards/MapAgences";
-// import Globe3D from "@/components/common/Glob";
-
+import MapAgences from "@/components/cards/MapAgences";
+// FaMapMarkerAlt, FaMoneyBillWave,
 export default function NotreReseau() {
-  const stats = [
-    { icon: FaGlobe, number: "50+", label: "Pays couverts" },
-    { icon: FaMapMarkerAlt, number: "500+", label: "Points de service" },
-    { icon: FaMoneyBillWave, number: "150+", label: "Devises disponibles" },
-    { icon: FaUsers, number: "100K+", label: "Utilisateurs actifs" },
-  ];
+  // const stats = [
+  //   { icon: FaGlobe, number: "63+", label: "Pays couverts" },
+  //   { icon: FaMapMarkerAlt, number: "500+", label: "Points de service" },
+  //   { icon: FaMoneyBillWave, number: "150+", label: "Devises disponibles" },
+  //   { icon: FaUsers, number: "100K+", label: "Utilisateurs actifs" },
+  // ];
 
   const regions = [
     {
@@ -129,7 +128,7 @@ export default function NotreReseau() {
         </motion.div>
       </motion.div>
 
-      <div className="relative z-10 -mt-12">
+      {/* <div className="relative z-10 -mt-12">
         <div className="max-w-5xl mx-auto px-2 sm:px-4 lg:px-6">
           <motion.div
             variants={containerVariants}
@@ -144,9 +143,9 @@ export default function NotreReseau() {
                 variants={itemVariants}
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.3 }}
-                className="bg-gradient-to-br from-white to-gray-50 rounded-2xl sm:rounded-3xl shadow-xl p-5 sm:p-6 text-center border border-gray-200 hover:border-[#2A4793]/50 hover:shadow-2xl transition-all duration-300 group"
+                className="bg-gradient-to-br from-white to-gray-50 rounded-2xl sm:rounded-3xl p-5 sm:p-6 text-center border border-gray-200 group"
               >
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-[#2A4793] to-[#1f356d] rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-[#2A4793] to-[#1f356d] rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 ">
                   <stat.icon className="text-white text-xl sm:text-2xl" />
                 </div>
                 <p className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#2A4793] to-[#1f356d] bg-clip-text text-transparent mb-2">
@@ -157,7 +156,7 @@ export default function NotreReseau() {
             ))}
           </motion.div>
         </div>
-      </div>
+      </div> */}
 
       <div className="py-16 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -173,7 +172,7 @@ export default function NotreReseau() {
               Couverture géographique
             </h2>
             <p className="text-lg sm:text-xl text-gray-600">
-              Présents dans plus de 50 pays à travers le monde
+              Présents dans plus de 63 pays à travers le monde
             </p>
           </motion.div>
 
@@ -214,7 +213,7 @@ export default function NotreReseau() {
           </motion.div>
         </div>
       </div>
-      {/* <MapAgences/> */}
+      <MapAgences/>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}

@@ -10,10 +10,19 @@ interface User {
   user_type: string;
 }
 
+interface UserFormData {
+  first_name: string;
+  last_name: string;
+  email: string;
+  user_type: string;
+  address: string;
+}
+
+
 interface UserFormModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSubmit: (formData: any) => Promise<void>;
+  onSubmit: (formData: UserFormData) => Promise<void>;
   editingUser: User | null;
 }
 

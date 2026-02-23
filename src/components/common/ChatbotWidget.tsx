@@ -338,7 +338,7 @@ export default function ChatbotWidget() {
               <motion.button
                 whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full bg-[#2A4793] text-white py-3 rounded-xl font-medium hover:bg-[#1f356d] transition shadow-md"
+                className="w-full bg-[#2A4793] text-white py-3 rounded-xl font-medium hover:bg-[#1f356d] transition shadow-md cursor-pointer"
                 onClick={openChat}
               >
                 Envoyer un message

@@ -21,8 +21,8 @@ export default function DeleteConfirmModal({ isOpen, onClose, onConfirm, userNam
       await onConfirm(password);
       setPassword('');
       onClose();
-    } catch (error) {
-      
+    } catch {
+      alert("Une erreur est survenue");
     } finally {
       setLoading(false);
     }

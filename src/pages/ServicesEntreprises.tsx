@@ -1,6 +1,5 @@
 import { SectionBanner } from '@/components/sections/SectionBanner';
 import { SectionBanner2 } from '@/components/sections/SectionBanner2';
-import { ServiceCard } from '@/components/cards/ServiceCard';
 import { useNavigate } from 'react-router-dom';
 import { SERVICES_ENTREPRISES } from '@/constants';
 import { motion } from 'framer-motion';
@@ -52,6 +51,13 @@ export default function ServicesEntreprises() {
             description: "Account manager personnel et support technique 24/7"
         }
     ];
+
+    // Images pour les services entreprises
+    const serviceImages = [
+        "/images/Salaires.jfif",
+        "/images/point.jfif",
+        "/images/Depart.jfif"
+    ];
     
     return (
         <section className="mt-15">
@@ -67,25 +73,41 @@ export default function ServicesEntreprises() {
                 />
             </motion.div>
             
-            <motion.div
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"
-            >
-                {SERVICES_ENTREPRISES.map((service, index) => (
-                    <motion.div key={index} variants={itemVariants} className="flex">
-                        <ServiceCard
-                            title={service.title}
-                            description={service.description}
-                            features={service.features}
-                            icon={service.icon}
-                            iconColor={service.iconColor}
-                        />
+            <div className="bg-gray-50 py-12 sm:py-16">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <motion.div
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        className="grid grid-cols-1 md:grid-cols-3 gap-8"
+                    >
+                        {SERVICES_ENTREPRISES.map((service, index) => (
+                            <motion.div
+                                key={index}
+                                variants={itemVariants}
+                                className="bg-white rounded-2xl overflow-hidden border border-gray-200"
+                            >
+                                <div className="h-56 overflow-hidden bg-gray-200">
+                                    <img
+                                        src={serviceImages[index]}
+                                        alt={service.title}
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                                <div className="p-8">
+                                    <h3 className="text-2xl sm:text-3xl font-bold text-[#2A4793] mb-4">
+                                        {service.title}
+                                    </h3>
+                                    <p className="text-gray-700 text-base sm:text-lg">
+                                        {service.description}
+                                    </p>
+                                </div>
+                            </motion.div>
+                        ))}
                     </motion.div>
-                ))}
-            </motion.div>
+                </div>
+            </div>
 
             <div className="bg-gray-50 py-12 sm:py-16 mt-12">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
