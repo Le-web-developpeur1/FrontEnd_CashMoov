@@ -96,7 +96,7 @@ export default function ServicesParticuliers() {
                             </div>
                             
                             <div className="flex-1 w-full flex justify-center">
-                                <div className="relative w-full max-w-[250px] lg:max-w-[300px]">
+                                <div className="relative w-full max-w-[15.625rem] lg:max-w-[18.75rem]">
                                     <img
                                         src={service.image}
                                         alt={service.title}

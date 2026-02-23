@@ -27,14 +27,14 @@ const MapAgences = () => {
     }, []);
 
     return (
-        <div style={{ display: "flex", justifyContent: "center", marginTop: "100px", marginBottom: "50px" }}>
+        <div style={{ display: "flex", justifyContent: "center", marginTop: "6.25rem", marginBottom: "3.125rem" }}>
           <div
             id="map"
             style={{
-              height: "500px",
+              height: "31.25rem",
               width: "100%",
-              maxWidth: "1200px",
-              borderRadius: "8px",
+              maxWidth: "75rem",
+              borderRadius: "0.5rem",
               overflow: "hidden",
               position: "relative",
               zIndex: 1

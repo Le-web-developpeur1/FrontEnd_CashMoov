@@ -58,7 +58,7 @@ export default function AboutPage() {
             <div className="relative bg-gradient-to-br from-[#2A4793] via-[#1f356d] to-[#2A4793] py-20 sm:py-24 overflow-hidden">
                 <div className="absolute inset-0 overflow-hidden flex items-center justify-center">
                     <motion.div 
-                        className="w-[600px] h-[600px] sm:w-[800px] sm:h-[800px]"
+                        className="w-[37.5rem] h-[37.5rem] sm:w-[50rem] sm:h-[50rem]"
                         animate={{
                             scale: [0.7, 0.3, 0.7],
                         }}

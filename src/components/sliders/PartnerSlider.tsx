@@ -38,7 +38,7 @@ export default function PartnerSlider() {
 
             <div
               key={index}
-              className="min-w-[180px] sm:min-w-[220px] md:min-w-[260px] h-[70px] sm:h-[80px] md:h-[90px] rounded-lg sm:rounded-xl flex flex-row items-center justify-center gap-2 sm:gap-3 p-2"
+              className="min-w-[11.25rem] sm:min-w-[13.75rem] md:min-w-[16.25rem] h-[4.375rem] sm:h-[5rem] md:h-[5.625rem] rounded-lg sm:rounded-xl flex flex-row items-center justify-center gap-2 sm:gap-3 p-2"
             >
               <img
                 src={partner.logo}

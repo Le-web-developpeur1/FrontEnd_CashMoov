@@ -39,8 +39,8 @@ export default function TestimonialsSlider() {
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.4 }}
-                className="min-w-[200px] sm:min-w-[280px] md:min-w-[350px] 
-                           h-[180px] sm:h-[240px] md:h-[280px] flex flex-col
+                className="min-w-[12.5rem] sm:min-w-[17.5rem] md:min-w-[21.875rem] 
+                           h-[11.25rem] sm:h-[15rem] md:h-[17.5rem] flex flex-col
                            mb-8 bg-white shadow-lg rounded-xl sm:rounded-2xl 
                            p-3 sm:p-5 md:p-6 text-left"
               >
@@ -48,7 +48,7 @@ export default function TestimonialsSlider() {
                   {"★".repeat(t.rating)}
                 </div>
 
-                <p className="text-gray-700 italic mb-3 sm:mb-5 md:mb-6 flex-1 line-clamp-2 sm:line-clamp-3 md:line-clamp-4 text-[11px] sm:text-sm md:text-base leading-tight">
+                <p className="text-gray-700 italic mb-3 sm:mb-5 md:mb-6 flex-1 line-clamp-2 sm:line-clamp-3 md:line-clamp-4 text-[0.6875rem] sm:text-sm md:text-base leading-tight">
                   "{t.text}"
                 </p>
 
@@ -61,8 +61,8 @@ export default function TestimonialsSlider() {
                   />
 
                   <div className="min-w-0 flex-1">
-                    <p className="font-semibold text-gray-900 text-[11px] sm:text-sm md:text-base truncate">{t.name}</p>
-                    <p className="text-gray-600 text-[9px] sm:text-xs md:text-sm truncate">
+                    <p className="font-semibold text-gray-900 text-[0.6875rem] sm:text-sm md:text-base truncate">{t.name}</p>
+                    <p className="text-gray-600 text-[0.5625rem] sm:text-xs md:text-sm truncate">
                      {t.country}
                     </p>
                   </div>

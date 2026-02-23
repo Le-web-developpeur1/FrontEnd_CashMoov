@@ -83,7 +83,7 @@ export default function HistorySection() {
             </div>
           </div>
 
-          <div className="order-1 lg:order-2 relative min-h-[400px] flex items-center">
+          <div className="order-1 lg:order-2 relative min-h-[25rem] flex items-center">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}

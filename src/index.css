@@ -88,7 +88,7 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 @keyframes slide-up {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(1.25rem);
   }
   to {
     opacity: 1;
@@ -111,7 +111,7 @@ body {
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 0.625rem;
 }
 
 ::-webkit-scrollbar-track {
@@ -120,7 +120,7 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background: #2A4793;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
 }
 
 ::-webkit-scrollbar-thumb:hover {

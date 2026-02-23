@@ -8,8 +8,7 @@ export function HeroSection() {
       
       <div className="absolute inset-0 overflow-hidden flex items-center justify-center">
         <motion.div 
-          className="w-[600px] h-[600px] sm:w-[800px] sm:h-[800px] md:w-[1000px] md:h-[1000px]"
-          animate={{
+            className="w-[50vw] h-[50vw] sm:w-[60vw] sm:h-[60vw] md:w-[70vw] md:h-[70vw]"          animate={{
             scale: [0.7, 0.3, 0.7],
           }}
           transition={{
@@ -107,7 +106,7 @@ export function HeroSection() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             className="relative flex justify-center items-center lg:justify-end"
-            style={{ perspective: "1000px" }}
+            style={{ perspective: "62.5rem" }}
           >
             <motion.div
               className="absolute w-64 h-64 sm:w-80 sm:h-80 bg-[#F7CE47] rounded-full opacity-20 blur-3xl"

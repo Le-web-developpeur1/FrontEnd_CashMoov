@@ -152,7 +152,7 @@ export default function ContactPage() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     href="tel:+224621640000"
-                    className="bg-white text-[#2A4793] px-3 py-2 rounded-lg font-medium flex items-center justify-center gap-1 hover:bg-gray-100 transition shadow-lg text-sm flex-1 max-w-[100px]"
+                    className="bg-white text-[#2A4793] px-3 py-2 rounded-lg font-medium flex items-center justify-center gap-1 hover:bg-gray-100 transition shadow-lg text-sm flex-1 max-w-[6.25rem]"
                   >
                     <PhoneCall className="h-4 w-4" />
                     <span className="hidden sm:inline">Appel</span>
@@ -162,7 +162,7 @@ export default function ContactPage() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     href="mailto:contact@cashmoov.com"
-                    className="bg-white text-[#2A4793] px-3 py-2 rounded-lg font-medium flex items-center justify-center gap-1 hover:bg-gray-100 transition shadow-lg text-sm flex-1 max-w-[100px]"
+                    className="bg-white text-[#2A4793] px-3 py-2 rounded-lg font-medium flex items-center justify-center gap-1 hover:bg-gray-100 transition shadow-lg text-sm flex-1 max-w-[6.25rem]"
                   >
                     <Mail className="h-4 w-4" />
                     <span className="hidden sm:inline">Email</span>
@@ -174,7 +174,7 @@ export default function ContactPage() {
                     href="https://wa.me/224621640000?text=Bonjour%20l'équipe%20Cash%20Moov"
                     target="blank"
                     rel="noopener noreferrer"
-                    className="bg-green-500 text-white px-3 py-2 rounded-lg font-medium flex items-center justify-center gap-1 hover:bg-green-600 transition shadow-lg text-sm flex-1 max-w-[120px]"
+                    className="bg-green-500 text-white px-3 py-2 rounded-lg font-medium flex items-center justify-center gap-1 hover:bg-green-600 transition shadow-lg text-sm flex-1 max-w-[7.5rem]"
                   >
                     <FaWhatsapp className="h-4 w-4" />
                     <span className="hidden sm:inline">WhatsApp</span>

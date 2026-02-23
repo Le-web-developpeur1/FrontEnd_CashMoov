@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css'
-import './reset.css'
 import Layout from './layouts/Layout'
 import AdminLayout from './layouts/AdminLayout'
 import AssistantLayout from './layouts/AssistantLayout'
