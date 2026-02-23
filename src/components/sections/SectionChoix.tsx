@@ -91,7 +91,7 @@ export default function SectionChoix() {
               </div>
               <h3 className="text-base sm:text-lg lg:text-xl font-semibold mb-1.5 sm:mb-2">Réseau mondial</h3>
               <p className="text-black text-xs sm:text-sm">
-                Plus de 50 pays et 150 devises disponibles pour vos transferts
+                Plus de 63 pays et 150 devises disponibles pour vos transferts
               </p>
             </motion.div>
   
