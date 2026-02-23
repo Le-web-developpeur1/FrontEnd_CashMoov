@@ -41,7 +41,7 @@ export default function EnterpriseOffersSection() {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
@@ -57,11 +57,12 @@ export default function EnterpriseOffersSection() {
                 />
               </div>
               
-            </div>
+              <div className="absolute -bottom-10 left-1/2 -translate-x/2 w-24 h-24 bg-gradient-to-br from-[#F7CE47]/20 to-[#2A4793]/20 rounded-full blur-3xl -z-10"></div>
+              </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
