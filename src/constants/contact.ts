@@ -37,7 +37,7 @@ export const FAQS: FAQ[] = [
   {
     questions: "Quels sont les frais de transfert ?",
     answer:
-      "Nos frais varient selon le montant et la destination. Utilisez notre calculateur pour obtenir un devis précis.",
+      "Nos frais sont transparents et  varient selon le montant et la destination. ",
   },
   {
     questions: "Comment suivre mon transfert ?",

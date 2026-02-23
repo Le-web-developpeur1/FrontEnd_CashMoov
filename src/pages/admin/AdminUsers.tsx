@@ -13,6 +13,8 @@ interface User {
   user_type: string;
 }
 
+
+
 export default function AdminUsers() {
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
@@ -32,7 +34,7 @@ export default function AdminUsers() {
       const data = await usersAPI.getAll();
       const usersList = Array.isArray(data) ? data : (data.results || []);
       setUsers(usersList);
-    } catch (error) {
+    } catch {
       alert('Erreur lors du chargement des utilisateurs');
     } finally {
       setLoading(false);

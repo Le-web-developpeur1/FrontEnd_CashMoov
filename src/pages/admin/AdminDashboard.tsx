@@ -1,6 +1,20 @@
 import { useAuth } from '@/contexts/AuthContext';
 import { MessageSquare, Users, Star, Clock, CheckCircle } from 'lucide-react';
 
+interface Conversation {
+  id: string;
+  userName: string;
+  lastMessage: string;
+  waitingTime: string;
+}
+
+interface Assistant {
+  id: string;
+  name: string;
+  activeConversations: number;
+  status: 'available' | 'busy';
+}
+
 export default function AdminDashboard() {
   const { user } = useAuth();
 
@@ -14,8 +28,8 @@ export default function AdminDashboard() {
     satisfactionRate: 0,
   };
 
-  const recentConversations: any[] = [];
-  const activeAssistants: any[] = [];
+  const recentConversations: Conversation[] = [];
+  const activeAssistants: Assistant[] = [];
 
   return (
     <div>
@@ -110,7 +124,7 @@ export default function AdminDashboard() {
             </div>
           ) : (
             <div className="space-y-3">
-              {recentConversations.map((conv: any) => (
+              {recentConversations.map((conv: Conversation) => (
                 <div key={conv.id} className="p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition cursor-pointer">
                   <div className="flex items-start gap-3">
                     <div className="w-10 h-10 bg-[#2A4793] rounded-full flex items-center justify-center text-white font-semibold flex-shrink-0">
@@ -150,7 +164,7 @@ export default function AdminDashboard() {
             </div>
           ) : (
             <div className="space-y-3">
-              {activeAssistants.map((assistant: any) => (
+              {activeAssistants.map((assistant: Assistant) => (
                 <div key={assistant.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-[#2A4793] rounded-full flex items-center justify-center text-white font-semibold">

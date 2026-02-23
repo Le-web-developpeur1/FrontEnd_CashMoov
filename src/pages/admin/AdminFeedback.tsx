@@ -16,10 +16,8 @@ interface Feedback {
   is_read?: boolean;
 }
 
-// Clé localStorage pour stocker les messages lus
 const READ_MESSAGES_KEY = 'cashmoov_read_messages';
 
-// Fonctions helper pour gérer le localStorage
 const getReadMessages = (): string[] => {
   try {
     const stored = localStorage.getItem(READ_MESSAGES_KEY);
@@ -56,18 +54,20 @@ export default function AdminFeedback() {
       setError('');
       const data = await feedbackAPI.getAll();
             
-      // Récupérer les messages lus depuis localStorage
       const readMessages = getReadMessages();
       
-      // Ajouter le statut is_read à chaque message
       const feedbacksWithReadStatus = (Array.isArray(data) ? data : data.results || []).map((feedback: Feedback) => ({
         ...feedback,
         is_read: readMessages.includes(feedback.slug)
       }));
       
       setFeedbacks(feedbacksWithReadStatus);
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) { 
+        if (err instanceof Error) { 
+          setError(err.message); 
+        } else { 
+          setError('Une erreur est survenue'); 
+        }
     } finally {
       setLoading(false);
     }
@@ -96,7 +96,6 @@ export default function AdminFeedback() {
  
       const fullDetails = await feedbackAPI.getById(feedback.slug);
       
-      // Ajouter le slug du feedback de la liste si absent dans la réponse
       const detailsWithSlug = {
         ...fullDetails,
         slug: fullDetails.slug || feedback.slug 
@@ -104,18 +103,19 @@ export default function AdminFeedback() {
       
       setSelectedFeedback(detailsWithSlug);
       
-      // Marquer comme lu si ce n'est pas déjà le cas
       if (!feedback.is_read) {
-        // Sauvegarder dans localStorage
         markMessageAsRead(feedback.slug);
         
-        // Mettre à jour l'état local
         setFeedbacks(feedbacks.map(f => 
           f.slug === feedback.slug ? { ...f, is_read: true } : f
         ));
       }
-    } catch (err: any) {
-      alert('Erreur lors du chargement des détails: ' + err.message);
+    } catch (err: unknown) { 
+      if (err instanceof Error) { 
+        setError(err.message); 
+      } else { 
+        setError('Une erreur est survenue'); 
+      }
     } finally {
       setLoadingDetails(false);
     }
@@ -137,16 +137,14 @@ export default function AdminFeedback() {
           setSelectedFeedback(null);
         }
         
-        // Recharger la liste depuis le backend pour être sûr
         await loadFeedbacks();
         
         alert('Message supprimé avec succès');
-      } catch (err: any) {        
-        if (err.message.includes('No Feedback matches')) {
-          alert('Ce message n\'existe plus dans la base de données. La liste va être actualisée.');
-          await loadFeedbacks();
-        } else {
-          alert('Erreur lors de la suppression: ' + err.message);
+      } catch (err: unknown) { 
+        if (err instanceof Error) { 
+          setError(err.message); 
+        } else { 
+          setError('Une erreur est survenue'); 
         }
       }
     }

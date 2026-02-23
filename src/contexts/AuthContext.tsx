@@ -31,7 +31,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (token && storedUser) {
       try {
         setUser(JSON.parse(storedUser));
-      } catch (error) {
+      } catch {
         localStorage.removeItem('access');
         localStorage.removeItem('user');
       }
@@ -41,40 +41,31 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const login = async (email: string, password: string) => {
-    try {
-      const data = await authAPI.login(email, password);
-            
-      if (data.access) {
-        localStorage.setItem('access', data.access);
-      }
-      
-      if (data.refresh) {
-        localStorage.setItem('refresh', data.refresh);
-      }
-      
-      const storedToken = localStorage.getItem('access');
-      
-      if (!storedToken) {
-        throw new Error('Erreur lors du stockage du token');
-      }
-      
-      // Petit délai pour s'assurer que tout est bien synchronisé
-      await new Promise(resolve => setTimeout(resolve, 100));
-      
-      try {
-        const userInfo = await authAPI.getUserInfo();
-        
-        // Stockage des infos utilisateur
-        localStorage.setItem('user', JSON.stringify(userInfo));
-        setUser(userInfo);
-      } catch (userError: any) {
-        throw userError;
-      }
-      
-    } catch (error: any) {
-      throw error;
+    const data = await authAPI.login(email, password);
+  
+    if (data.access) {
+      localStorage.setItem('access', data.access);
     }
+  
+    if (data.refresh) {
+      localStorage.setItem('refresh', data.refresh);
+    }
+  
+    const storedToken = localStorage.getItem('access');
+    if (!storedToken) {
+      throw new Error('Erreur lors du stockage du token');
+    }
+  
+    // Petit délai pour s'assurer que tout est bien synchronisé
+    await new Promise(resolve => setTimeout(resolve, 100));
+  
+    const userInfo = await authAPI.getUserInfo();
+  
+    // Stockage des infos utilisateur
+    localStorage.setItem('user', JSON.stringify(userInfo));
+    setUser(userInfo);
   };
+  
 
   const logout = () => {
     localStorage.removeItem('access');

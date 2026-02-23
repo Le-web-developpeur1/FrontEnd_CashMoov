@@ -36,8 +36,12 @@ export default function ProfilePage() {
     try {
       await profileAPI.updateProfile(profileForm);
       setSuccess('Profil mis à jour avec succès !');
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) { 
+      if (err instanceof Error) { 
+        setError(err.message); 
+      } else { 
+        setError('Une erreur est survenue'); 
+      }
     } finally {
       setLoading(false);
     }
@@ -53,8 +57,12 @@ export default function ProfilePage() {
       await profileAPI.changeEmail(emailForm.new_email, emailForm.current_password);
       setSuccess('Email modifié avec succès ! Veuillez vous reconnecter.');
       setEmailForm({ new_email: '', current_password: '' });
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) { 
+      if (err instanceof Error) { 
+        setError(err.message); 
+      } else { 
+        setError('Une erreur est survenue'); 
+      }
     } finally {
       setLoading(false);
     }
@@ -82,8 +90,12 @@ export default function ProfilePage() {
       await profileAPI.changePassword(passwordForm.current_password, passwordForm.new_password);
       setSuccess('Mot de passe modifié avec succès !');
       setPasswordForm({ current_password: '', new_password: '', confirm_password: '' });
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) { 
+      if (err instanceof Error) { 
+        setError(err.message); 
+      } else { 
+        setError('Une erreur est survenue'); 
+      }
     } finally {
       setLoading(false);
     }
