@@ -57,7 +57,7 @@ export default function EnterpriseOffersSection() {
                 />
               </div>
               
-              <div className="absolute -bottom-10 left-1/2 -translate-x/2 w-24 h-24 bg-gradient-to-br from-[#F7CE47]/20 to-[#2A4793]/20 rounded-full blur-3xl -z-10"></div>
+              <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-24 h-24 bg-gradient-to-br from-[#F7CE47]/20 to-[#2A4793]/20 rounded-full blur-3xl -z-10"></div>
               </div>
           </motion.div>
 
