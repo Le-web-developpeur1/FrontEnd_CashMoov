@@ -54,7 +54,7 @@ export default function AboutPage() {
     ];
 
     return (
-        <section className="mt-15 pb-12">
+        <section className="mt-13 pb-12">
             <div className="relative bg-gradient-to-br from-[#2A4793] via-[#1f356d] to-[#2A4793] py-20 sm:py-24 overflow-hidden">
                 <div className="absolute inset-0 overflow-hidden flex items-center justify-center">
                     <motion.div 

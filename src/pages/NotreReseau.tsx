@@ -65,7 +65,7 @@ export default function NotreReseau() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="relative bg-gradient-to-r from-[#2A4793] via-[#2A4793] to-[#F7CE47] py-16 sm:py-20 lg:py-24 overflow-hidden mt-16"
+        className="relative bg-gradient-to-r from-[#2A4793] via-[#2A4793] to-[#F7CE47] py-16 sm:py-20 lg:py-24 overflow-hidden mt-13"
       >
         
         <div className="absolute inset-0 opacity-20">

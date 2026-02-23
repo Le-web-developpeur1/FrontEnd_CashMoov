@@ -248,7 +248,7 @@ export default function ChatbotWidget() {
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
-          className="absolute -top-7 translate-x-2  bg-[#F7CE47] text-[#2A4793] text-xs font-bold px-2 py-1 rounded-full shadow-lg"
+          className="absolute -top-6 translate-x-0.5 sm:translate-x-2.5  bg-[#F7CE47] text-[#2A4793] text-xs font-bold px-1  rounded-full shadow-lg"
         >
             Salut !
         </motion.div>
@@ -295,7 +295,7 @@ export default function ChatbotWidget() {
               <img 
                 src='/images/sticker.png' 
                 alt="Chat"
-              className="w-10 h-10 sm:w-14 sm:h-14 object-contain" 
+              className="w-8 h-8 sm:w-14 sm:h-14 object-contain" 
               />
             </motion.div>
           )}

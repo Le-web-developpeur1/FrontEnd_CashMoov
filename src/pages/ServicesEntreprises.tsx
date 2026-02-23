@@ -60,7 +60,7 @@ export default function ServicesEntreprises() {
     ];
     
     return (
-        <section className="mt-15">
+        <section className="mt-13">
             <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}

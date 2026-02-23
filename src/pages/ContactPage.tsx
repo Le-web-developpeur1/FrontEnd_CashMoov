@@ -32,7 +32,7 @@ export default function ContactPage() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="mt-15 bg-gradient-to-br from-[#2A4793] via-[#1f356d] to-[#2A4793] text-center py-12 px-4"
+        className="mt-13 bg-gradient-to-br from-[#2A4793] via-[#1f356d] to-[#2A4793] text-center py-12 px-4"
       >
         <h2 className="text-[#F7CE47] text-4xl md:text-5xl font-bold mb-4">Contactez-nous</h2>
         <p className="text-white text-lg md:text-xl max-w-2xl mx-auto">
