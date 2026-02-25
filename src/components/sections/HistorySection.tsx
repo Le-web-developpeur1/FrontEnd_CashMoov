@@ -8,25 +8,19 @@ const historyData = [
     year: "2014",
     title: "Fondation",
     description: "Création de l'entreprise avec l'ambition de révolutionner le secteur du transfert d'argent en Guinée, en Afrique et dans le monde.",
-    image: "/images/fondation.png"
+    image: "/images/fond.png"
   },
   {
     year: "2016",
     title: "Couverture complète du pays",
     description: "Fort d'un leadership et d'une parfaite maîtrise du transfert d'argent, nous avons réussi en quelques années à couvrir toute l'étendue du territoire guinéen.",
-    image: "/images/couve.png"
+    image: "/images/guinee.png"
   },
   {
     year: "2017",
     title: "Première agence en Afrique",
     description: "Afin d'explorer de nouveaux marchés, l'entreprise démarre son expansion continentale en ouvrant sa première agence africaine au Mali (Bamako).",
-    image: "/images/paiement.jfif"
-  },
-  {
-    year: "2018",
-    title: "Présence hors Afrique",
-    description: "L'entreprise obtient sa première représentation hors Afrique en Angleterre en 2018.",
-    image: "/images/Sourire.jfif"
+    image: "/images/presenceA.png"
   },
   {
     year: "2021 – 2024",
@@ -39,7 +33,7 @@ const historyData = [
     year: "2025",
     title: "Réseau mondial",
     description: "Grâce à la signature d'un partenariat stratégique, CashMoov est connecté à un réseau mondial qui permet d'envoyer de l'argent dans la quasi-totalité des pays du monde. L'application CashMoov ne connaît plus de frontière.",
-    image: "/images/vivre.jfif"
+    image: "/images/monde.png"
   },
 ];
 
@@ -49,7 +43,7 @@ export default function HistorySection() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % historyData.length);
-    }, 1000000);
+    }, 4000);
 
     return () => clearInterval(timer);
   }, []);

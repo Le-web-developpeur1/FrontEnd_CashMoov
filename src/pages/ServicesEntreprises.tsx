@@ -67,9 +67,7 @@ export default function ServicesEntreprises() {
                 transition={{ duration: 0.6 }}
             >
                 <SectionBanner
-                    badge='Solutions pour Entreprises'
-                    title='Des solutions professionnelles pour votre croissance internationale'
-                    description="Gérez vos paiements internationaux, votre trésorerie et vos transactions en toute simplicité avec nos outils dédiés aux entreprises."
+                    title='Des solutions professionnelles pour votre croissance'
                 />
             </motion.div>
             
@@ -83,12 +81,12 @@ export default function ServicesEntreprises() {
                         transition={{ duration: 0.6, delay: index * 0.2 }}
                         className={`${index === 1 ? 'bg-gray-50' : 'bg-white'} w-full py-16 lg:py-24`}
                     >
-                        <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-8 lg:gap-16`}>
+                        <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col ${index % 2 !== 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-8 lg:gap-16`}>
                             <div className="flex-1 w-full flex flex-col justify-center">
-                                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#2A4793] mb-4 sm:mb-6 text-center">
+                                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#2A4793] mb-4 sm:mb-6 ">
                                     {service.title}
                                 </h2>
-                                <p className="text-lg sm:text-xl text-gray-700 text-center mb-6 sm:mb-8">
+                                <p className="text-lg sm:text-xl text-gray-700  mb-6 sm:mb-8">
                                     {service.description}
                                 </p>
                                 <ul className="space-y-4 max-w-2xl mx-auto">

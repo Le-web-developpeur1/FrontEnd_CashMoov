@@ -117,12 +117,9 @@ export default function NotreReseau() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+          className="relative z-10 max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
         >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
-            Notre réseau
-          </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
+          <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white/90 max-w-3xl mx-auto">
             Un réseau mondial pour vous accompagner partout où vous en avez besoin
           </p>
         </motion.div>

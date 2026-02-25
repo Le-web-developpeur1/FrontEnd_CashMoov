@@ -106,21 +106,23 @@ export default function FeaturesSection() {
                   whileHover={{ scale: 1.03, y: -3 }}
                   className="bg-gradient-to-br from-gray-50 to-white p-4 rounded-xl border border-gray-100 hover:border-[#2A4793]/30 hover:shadow-md transition-all duration-300"
                 >
-                  <div className="flex items-start gap-3">
-                    <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden bg-gradient-to-br from-[#2A4793]/10 to-[#F7CE47]/10 p-2.5">
-                      <feature.icon
-                          className="w-full h-full object-contain text-[#2A4793]"
-                      />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 leading-tight">
-                        {feature.title}
-                      </h3>
-                      <p className="text-[0.625rem] sm:text-xs text-gray-600 leading-relaxed">
-                        {feature.description}
-                      </p>
-                    </div>
+                  <a href="/services-particuliers">
+                    <div className="flex items-start gap-3">
+                      <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden bg-gradient-to-br from-[#2A4793]/10 to-[#F7CE47]/10 p-2.5">
+                        <feature.icon
+                            className="w-full h-full object-contain text-[#2A4793]"
+                        />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 leading-tight">
+                          {feature.title}
+                        </h3>
+                        <p className="text-[0.625rem] sm:text-xs text-gray-600 leading-relaxed">
+                          {feature.description}
+                        </p>
+                      </div>
                   </div>
+                  </a>
                 </motion.div>
               ))}
             </div>

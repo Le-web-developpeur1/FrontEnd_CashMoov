@@ -57,9 +57,7 @@ export default function ServicesParticuliers() {
                 transition={{ duration: 0.6 }}
             >
                 <SectionBanner
-                    badge='Services pour Particuliers'
-                    title='Des solutions simples pour vos besoins quotidiens'
-                    description="Transférez de l'argent, rechargez vos proches, payez vos factures et bien plus encore, le tout depuis une seule application."
+                    title='Des solutions simples pour vos besoins au quotidien'
                 />
             </motion.div>
             
@@ -73,7 +71,7 @@ export default function ServicesParticuliers() {
                         transition={{ duration: 0.6, delay: index * 0.2 }}
                         className={`${index === 1 ? 'bg-gray-50' : 'bg-white'} w-full py-16 lg:py-24`}
                     >
-                        <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-8 lg:gap-16`}>
+                        <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col ${index % 2 !== 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-8 lg:gap-16`}>
                             <div className="flex-1 w-full">
                                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#2A4793] mb-4 sm:mb-6">
                                     {service.title}

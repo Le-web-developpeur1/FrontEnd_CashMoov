@@ -11,9 +11,7 @@ export interface ServiceCardProps {
 }
 
 export interface SectionBannerProps {
-  badge: string;
   title: string;
-  description: string;
   bgColor?: string;
 }
 

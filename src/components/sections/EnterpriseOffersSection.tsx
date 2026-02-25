@@ -47,13 +47,13 @@ export default function EnterpriseOffersSection() {
             transition={{ duration: 0.8 }}
             className="relative order-2 lg:order-1"
           >
-            <div className="relative max-w-md mx-auto">
+            <div className="relative max-w-xl mx-auto">
               <div className="relative rounded-xl overflow-hidden shadow-2xl">
                 <img
                   src="/images/salair.png"
                   alt="Cash Moov Entreprises"
                   loading="lazy"
-                  className="w-full h-auto object-cover"
+                  className="w-full h-auto object-cover scale-103"
                 />
               </div>
               
