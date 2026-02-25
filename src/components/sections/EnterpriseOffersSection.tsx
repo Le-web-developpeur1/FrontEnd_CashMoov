@@ -5,7 +5,7 @@ const enterpriseOffers = [
   {
     icon: Wallet,
     title: "Paiement de salaires",
-    description: "Versez les salaires de vos employés rapidement et en toute sécurité"
+    description: "Payez les salaires de vos employés rapidement et en toute sécurité"
   },
   {
     icon: Users,

@@ -5,7 +5,7 @@ const historyData = [
   {
     year: "2014",
     title: "Fondation",
-    description: "L'entreprise est fondée avec l'ambition de révolutionner le secteur du transfert d'argent en Guinée, en Afrique et dans le monde.",
+    description: "Création de l'entreprise avec l'ambition de révolutionner le secteur du transfert d'argent en Guinée, en Afrique et dans le monde.",
     image: "/images/Depart.jfif"
   },
   {
@@ -47,7 +47,7 @@ export default function HistorySection() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % historyData.length);
-    }, 4000);
+    }, 1000000);
 
     return () => clearInterval(timer);
   }, []);

@@ -8,7 +8,7 @@ export function HeroSection() {
   const features = [
     "Transférer de l'argent dans plus de 63 pays",
     "Payer vos factures et vos articles en boutique ou en ligne",
-    "Rechargez du crédit téléphonique",
+    "Recharger du crédit téléphonique",
     "Recevoir votre salaire à temps"
   ];
 
