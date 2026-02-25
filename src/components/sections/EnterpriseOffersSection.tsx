@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Wallet, Users, Building2, HandCoins, TrendingUp, Layers } from "lucide-react";
+import { Wallet, Users, Building2, HandCoins } from "lucide-react";
 
 const enterpriseOffers = [
   {
@@ -27,7 +27,7 @@ const enterpriseOffers = [
   //   title: "Gestion de trésorerie",
   //   description: "Optimisez la gestion de vos flux financiers"
   // },
-  // {
+  // { TrendingUp, Layers,
   //   icon: Layers,
   //   title: "Paiements en masse",
   //   description: "Effectuez plusieurs paiements simultanément"

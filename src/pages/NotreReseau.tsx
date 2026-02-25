@@ -1,4 +1,4 @@
-import { FaGlobe, FaMapMarkerAlt, FaUsers } from "react-icons/fa";
+import { FaGlobe, FaUsers } from "react-icons/fa";
 import { motion } from "framer-motion";
 import MapAgences from "@/components/cards/MapAgences";
 // FaMapMarkerAlt, FaMoneyBillWave,
