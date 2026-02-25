@@ -1,6 +1,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
+
+
 const historyData = [
   {
     year: "2014",
@@ -27,16 +29,16 @@ const historyData = [
     image: "/images/Sourire.jfif"
   },
   {
-    year: "2024",
-    title: "Portfeuille électronique",
-    description: "Pour porter notre nouvel élan vers le digital, nous avons décidé d'opter pour une nouvelle charte graphique et la mise en place de supports web.",
+    year: "2021 – 2024",
+    title: "Transformation digitale ",
+    description: "CashMoov obtient la licence d’établissement de monnaie électronique auprès de la Banque centrale de la République de Guinée. Elle conçoit une plateforme de mobile money pour proposer des services innovants à l'image du portefeuille mobile (wallet).",
     image: "/images/vivre.jfif"
   }
   ,
   {
     year: "2025",
     title: "Réseau mondial",
-    description: "Pour porter notre nouvel élan vers le digital, nous avons décidé d'opter pour une nouvelle charte graphique et la mise en place de supports web.",
+    description: "Grâce à la signature d'un partenariat stratégique, CashMoov est connecté à un réseau mondial qui permet d'envoyer de l'argent dans la quasi-totalité des pays du monde. L'application CashMoov ne connaît plus de frontière.",
     image: "/images/vivre.jfif"
   },
 ];

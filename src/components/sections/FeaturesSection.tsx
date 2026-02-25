@@ -1,33 +1,41 @@
 import { motion } from "framer-motion";
+import {
+  WalletCards,
+  Send,
+  Smartphone,
+  ShoppingCart,
+  Receipt,
+  Monitor
+} from 'lucide-react';
 
 const features = [
   {
-    img: "/images/MeR.png",
+    icon: WalletCards,
     title: "Recharger votre compte",
     description: "Alimentez votre compte via un canal physique ou digital"
   },
   {
-    img: "/images/Transfert.png",
+    icon: Send,
     title: "Transfert d'argent",
     description: "Envoyez et recevez de l'argent en local et à l'international"
   },
   {
-    img: "/images/Credit.png",
+    icon: Smartphone,
     title: "Achat de crédit",
     description: "Rechargez du crédit téléphonique instantanément"
   },
   {
-    img: "/images/PaiementM.png",
+    icon: ShoppingCart,
     title: "Paiement marchand",
     description: "Payez vos achats en boutique en un clic"
   },
   {
-    img: "/images/Paiement.png",
+    icon: Receipt,
     title: "Paiement de facture",
     description: "Réglez vos factures d'éléctricité, d'eau..."
   },
   {
-    img: "/images/Retrait.png",
+    icon: Monitor ,
     title: "Produits digitaux",
     description: "Accèdez à une multitude de services : E-sim, Gift Card... "
   },
@@ -74,7 +82,7 @@ export default function FeaturesSection() {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3"
             >
-              Cash Moov, <span className="text-[#2A4793] sm:text-3xl">le sourire qui rapproche !</span>
+              Cash Moov, <span className="text-[#F7CE47] sm:text-3xl">le sourire qui rapproche</span> !
             </motion.h2>
 
             <motion.p
@@ -100,11 +108,8 @@ export default function FeaturesSection() {
                 >
                   <div className="flex items-start gap-3">
                     <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden bg-gradient-to-br from-[#2A4793]/10 to-[#F7CE47]/10 p-2.5">
-                      <img 
-                        src={feature.img} 
-                        alt={feature.title}
-                        loading="lazy"
-                        className="w-full h-full object-contain" 
+                      <feature.icon
+                          className="w-full h-full object-contain text-[#2A4793]"
                       />
                     </div>
                     <div className="flex-1 min-w-0">
