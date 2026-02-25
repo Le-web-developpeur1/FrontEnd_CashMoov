@@ -27,12 +27,12 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="">
+    <div className="overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="mt-13 bg-gradient-to-br from-[#2A4793] via-[#1f356d] to-[#2A4793] text-center py-12 px-4"
+        className="mt-10 bg-gradient-to-br from-[#2A4793] via-[#1f356d] to-[#2A4793] text-center py-12 px-4"
       >
         <h2 className="text-[#F7CE47] text-4xl md:text-5xl font-bold mb-4">Contactez-nous</h2>
         <p className="text-white text-lg md:text-xl max-w-2xl mx-auto">
@@ -147,12 +147,12 @@ export default function ContactPage() {
                   Notre équipe est disponible à tout moment
                 </p>
 
-                <div className="flex gap-2 justify-center">
+                <div className="flex flex-wrap gap-2 justify-center px-2">
                   <motion.a
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     href="tel:+224621640000"
-                    className="bg-white text-[#2A4793] px-3 py-2 rounded-lg font-medium flex items-center justify-center gap-1 hover:bg-gray-100 transition shadow-lg text-sm flex-1 max-w-[6.25rem]"
+                    className="bg-white text-[#2A4793] px-3 py-2 rounded-lg font-medium flex items-center justify-center gap-1 hover:bg-gray-100 transition shadow-lg text-sm"
                   >
                     <PhoneCall className="h-4 w-4" />
                     <span className="hidden sm:inline">Appel</span>
@@ -162,7 +162,7 @@ export default function ContactPage() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     href="mailto:contact@cashmoov.com"
-                    className="bg-white text-[#2A4793] px-3 py-2 rounded-lg font-medium flex items-center justify-center gap-1 hover:bg-gray-100 transition shadow-lg text-sm flex-1 max-w-[6.25rem]"
+                    className="bg-white text-[#2A4793] px-3 py-2 rounded-lg font-medium flex items-center justify-center gap-1 hover:bg-gray-100 transition shadow-lg text-sm"
                   >
                     <Mail className="h-4 w-4" />
                     <span className="hidden sm:inline">Email</span>
@@ -174,7 +174,7 @@ export default function ContactPage() {
                     href="https://wa.me/224621640000?text=Bonjour%20l'équipe%20Cash%20Moov"
                     target="blank"
                     rel="noopener noreferrer"
-                    className="bg-green-500 text-white px-3 py-2 rounded-lg font-medium flex items-center justify-center gap-1 hover:bg-green-600 transition shadow-lg text-sm flex-1 max-w-[7.5rem]"
+                    className="bg-green-500 text-white px-3 py-2 rounded-lg font-medium flex items-center justify-center gap-1 hover:bg-green-600 transition shadow-lg text-sm"
                   >
                     <FaWhatsapp className="h-4 w-4" />
                     <span className="hidden sm:inline">WhatsApp</span>

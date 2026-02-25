@@ -13,7 +13,7 @@ export default function PartnerSlider() {
         transition={{ duration: 0.6 }}
         className="m-3 text-center font-bold mb-6 sm:mb-8 md:mb-10 text-2xl sm:text-3xl text-[#2A4793]"
       >
-        Nos partenaires de confiance
+        Nos partenaires
       </motion.h1>
       <motion.p
         initial={{ opacity: 0, y: 20 }}

@@ -1,4 +1,4 @@
-import { FaGlobe, FaUsers } from "react-icons/fa";
+import { FaGlobe, FaMapMarkerAlt, FaUsers } from "react-icons/fa";
 import { motion } from "framer-motion";
 import MapAgences from "@/components/cards/MapAgences";
 // FaMapMarkerAlt, FaMoneyBillWave,
@@ -13,27 +13,27 @@ export default function NotreReseau() {
   const regions = [
     {
       name: "Afrique de l'Ouest",
-      countries: ["Guinée", "Sénégal", "Mali", "Côte d'Ivoire", "Burkina Faso", "Niger", "Bénin", "Togo"],
+      countries: ["Bénin", "Burkina Faso", "Côte d'Ivoire", "Gambie", "Ghana", "Guinée-Bissau", "Liberia", "Mali", "Niger", "Nigeria", "Sénégal", "Sierra Leone", "Togo"],
     },
     {
       name: "Afrique Centrale",
-      countries: ["Cameroun", "Gabon", "Congo", "Tchad", "RD Congo", "République Centrafricaine"],
+      countries: ["Cameroun", "Congo", "Congo RDC", "Gabon", "Guinée Équatoriale"],
     },
     {
-      name: "Afrique du Nord",
-      countries: ["Maroc", "Tunisie", "Algérie", "Égypte", "Libye"],
+      name: "Afrique du Nord, Est & Australe",
+      countries: ["Afrique du Sud", "Algérie", "Égypte", "Kenya", "Maroc", "Mauritanie", "Mozambique", "Soudan", "Tunisie"],
     },
     {
       name: "Europe",
-      countries: ["France", "Belgique", "Italie", "Espagne", "Allemagne", "Royaume-Uni", "Portugal"],
+      countries: ["Allemagne", "Angleterre", "Autriche", "Belgique", "Chypre", "Danemark", "Espagne", "France", "Grèce", "Irlande", "Italie", "Luxembourg", "Norvège", "Pays-Bas", "Pologne", "Portugal", "Royaume-Uni", "Suisse", "Ukraine"],
     },
     {
-      name: "Amérique du Nord",
-      countries: ["États-Unis", "Canada"],
+      name: "Amérique",
+      countries: ["Argentine", "Brésil", "Canada", "États-Unis"],
     },
     {
-      name: "Asie",
-      countries: ["Chine", "Inde", "Émirats Arabes Unis", "Arabie Saoudite"],
+      name: "Asie & Moyen-Orient",
+      countries: ["Arabie Saoudite", "Australie", "Chine", "Émirats arabes unis", "Hong Kong", "Inde", "Indonésie", "Japon", "Malaisie", "Thaïlande", "Turquie"],
     },
   ];
 
@@ -65,7 +65,7 @@ export default function NotreReseau() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="relative bg-gradient-to-r from-[#2A4793] via-[#2A4793] to-[#F7CE47] py-16 sm:py-20 lg:py-24 overflow-hidden mt-13"
+        className="relative bg-gradient-to-r from-[#2A4793] via-[#2A4793] to-[#F7CE47] py-16 sm:py-20 lg:py-24 overflow-hidden mt-10"
       >
         
         <div className="absolute inset-0 opacity-20">
@@ -172,7 +172,7 @@ export default function NotreReseau() {
               Couverture géographique
             </h2>
             <p className="text-lg sm:text-xl text-gray-600">
-              Présents dans plus de 63 pays à travers le monde
+              Présents dans plus de 60 pays à travers le monde
             </p>
           </motion.div>
 
@@ -181,7 +181,7 @@ export default function NotreReseau() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:auto-rows-fr"
           >
             {regions.map((region, index) => (
               <motion.div
@@ -189,7 +189,7 @@ export default function NotreReseau() {
                 variants={itemVariants}
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.3 }}
-                className="bg-gradient-to-br from-white to-gray-50 rounded-2xl sm:rounded-3xl shadow-xl p-6 sm:p-8 border border-gray-200 hover:border-[#2A4793]/50 hover:shadow-2xl transition-all duration-300 group"
+                className="bg-gradient-to-br from-white to-gray-50 rounded-2xl sm:rounded-3xl shadow-xl p-6 sm:p-8 border border-gray-200 hover:border-[#2A4793]/50 hover:shadow-2xl transition-all duration-300 group flex flex-col"
               >
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-[#2A4793] to-[#1f356d] rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
@@ -198,7 +198,7 @@ export default function NotreReseau() {
                   <h3 className="text-lg sm:text-xl font-bold text-gray-900">{region.name}</h3>
                 </div>
                 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 flex-1 content-start">
                   {region.countries.map((country, idx) => (
                     <span
                       key={idx}
@@ -219,21 +219,21 @@ export default function NotreReseau() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="bg-[#2A4793] py-12 sm:py-16"
+        className="bg-gray-50 py-12 sm:py-16"
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Devenez partenaire Cash Moov
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-white/90 mb-6 sm:mb-8">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8">
               Rejoignez notre réseau et offrez nos services à vos clients
           </p>
           
           <a 
               href="/contact"
-              className="inline-flex items-center justify-center gap-3 bg-[#F7CE47] text-[#2A4793] px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg hover:bg-yellow-300 transition hover:scale-105 transform duration-300"
+              className="inline-flex items-center justify-center gap-3 bg-[#2A4793] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg hover:bg-[#1f356d] transition hover:scale-105 transform duration-300"
             >
-               Dévenir partenaire
+               Devenir partenaire
             </a>
             
         </div>

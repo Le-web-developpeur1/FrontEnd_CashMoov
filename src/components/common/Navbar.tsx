@@ -82,7 +82,7 @@ function Navbar() {
             Notre Réseau
           </NavLink>
           <NavLink to="/about" className="hover:text-[#F7CE47] transition">
-            A propos
+            A Propos
           </NavLink>
 
           <NavLink to="/contact" className="hover:text-[#F7CE47] transition">
@@ -172,7 +172,7 @@ function Navbar() {
             </NavLink>
 
             <NavLink to="/about" onClick={() => setMenuOpen(false)}>
-              A propos
+              A Propos
             </NavLink>
 
             <NavLink to="/contact" onClick={() => setMenuOpen(false)}>

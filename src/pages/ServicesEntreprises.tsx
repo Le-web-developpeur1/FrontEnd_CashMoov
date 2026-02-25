@@ -60,7 +60,7 @@ export default function ServicesEntreprises() {
     ];
     
     return (
-        <section className="mt-13">
+        <section className="mt-10">
             <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -73,40 +73,52 @@ export default function ServicesEntreprises() {
                 />
             </motion.div>
             
-            <div className="bg-gray-50 py-12 sm:py-16">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="w-full">
+                {SERVICES_ENTREPRISES.map((service, index) => (
                     <motion.div
-                        variants={containerVariants}
-                        initial="hidden"
-                        whileInView="visible"
+                        key={index}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="grid grid-cols-1 md:grid-cols-3 gap-8"
+                        transition={{ duration: 0.6, delay: index * 0.2 }}
+                        className={`${index === 1 ? 'bg-gray-50' : 'bg-white'} w-full py-16 lg:py-24`}
                     >
-                        {SERVICES_ENTREPRISES.map((service, index) => (
-                            <motion.div
-                                key={index}
-                                variants={itemVariants}
-                                className="bg-white rounded-2xl overflow-hidden border border-gray-200"
-                            >
-                                <div className="h-56 overflow-hidden bg-gray-200">
+                        <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-8 lg:gap-16`}>
+                            <div className="flex-1 w-full flex flex-col justify-center">
+                                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#2A4793] mb-4 sm:mb-6 text-center">
+                                    {service.title}
+                                </h2>
+                                <p className="text-lg sm:text-xl text-gray-700 text-center mb-6 sm:mb-8">
+                                    {service.description}
+                                </p>
+                                <ul className="space-y-4 max-w-2xl mx-auto">
+                                    {service.features?.map((feature, idx) => (
+                                        <li key={idx} className="flex items-start gap-3">
+                                            <div className="w-6 h-6 rounded-full bg-[#F7CE47] flex items-center justify-center flex-shrink-0 mt-1">
+                                                <svg className="w-4 h-4 text-[#2A4793]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                </svg>
+                                            </div>
+                                            <span className="text-gray-700 text-base sm:text-lg leading-relaxed">
+                                                {feature}
+                                            </span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                            
+                            <div className="flex-1 w-full flex justify-center">
+                                <div className="relative w-full max-w-[25rem] lg:max-w-[31.25rem]">
                                     <img
                                         src={serviceImages[index]}
                                         alt={service.title}
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-auto object-cover rounded-2xl shadow-lg"
                                     />
                                 </div>
-                                <div className="p-8">
-                                    <h3 className="text-2xl sm:text-3xl font-bold text-[#2A4793] mb-4">
-                                        {service.title}
-                                    </h3>
-                                    <p className="text-gray-700 text-base sm:text-lg">
-                                        {service.description}
-                                    </p>
-                                </div>
-                            </motion.div>
-                        ))}
+                            </div>
+                        </div>
                     </motion.div>
-                </div>
+                ))}
             </div>
 
             <div className="bg-gray-50 py-12 sm:py-16 mt-12">

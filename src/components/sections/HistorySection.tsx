@@ -27,11 +27,18 @@ const historyData = [
     image: "/images/Sourire.jfif"
   },
   {
-    year: "2021",
-    title: "Refonte image de marque",
+    year: "2024",
+    title: "Portfeuille électronique",
     description: "Pour porter notre nouvel élan vers le digital, nous avons décidé d'opter pour une nouvelle charte graphique et la mise en place de supports web.",
     image: "/images/vivre.jfif"
   }
+  ,
+  {
+    year: "2025",
+    title: "Réseau mondial",
+    description: "Pour porter notre nouvel élan vers le digital, nous avons décidé d'opter pour une nouvelle charte graphique et la mise en place de supports web.",
+    image: "/images/vivre.jfif"
+  },
 ];
 
 export default function HistorySection() {

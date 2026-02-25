@@ -1,14 +1,32 @@
-"use client";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { FaGooglePlay, FaApple } from "react-icons/fa";
 
 export function HeroSection() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const features = [
+    "Transférer de l'argent dans plus de 63 pays",
+    "Payer vos factures et vos articles en boutique ou en ligne",
+    "Rechargez du crédit téléphonique",
+    "Recevoir votre salaire à temps"
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % features.length);
+    }, 3000);
+    
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="relative min-h-screen pt-14 sm:pt-20 md:pt-20 flex items-center overflow-hidden bg-gradient-to-br from-[#2A4793] via-[#1f356d] to-[#2A4793]">
       
       <div className="absolute inset-0 overflow-hidden flex items-center justify-center">
         <motion.div 
-            className="w-[50vw] h-[50vw] sm:w-[60vw] sm:h-[60vw] md:w-[70vw] md:h-[70vw]"          animate={{
+          className="w-[50vw] h-[50vw] sm:w-[60vw] sm:h-[60vw] md:w-[70vw] md:h-[70vw] z-20"          
+          animate={{
             scale: [0.7, 0.3, 0.7],
           }}
           transition={{
@@ -25,6 +43,47 @@ export function HeroSection() {
             className="w-full h-full object-contain opacity-30 sm:opacity-40"
           />
         </motion.div>
+
+        {/* <motion.div
+          animate={{ 
+            y: [0, -10, 0],
+            rotate: [0, 5, 0]
+          }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-30 left-10 w-16 h-16 sm:w-20 sm:h-20 z-20"
+        >
+          <img 
+            src="/images/PNG (1).png" 
+            alt="Sticker" 
+            className="w-full h-full object-contain drop-shadow-2xl"
+          />
+        </motion.div>
+
+        <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
+          <motion.line 
+            x1="15%" y1="25%" 
+            x2="30%" y2="80%" 
+            stroke="#F7CE47"
+            opacity={0.2} 
+            strokeWidth="1" 
+            strokeDasharray="8,4"
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={{ pathLength: 1, opacity: 0.4 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+          />
+          
+          <motion.line 
+            x1="50%" y1="65%" 
+            x2="75%" y2="50%" 
+            stroke="#F7CE47"
+            opacity={0.2} 
+            strokeWidth="1" 
+            strokeDasharray="8,4"
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={{ pathLength: 1, opacity: 0.4 }}
+            transition={{ duration: 1.5, delay: 0.5, ease: "easeInOut" }}
+          />
+        </svg> */}
       </div>
 
       <div className="relative z-10 w-full mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-0">
@@ -51,14 +110,34 @@ export function HeroSection() {
               transition={{ delay: 0.6, duration: 0.8 }}
               className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto lg:mx-0"
             >
-              Transférez de l'argent rapidement et en toute sécurité avec Cash Moov.
-              Des frais transparents, des transferts instantanés vers plus de 63 pays.
+              CashMoov est un portefeuille électronique qui vous permet de {" "}
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={currentIndex}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.5 }}
+                  className="text-[#F7CE47] pt-3 font-semibold inline-block"
+                >
+                  {features[currentIndex]}
+                </motion.span>
+              </AnimatePresence>
             </motion.p>
+
+            {/* <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+              className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto lg:mx-0"
+            >
+              CashMoov est un portefeuille électronique qui vous permet de : Transférez de l'argent dans la quasi-totalité des pays du monde (plus de 63 pays), Payez vos factures et vos articles en boutique ou en ligne, Rechargez du crédit téléphonique et Recevoir votre salaire à temps.
+            </motion.p> */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
-              className="text-base sm:text-lg md:text-xl pt-2 sm:pt-4 text-white/90 max-w-2xl mx-auto lg:mx-0"
+              className="text-base sm:text-lg md:text-xl pt-10 sm:pt-4 text-white/90 max-w-2xl mx-auto lg:mx-0"
             >
               Téléchargez et Partagez le sourire
             </motion.p>

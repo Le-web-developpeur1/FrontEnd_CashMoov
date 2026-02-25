@@ -2,35 +2,35 @@ import { motion } from "framer-motion";
 
 const features = [
   {
-    img: "/images/Transfert.png",
-    title: "Transferts d'argent",
-    description: "Envoyez et recevez de l'argent localement et à l'international"
+    img: "/images/MeR.png",
+    title: "Recharger votre compte",
+    description: "Alimentez votre compte via un canal physique ou digital"
   },
   {
-    img: "/images/Paiement.png",
-    title: "Paiements en ligne",
-    description: "Réglez vos achats sur internet en toute sécurité"
+    img: "/images/Transfert.png",
+    title: "Transfert d'argent",
+    description: "Envoyez et recevez de l'argent en local et à l'international"
   },
   {
     img: "/images/Credit.png",
-    title: "Recharge mobile",
-    description: "Rechargez votre crédit téléphonique instantanément"
+    title: "Achat de crédit",
+    description: "Rechargez du crédit téléphonique instantanément"
   },
   {
     img: "/images/PaiementM.png",
-    title: "Paiements marchands",
-    description: "Payez vos achats en boutique avec votre téléphone"
+    title: "Paiement marchand",
+    description: "Payez vos achats en boutique en un clic"
+  },
+  {
+    img: "/images/Paiement.png",
+    title: "Paiement de facture",
+    description: "Réglez vos factures d'éléctricité, d'eau..."
   },
   {
     img: "/images/Retrait.png",
-    title: "Retraits d'argent",
-    description: "Retirez votre argent dans toutes nos agences"
+    title: "Produits digitaux",
+    description: "Accèdez à une multitude de services : E-sim, Gift Card... "
   },
-  {
-    img: "/images/MeR.png",
-    title: "Dépôts d'argent",
-    description: "Alimentez votre compte facilement"
-  }
 ];
 
 export default function FeaturesSection() {
@@ -74,7 +74,7 @@ export default function FeaturesSection() {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3"
             >
-              Cash Moov, <span className="text-[#2A4793]">bien plus qu'une app !</span>
+              Cash Moov, <span className="text-[#2A4793] sm:text-3xl">le sourire qui rapproche !</span>
             </motion.h2>
 
             <motion.p
@@ -82,7 +82,7 @@ export default function FeaturesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3, duration: 0.6 }}
-              className="text-gray-600 text-sm sm:text-base mb-6 sm:mb-8"
+              className="text-gray-600 text-sm text-center sm:text-base mb-6 sm:mb-8"
             >
               Découvrez toutes les possibilités de votre portefeuille mobile
             </motion.p>

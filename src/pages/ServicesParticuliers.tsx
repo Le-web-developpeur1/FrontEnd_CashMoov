@@ -50,7 +50,7 @@ export default function ServicesParticuliers() {
     ];
 
     return (
-        <section className="mt-13">
+        <section className="mt-10">
             <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
