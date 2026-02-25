@@ -57,7 +57,7 @@ export default function FeaturesSection() {
             <div className="relative max-w-xl mx-auto">
               <div className="relative rounded-xl overflow-hidden">
                 <img
-                  src="/images/Portefeuille.png"
+                  src="/images/lesaviez.png"
                   alt="Cash Moov Features"
                   loading="lazy"
                   className="w-full h-auto object-cover scale-103"

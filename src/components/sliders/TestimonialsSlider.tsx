@@ -44,10 +44,6 @@ export default function TestimonialsSlider() {
                            mb-8 bg-white shadow-lg rounded-xl sm:rounded-2xl 
                            p-3 sm:p-5 md:p-6 text-left"
               >
-                <div className="flex text-yellow-400 text-sm sm:text-lg md:text-xl mb-1.5 sm:mb-3">
-                  {"★".repeat(t.rating)}
-                </div>
-
                 <p className="text-gray-700 italic mb-3 sm:mb-5 md:mb-6 flex-1 line-clamp-2 sm:line-clamp-3 md:line-clamp-4 text-[0.6875rem] sm:text-sm md:text-base leading-tight">
                   "{t.text}"
                 </p>

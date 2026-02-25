@@ -8,13 +8,13 @@ const historyData = [
     year: "2014",
     title: "Fondation",
     description: "Création de l'entreprise avec l'ambition de révolutionner le secteur du transfert d'argent en Guinée, en Afrique et dans le monde.",
-    image: "/images/Depart.jfif"
+    image: "/images/fondation.png"
   },
   {
     year: "2016",
     title: "Couverture complète du pays",
     description: "Fort d'un leadership et d'une parfaite maîtrise du transfert d'argent, nous avons réussi en quelques années à couvrir toute l'étendue du territoire guinéen.",
-    image: "/images/point.jfif"
+    image: "/images/couve.png"
   },
   {
     year: "2017",
@@ -67,7 +67,7 @@ export default function HistorySection() {
           transition={{ duration: 0.6 }}
           className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#2A4793] text-center mb-12 lg:mb-16"
         >
-          Notre Histoire
+          Notre Parcours
         </motion.h2>
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">

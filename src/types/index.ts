@@ -35,7 +35,6 @@ export interface Testimonial {
   country: string;
   photo: string;
   text: string;
-  rating: number;
 }
 
 export interface ContactInfo {
