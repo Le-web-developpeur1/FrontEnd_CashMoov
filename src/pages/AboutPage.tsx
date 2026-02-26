@@ -26,7 +26,7 @@ export default function AboutPage() {
     const stats = [
         { icon: Award, value: "12+", label: "Années d'expérience" },
         { icon: Globe, value: "63+", label: "Pays couverts" },
-        { icon: Users, value: "1000+", label: "Points de service" },
+        { icon: Users, value: "5000+", label: "Points de service" },
         { icon: TrendingUp, value: "100%", label: "Sécurisé" }
     ];
 
@@ -54,7 +54,7 @@ export default function AboutPage() {
     ];
 
     return (
-        <section className="mt-10 pb-12">
+        <section className="mt-10">
             <div className="relative bg-gradient-to-br from-[#2A4793] via-[#1f356d] to-[#2A4793] py-20 sm:py-24 overflow-hidden">
                 <div className="absolute inset-0 overflow-hidden flex items-center justify-center">
                     <motion.div 
@@ -84,7 +84,7 @@ export default function AboutPage() {
                         transition={{ duration: 0.6 }}
                     >
                         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
-                            À propos de <span className="text-[#F7CE47]">Cashmoov</span>
+                            À propos de <span className="text-[#F7CE47]">CashMoov</span>
                         </h1>
                         <p className="text-lg sm:text-xl text-white/90 max-w-3xl mx-auto">
                             Une solution de transfert d'argent et de paiement mobile pensée pour l'Afrique
@@ -93,7 +93,41 @@ export default function AboutPage() {
                 </div>
             </div>
 
-            <div className="bg-white py-12 sm:py-16 -mt-12 relative z-20">
+           
+
+            <div className="py-16 sm:py-20 bg-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8 text-center">
+                             Leader du transfert d'argent en Guinée !
+                        </h2>
+                        <div className="space-y-6 text-gray-600 leading-relaxed text-lg max-w-5xl mx-auto">
+                            <p>
+                                CashMoov est une solution de Transfert d'argent et de paiement mobile. Elle a réussi le pari de déployer une plateforme de mobile money qui tienne compte des besoins et des réalités des populations guinéennes et africaines. Forte de son ancrage local, l'entreprise se distingue par sa proximité avec les populations, la fiabilité de son réseau de distribution et sa capacité à traiter des transactions à volumes importants.
+                            </p>
+                            <p>
+                                Grâce à une existence de plus de 12 ans sur le marché africain, elle a développé une expertise unique qui lui permet de satisfaire aux besoins de sa clientèle de manière efficace. Cashmoov propose des services simples, rapides, sécurisés et surtout économiques.
+                            </p>
+                            <p>
+                                Elle a ciblé dès ses premières heures la population active dans le but de faciliter le mouvement des capitaux et ainsi favoriser l'essor de plusieurs activités économiques. Étant très sollicité pour les paiements de fournisseurs, de marchandises, l'entreprise a su s'adapter aux exigences de ce marché pour se positionner comme un acteur majeur dans le pays.
+                            </p>
+                            <p>
+                                Un réseau large mais maîtrisé, constitué d'une multitude de points de service partout en Guinée pour être au plus près de ses clients et une flexibilité permettant de s'adapter à l'évolution du marché, font la particularité de cette institution financière.
+                            </p>
+                            <p>
+                                Les applications mobiles Cashmoov permettent aujourd'hui de transférer de l'argent dans la quasi-totalité des pays du monde, d'effectuer des paiements de factures, d'acheter à des marchands, de recharger du crédit téléphonique, d'acheter une carte cadeau (Gift card), de se procurer la data via e-SIM et même de recevoir son salaire.
+                            </p>
+                        </div>
+                    </motion.div>
+                </div>
+            </div>
+
+            <div className="bg-gray-50 py-12 sm:py-16 mt-10 relative z-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
                         variants={containerVariants}
@@ -115,38 +149,6 @@ export default function AboutPage() {
                                 <p className="text-gray-600">{stat.label}</p>
                             </motion.div>
                         ))}
-                    </motion.div>
-                </div>
-            </div>
-
-            <div className="py-16 sm:py-20 bg-gray-50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8 text-center">
-                             Leader du transfert d'argent en Guinée !
-                        </h2>
-                        <div className="space-y-6 text-gray-600 leading-relaxed text-lg max-w-5xl mx-auto">
-                            <p>
-                                Cashmoov est une solution de Transfert d'argent et de paiement mobile. Elle a réussi le pari de déployer une plateforme de mobile money qui tienne compte des besoins et des réalités des populations guinéennes et africaines. Forte de son ancrage local, l'entreprise se distingue par sa proximité avec les populations, la fiabilité de son réseau de distribution et sa capacité à traiter des transactions à volumes importants.
-                            </p>
-                            <p>
-                                Grâce à une existence de plus de 12 ans sur le marché africain, elle a développé une expertise unique qui lui permet de satisfaire aux besoins de sa clientèle de manière efficace. Cashmoov propose des services simples, rapides, sécurisés et surtout économiques.
-                            </p>
-                            <p>
-                                Elle a ciblé dès ses premières heures la population active dans le but de faciliter le mouvement des capitaux et ainsi favoriser l'essor de plusieurs activités économiques. Étant très sollicité pour les paiements de fournisseurs, de marchandises, l'entreprise a su s'adapter aux exigences de ce marché pour se positionner comme un acteur majeur dans le pays.
-                            </p>
-                            <p>
-                                Un réseau large mais maîtrisé, constitué d'une multitude de points de service partout en Guinée pour être au plus près de ses clients et une flexibilité permettant de s'adapter à l'évolution du marché, font la particularité de cette institution financière.
-                            </p>
-                            <p>
-                                Les applications mobiles Cashmoov permettent aujourd'hui de transférer de l'argent dans la quasi-totalité des pays du monde, d'effectuer des paiements de factures, d'acheter à des marchands, de recharger du crédit téléphonique, d'acheter une carte cadeau (Gift card), de se procurer la data via e-SIM et même de recevoir son salaire.
-                            </p>
-                        </div>
                     </motion.div>
                 </div>
             </div>

@@ -51,7 +51,7 @@ export default function EnterpriseOffersSection() {
               <div className="relative rounded-xl overflow-hidden shadow-2xl">
                 <img
                   src="/images/salair.png"
-                  alt="Cash Moov Entreprises"
+                  alt="CashMoov Entreprises"
                   loading="lazy"
                   className="w-full h-auto object-cover scale-103"
                 />

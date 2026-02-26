@@ -38,7 +38,7 @@ export default function AdminDashboard() {
           Bienvenue, {user?.first_name} {user?.last_name}
         </h1>
         <p className="text-gray-600 mt-2">
-          Vue d'ensemble de la plateforme Cash Moov
+          Vue d'ensemble de la plateforme CashMoov
         </p>
       </div>
 

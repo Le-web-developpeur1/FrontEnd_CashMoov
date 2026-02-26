@@ -1,6 +1,5 @@
-import { FaGlobe, FaUsers } from "react-icons/fa";
+import { FaUsers } from "react-icons/fa";
 import { motion } from "framer-motion";
-import MapAgences from "@/components/cards/MapAgences";
 // FaMapMarkerAlt, FaMoneyBillWave,
 export default function NotreReseau() {
   // const stats = [
@@ -10,53 +9,7 @@ export default function NotreReseau() {
   //   { icon: FaUsers, number: "100K+", label: "Utilisateurs actifs" },
   // ];
 
-  const regions = [
-    {
-      name: "Afrique de l'Ouest",
-      countries: ["Bénin", "Burkina Faso", "Côte d'Ivoire", "Gambie", "Ghana", "Guinée-Bissau", "Liberia", "Mali", "Niger", "Nigeria", "Sénégal", "Sierra Leone", "Togo"],
-    },
-    {
-      name: "Afrique Centrale",
-      countries: ["Cameroun", "Congo", "Congo RDC", "Gabon", "Guinée Équatoriale"],
-    },
-    {
-      name: "Afrique du Nord, Est & Australe",
-      countries: ["Afrique du Sud", "Algérie", "Égypte", "Kenya", "Maroc", "Mauritanie", "Mozambique", "Soudan", "Tunisie"],
-    },
-    {
-      name: "Europe",
-      countries: ["Allemagne", "Angleterre", "Autriche", "Belgique", "Chypre", "Danemark", "Espagne", "France", "Grèce", "Irlande", "Italie", "Luxembourg", "Norvège", "Pays-Bas", "Pologne", "Portugal", "Royaume-Uni", "Suisse", "Ukraine"],
-    },
-    {
-      name: "Amérique",
-      countries: ["Argentine", "Brésil", "Canada", "États-Unis"],
-    },
-    {
-      name: "Asie & Moyen-Orient",
-      countries: ["Arabie Saoudite", "Australie", "Chine", "Émirats arabes unis", "Hong Kong", "Inde", "Indonésie", "Japon", "Malaisie", "Thaïlande", "Turquie"],
-    },
-  ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -119,8 +72,8 @@ export default function NotreReseau() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="relative z-10 max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
         >
-          <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white/90 max-w-3xl mx-auto">
-            Un réseau mondial pour vous accompagner partout où vous en avez besoin
+          <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl  text-white leading-tight">
+            Un réseau mondial pour vous accompagner partout
           </p>
         </motion.div>
       </motion.div>
@@ -166,51 +119,59 @@ export default function NotreReseau() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              Couverture géographique
+              Présence en Guinée :
             </h2>
             <p className="text-lg sm:text-xl text-gray-600">
-              Présents dans plus de 60 pays à travers le monde
+            Nous avons une présence effective dans toutes les préfectures et sous-préfectures de la Guinée. Ce réseau dense de plus de 5000 points de services et une disponibilité de fonds qui assure le paiement dans les points de vente nous permettent de répondre de manière efficace au besoin de l’ensemble de nos clients.
             </p>
           </motion.div>
 
           <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:auto-rows-fr"
+            transition={{ duration: 0.6 }}
+            className="w-full max-w-5xl mx-auto"
           >
-            {regions.map((region, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.3 }}
-                className="bg-gradient-to-br from-white to-gray-50 rounded-2xl sm:rounded-3xl shadow-xl p-6 sm:p-8 border border-gray-200 hover:border-[#2A4793]/50 hover:shadow-2xl transition-all duration-300 group flex flex-col"
-              >
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-[#2A4793] to-[#1f356d] rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <FaGlobe className="text-white text-xl sm:text-2xl" />
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-900">{region.name}</h3>
-                </div>
-                
-                <div className="flex flex-wrap gap-2 flex-1 content-start">
-                  {region.countries.map((country, idx) => (
-                    <span
-                      key={idx}
-                      className="px-3 py-2 bg-gradient-to-br from-gray-50 to-white border border-gray-200 text-gray-700 rounded-xl text-sm font-medium hover:bg-gradient-to-br hover:from-[#2A4793] hover:to-[#1f356d] hover:text-white hover:border-[#2A4793] transition-all duration-300 cursor-pointer"
-                    >
-                      {country}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+            <img
+              src="/images/guin.png"
+              alt="Carte de la Guinée"
+              className="w-full h-auto rounded-2xl shadow-xl"
+            />
+          </motion.div>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 mt-20 sm:px-6 lg:px-8">
+          
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              Présence en Guinée :
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-600">
+            Nous avons une présence effective dans toutes les préfectures et sous-préfectures de la Guinée. Ce réseau dense de plus de 5000 points de services et une disponibilité de fonds qui assure le paiement dans les points de vente nous permettent de répondre de manière efficace au besoin de l’ensemble de nos clients.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="w-full max-w-5xl mx-auto"
+          >
+            <img
+              src="/images/monde.png"
+              alt="Carte de la Guinée"
+              className="w-full h-auto rounded-2xl shadow-xl"
+            />
           </motion.div>
         </div>
       </div>
-      <MapAgences/>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -220,7 +181,7 @@ export default function NotreReseau() {
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Devenez partenaire Cash Moov
+            Devenez partenaire CashMoov
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8">
               Rejoignez notre réseau et offrez nos services à vos clients

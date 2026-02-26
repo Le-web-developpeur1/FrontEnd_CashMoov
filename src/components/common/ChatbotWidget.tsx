@@ -133,7 +133,7 @@ export function Chatbot({ ws, roomName }: ChatbotProps) {
         animate={{ y: 0 }}
         className="bg-[#2A4793] text-white p-4 font-semibold text-lg"
       >
-        Cash Moov Assistant 
+        CashMoov Assistant 
       </motion.div>
 
       <div className="h-[17.5rem] sm:h-[25rem] lg:h-[22rem] overflow-y-auto p-4 space-y-4 bg-gray-50">

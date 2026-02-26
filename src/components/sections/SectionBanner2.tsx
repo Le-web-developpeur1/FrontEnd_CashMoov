@@ -4,7 +4,7 @@ import type { SectionBanner2Props } from '@/types';
 export const SectionBanner2: React.FC<SectionBanner2Props> = ({
     title,
     description,
-    bgColor = "bg-[#2A4793]",
+    bgColor = "bg-white py-12 sm:py-16",
     buttonLabel,
     onButtonClick,
 }) => {
@@ -12,17 +12,17 @@ export const SectionBanner2: React.FC<SectionBanner2Props> = ({
         <section className={`${bgColor} w-full py-10 sm:py-12 px-4 sm:px-6 md:px-12`}>
             <div className="max-w-4xl mx-auto text-center space-y-3 sm:space-y-4">
 
-                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-yellow-400 leading-tight">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                     {title}
                 </h2>
 
-                <p className="text-white text-sm sm:text-base md:text-lg opacity-90 max-w-3xl mx-auto">
+                <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8">
                     {description}
                 </p>
                 
                 <button 
                     onClick={onButtonClick}
-                    className="border-[#F7CE47] border-2 bg-[#2A4793] text-[#F7CE47] font-bold rounded-lg px-6 py-2.5 sm:py-3 w-full max-w-xs sm:max-w-sm cursor-pointer hover:bg-[#F7CE47] hover:text-[#2A4793] transition-all duration-300 text-sm sm:text-base mt-2"
+                    className="inline-flex items-center justify-center gap-3 bg-[#2A4793] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg hover:bg-[#1f356d] transition hover:scale-105 transform duration-300"
                 >
                     {buttonLabel}
                 </button>

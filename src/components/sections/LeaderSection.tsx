@@ -31,7 +31,7 @@ export default function LeaderSection() {
               className="space-y-3 text-gray-700 text-sm sm:text-base"
             >
               <p>
-                <span className="font-bold text-gray-900">Cash Moov Main à Main S.A.</span> est une entreprise guinéenne de transfert d'argent qui exerce depuis 2014. Elle a réussi le pari de déployer une plateforme de transfert qui tienne compte des besoins et des réalités des populations guinéennes et africaines.
+                <span className="font-bold text-gray-900">CashMoov Main à Main S.A.</span> est une entreprise guinéenne de transfert d'argent qui exerce depuis 2014. Elle a réussi le pari de déployer une plateforme de transfert qui tienne compte des besoins et des réalités des populations guinéennes et africaines.
               </p>
 
               <p>
@@ -56,7 +56,7 @@ export default function LeaderSection() {
               <div className="relative rounded-xl overflow-hidden shadow-xl">
                 <img
                   src="/images/LeadTrans.png"
-                  alt="Cash Moov Leader"
+                  alt="CashMoov Leader"
                   className="w-full h-auto object-cover"
                 />
               </div>

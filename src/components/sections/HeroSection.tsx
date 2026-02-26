@@ -217,7 +217,7 @@ export function HeroSection() {
             >
               <img
                 src="/images/App CashMoov.png"
-                alt="Cash Moov App"
+                alt="CashMoov App"
                 loading="eager"
                 fetchPriority="high"
                 className="w-full h-auto drop-shadow-2xl"

@@ -29,7 +29,7 @@ export default function AdminLayout() {
         className="hidden lg:flex lg:flex-col w-64 bg-[#2A4793] text-white"
       >
         <div className="p-6 border-b border-[#1f356d]">
-          <h2 className="text-2xl font-bold text-[#F7CE47]">Cash Moov</h2>
+          <h2 className="text-2xl font-bold text-[#F7CE47]">CashMoov</h2>
           <p className="text-sm mt-2 opacity-90">Admin Panel</p>
           <p className="text-xs mt-1 opacity-75">{user?.last_name} {user?.first_name}</p>
         </div>
@@ -90,7 +90,7 @@ export default function AdminLayout() {
               >
                 <div className="p-6 border-b border-[#1f356d] flex items-center justify-between">
                   <div>
-                    <h2 className="text-2xl font-bold text-[#F7CE47]">Cash Moov</h2>
+                    <h2 className="text-2xl font-bold text-[#F7CE47]">CashMoov</h2>
                     <p className="text-xs mt-1 opacity-75">{user?.last_name} {user?.first_name}</p>
                   </div>
                   <button onClick={() => setSidebarOpen(false)}>

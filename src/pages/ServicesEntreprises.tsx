@@ -38,7 +38,7 @@ export default function ServicesEntreprises() {
         {
             icon: DollarSign,
             title: "Tarifs compétitifs",
-            description: "Économisez jusqu'à 80% sur vos frais de transfert internationaux"
+            description: "Nous vous proposons le meilleur apport qualité/prix du marché"
         },
         {
             icon: Shield,
@@ -174,7 +174,7 @@ export default function ServicesEntreprises() {
             >
                 <SectionBanner2
                     title='Prêt à faire évoluer votre entreprise ?'
-                    description='Rejoignez plus de 5000 entreprises qui nous font confiance pour leurs paiements internationaux'
+                    description='Rejoignez plus de 100 entreprises qui nous font confiance pour leurs paiements.'
                     buttonLabel='Contactez-nous'
                     onButtonClick={() => navigate("/contact")}
                 />

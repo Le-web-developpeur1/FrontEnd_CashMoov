@@ -9,8 +9,8 @@ export const SERVICES_PARTICULIERS: Omit<ServiceCardProps, 'onDiscover'>[] = [
     iconColor: "#2A4793",
     image: "/images/services/Transfert.svg",
     features: [
-      "Transfert local : Envoi instantané d'argent vers vos bénéficiaires au niveau national",
-      "Transfert international instantané : Réception ou envoi de fonds vers l'étranger via des partenaires internationaux",
+      "Transfert local : Envoyez instantanement de d'argent vers vos bénéficiaires au niveau national et recevez des transferts de vos expéditeurs. Transferez de CashMoov vers CashMoov ou de CashMoov vers un autre compte mobile.",
+      "Transfert international instantané : Recevez ou envoyez de fonds vers l'étranger via des partenaires internationaux. Envoyez à destination d’un compte mobile, un compte bancaire ou un service de paiement en cash.",
     ],
   },
   {

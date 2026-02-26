@@ -14,19 +14,19 @@ const historyData = [
     year: "2016",
     title: "Couverture complète du pays",
     description: "Fort d'un leadership et d'une parfaite maîtrise du transfert d'argent, nous avons réussi en quelques années à couvrir toute l'étendue du territoire guinéen.",
-    image: "/images/guinee.png"
+    image: "/images/carteG.png"
   },
   {
     year: "2017",
     title: "Première agence en Afrique",
     description: "Afin d'explorer de nouveaux marchés, l'entreprise démarre son expansion continentale en ouvrant sa première agence africaine au Mali (Bamako).",
-    image: "/images/presenceA.png"
+    image: "/images/afri.png"
   },
   {
     year: "2021 – 2024",
     title: "Transformation digitale ",
     description: "CashMoov obtient la licence d’établissement de monnaie électronique auprès de la Banque centrale de la République de Guinée. Elle conçoit une plateforme de mobile money pour proposer des services innovants à l'image du portefeuille mobile (wallet).",
-    image: "/images/vivre.jfif"
+    image: "/images/porte.png"
   }
   ,
   {

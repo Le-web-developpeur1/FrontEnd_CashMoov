@@ -23,7 +23,7 @@ function Navbar() {
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 200 }}
             src="/images/PNG.png"
-            alt="Logo Cash Moov"
+            alt="Logo CashMoov"
             className="w-8 md:w-12 h-auto"
           />
         </NavLink>

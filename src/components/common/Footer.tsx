@@ -36,7 +36,7 @@ const Footer = () => {
       >
 
         <motion.div variants={itemVariants}>
-          <h3 className="text-[#F7CE47] font-bold text-xl mb-4">Cash Moov</h3>
+          <h3 className="text-[#F7CE47] font-bold text-xl mb-4">CashMoov</h3>
           <p className="leading-relaxed opacity-90">
             Votre partenaire de confiance pour les transferts internationaux.
           </p>
@@ -199,7 +199,7 @@ const Footer = () => {
         transition={{ duration: 0.5, delay: 0.7 }}
         className="w-full mx-auto grid grid-cols-1 md:ml-20 md:grid-cols-2 lg:grid-cols-4 gap-10 text-[#F7CE47] text-sm"
       >
-        <p>&copy; {date} Cash Moov | Tous droits réservés.</p>
+        <p>&copy; {date} CashMoov | Tous droits réservés.</p>
         <motion.a 
           whileHover={{ scale: 1.05 }}
           href="#" 

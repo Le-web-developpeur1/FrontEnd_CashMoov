@@ -1,7 +1,7 @@
 import { SectionBanner } from '@/components/sections/SectionBanner';
 import { SERVICES_PARTICULIERS } from '@/constants';
 import { motion } from 'framer-motion';
-import { UserPlus, Users, Send, Bell, Check } from 'lucide-react';
+import { UserPlus, History, Send, Bell } from 'lucide-react';
 
 export default function ServicesParticuliers() {
 
@@ -33,11 +33,6 @@ export default function ServicesParticuliers() {
             description: "Inscription gratuite en moins de 2 minutes"
         },
         {
-            icon: Users,
-            title: "Ajoutez vos bénéficiaires",
-            description: "Enregistrez les coordonnées de vos proches"
-        },
-        {
             icon: Send,
             title: "Envoyez de l'argent",
             description: "Transférez en quelques clics de manière sécurisée"
@@ -46,7 +41,12 @@ export default function ServicesParticuliers() {
             icon: Bell,
             title: "Suivez votre transfert",
             description: "Recevez des notifications à chaque étape"
-        }
+        },
+        {
+            icon: History,
+            title: "Consultez votre historique",
+            description: "Enregistrez les coordonnées de vos proches"
+        },
     ];
 
     return (
@@ -71,41 +71,56 @@ export default function ServicesParticuliers() {
                         transition={{ duration: 0.6, delay: index * 0.2 }}
                         className={`${index === 1 ? 'bg-gray-50' : 'bg-white'} w-full py-16 lg:py-24`}
                     >
-                        <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col ${index % 2 !== 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-8 lg:gap-16`}>
-                            <div className="flex-1 w-full">
-                                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#2A4793] mb-4 sm:mb-6">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="text-center mb-12">
+                                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#2A4793] mb-4">
                                     {service.title}
                                 </h2>
-                                <p className="text-lg sm:text-xl text-gray-700 mb-6 sm:mb-8">
+                                <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto">
                                     {service.description}
                                 </p>
-                                <ul className="space-y-4">
-                                    {service.features?.map((feature, idx) => (
-                                        <li key={idx} className="flex items-start gap-3">
-                                            <div className="w-6 h-6 rounded-full bg-[#2A4793] flex items-center justify-center flex-shrink-0 mt-1">
-                                                <Check className="w-4 h-4 text-white" />
-                                            </div>
-                                            <span className="text-gray-700 text-base sm:text-lg leading-relaxed">
+                            </div>
+
+                            <motion.div
+                                variants={containerVariants}
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                className={`grid gap-8 justify-items-center ${
+                                    service.features?.length === 2 
+                                        ? 'grid-cols-1 md:grid-cols-2 md:gap-18 max-w-4xl mx-auto' 
+                                        : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+                                }`}
+                            >
+                                {service.features?.map((feature, idx) => (
+                                    <motion.div
+                                        key={idx}
+                                        variants={itemVariants}
+                                        className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-200"
+                                    >
+                                        <div className="h-48 bg-gradient-to-br from-[#2A4793] to-[#1f356d] flex items-center justify-center">
+                                            <img
+                                                src={service.image}
+                                                alt={feature}
+                                                className="w-32 h-32 object-contain"
+                                            />
+                                        </div>
+                                        {/* <div className="w-6 h-6 rounded-full text-[#2A4793] flex items-center justify-center flex-shrink-0 mt-1">
+                                                <Check className="w-4 h-4 " />
+                                        </div> */}
+                                        <div className="p-6">
+                                            <p className="text-gray-700 text-base leading-relaxed">
                                                 {feature}
-                                            </span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                            
-                            <div className="flex-1 w-full flex justify-center">
-                                <div className="relative w-full max-w-[15.625rem] lg:max-w-[18.75rem]">
-                                    <img
-                                        src={service.image}
-                                        alt={service.title}
-                                        className="w-full h-auto object-contain"
-                                    />
-                                </div>
-                            </div>
+                                            </p>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </motion.div>
                         </div>
                     </motion.div>
                 ))}
             </div>
+
 
             <div className="bg-gray-50 py-12 sm:py-16">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

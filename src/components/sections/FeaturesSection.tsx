@@ -58,7 +58,7 @@ export default function FeaturesSection() {
               <div className="relative rounded-xl overflow-hidden">
                 <img
                   src="/images/lesaviez.png"
-                  alt="Cash Moov Features"
+                  alt="CashMoov Features"
                   loading="lazy"
                   className="w-full h-auto object-cover scale-103"
                 />
@@ -82,7 +82,7 @@ export default function FeaturesSection() {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3"
             >
-              Cash Moov, <span className="text-[#F7CE47] sm:text-3xl">le sourire qui rapproche</span> !
+              CashMoov, <span className="text-[#F7CE47] sm:text-3xl">le sourire qui rapproche</span> !
             </motion.h2>
 
             <motion.p
