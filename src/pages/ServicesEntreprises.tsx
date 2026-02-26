@@ -97,7 +97,7 @@ export default function ServicesEntreprises() {
                                                 </svg>
                                             </div>
                                             <span className="text-gray-700 text-base sm:text-lg leading-relaxed">
-                                                {feature}
+                                                {typeof feature === 'string' ? feature : feature.description}
                                             </span>
                                         </li>
                                     ))}
