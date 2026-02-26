@@ -107,9 +107,9 @@ export default function NotreReseau() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className=" mb-12"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl text-center sm:text-4xl font-bold text-gray-900 mb-4 sm:mb-10">
               Couverture Internationale
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 w-full max-w-5xl mx-auto">
@@ -122,12 +122,12 @@ export default function NotreReseau() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="w-full max-w-3xl mx-auto"
+            className="w-full max-w-5xl mx-auto"
           >
             <img
               src="/images/monde.png"
               alt="Carte du monde"
-              className="w-full max-h-[25rem] object-contain rounded-2xl shadow-xl"
+              className="w-full max-h-[32rem] rounded-2xl shadow-xl"
             />
           </motion.div>
         </div>
