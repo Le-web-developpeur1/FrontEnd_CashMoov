@@ -45,7 +45,7 @@ export default function ServicesParticuliers() {
         {
             icon: Bell,
             title: "Suivi ",
-            description: "Recevez des notifications à chaque étape. Consultez votre historique de vos transactions à tout moment"
+            description: "Recevez des notifications à chaque étape. Consultez l'historique de vos transactions à tout moment"
         },
     ];
 
@@ -94,11 +94,11 @@ export default function ServicesParticuliers() {
                             </div>
                             
                             <div className="flex-1 w-full flex justify-center">
-                                <div className="relative w-full max-w-[15.625rem] lg:max-w-[18.75rem]">
+                                <div className="relative w-full max-w-xl">
                                     <img
                                         src={service.image}
                                         alt={service.title}
-                                        className="w-full h-auto object-contain"
+                                        className="w-full h-auto min-h-[25rem] sm:min-h-[31.25rem] object-cover rounded-xl"
                                     />
                                 </div>
                             </div>

@@ -54,9 +54,9 @@ export default function ServicesEntreprises() {
 
     // Images pour les services entreprises
     const serviceImages = [
-        "/images/Salaires.jfif",
+        "/images/paiementS.png",
         "/images/point.jfif",
-        "/images/Depart.jfif"
+        "/images/cashcollection.png"
     ];
     
     return (
@@ -106,11 +106,11 @@ export default function ServicesEntreprises() {
                             </div>
                             
                             <div className="flex-1 w-full flex justify-center">
-                                <div className="relative w-full max-w-[25rem] lg:max-w-[31.25rem]">
+                                <div className="relative w-full max-w-xl">
                                     <img
                                         src={serviceImages[index]}
                                         alt={service.title}
-                                        className="w-full h-auto object-cover rounded-2xl shadow-lg"
+                                        className="w-full h-auto min-h-[25rem] sm:min-h-[31.25rem] object-cover rounded-xl"
                                     />
                                 </div>
                             </div>

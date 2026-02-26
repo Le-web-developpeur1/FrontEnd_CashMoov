@@ -26,7 +26,7 @@ const historyData = [
     year: "2021 – 2024",
     title: "Transformation digitale ",
     description: "CashMoov obtient la licence d’établissement de monnaie électronique auprès de la Banque centrale de la République de Guinée. Elle conçoit une plateforme de mobile money pour proposer des services innovants à l'image du portefeuille mobile (wallet).",
-    image: "/images/porte.png"
+    image: "/images/transformation.png"
   }
   ,
   {
