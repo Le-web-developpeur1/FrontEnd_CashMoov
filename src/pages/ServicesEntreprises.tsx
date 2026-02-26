@@ -95,8 +95,8 @@ export default function ServicesEntreprises() {
                                             const FeatureIcon = feature.icon;
                                             return (
                                                 <li key={idx} className="flex items-start gap-4">
-                                                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#F7CE47]/10 to-[#2A4793]/10 flex items-center justify-center flex-shrink-0">
-                                                        <FeatureIcon className="w-6 h-6 text-[#F7CE47]" />
+                                                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#F7CE47]/10 to-[#2A4793]/10 flex items-center justify-center flex-shrink-0">
+                                                        <FeatureIcon className="w-10 h-10 text-[#F7CE47]" />
                                                     </div>
                                                     <div className="flex-1">
                                                         <h4 className="text-lg font-bold text-gray-900 mb-2">
