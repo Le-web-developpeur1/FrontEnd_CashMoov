@@ -53,9 +53,9 @@ export default function ServicesEntreprises() {
     ];
 
     const serviceImages = [
-        "/images/paiementS.png",
-        "/images/point.jfif",
-        "/images/cashcollection.png"
+        "/images/entreprise/salaires.png",
+        "/images/entreprise/caissedeplace.png",
+        "/images/entreprise/cashcollection.png"
     ];
     
     return (
@@ -90,7 +90,6 @@ export default function ServicesEntreprises() {
                                 </p>
                                 <ul className="space-y-4">
                                     {service.features?.map((feature, idx) => {
-                                        // Check if feature is an object with icon (ServiceFeature)
                                         if (typeof feature === 'object' && 'icon' in feature) {
                                             const FeatureIcon = feature.icon;
                                             return (

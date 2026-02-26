@@ -119,7 +119,7 @@ export default function NotreReseau() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              Présence en Guinée :
+              En Guinée
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 w-full max-w-5xl mx-auto">
             Nous avons une présence effective dans toutes les préfectures et sous-préfectures de la Guinée. Ce réseau dense de plus de 5000 points de services et une disponibilité de fonds qui assure le paiement dans les points de vente nous permettent de répondre de manière efficace au besoin de l’ensemble de nos clients.
@@ -131,12 +131,12 @@ export default function NotreReseau() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="w-full max-w-5xl mx-auto"
+            className="w-full max-w-4xl mx-auto"
           >
             <img
-              src="/images/guin.png"
+              src="/images/guinee.png"
               alt="Carte de la Guinée"
-              className="w-full h-auto rounded-2xl shadow-xl"
+              className="w-full h-auto rounded-2xl"
             />
           </motion.div>
         </div>
@@ -166,8 +166,8 @@ export default function NotreReseau() {
           >
             <img
               src="/images/monde.png"
-              alt="Carte de la Guinée"
-              className="w-full h-auto rounded-2xl shadow-xl"
+              alt="Carte du monde"
+              className="w-full max-h-[35rem] rounded-2xl"
             />
           </motion.div>
         </div>

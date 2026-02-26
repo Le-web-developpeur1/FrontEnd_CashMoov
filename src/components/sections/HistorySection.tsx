@@ -14,7 +14,7 @@ const historyData = [
     year: "2016",
     title: "Couverture complète du pays",
     description: "Fort d'un leadership et d'une parfaite maîtrise du transfert d'argent, nous avons réussi en quelques années à couvrir toute l'étendue du territoire guinéen.",
-    image: "/images/carteG.png"
+    image: "/images/carteGuinee.png"
   },
   {
     year: "2017",
@@ -33,7 +33,7 @@ const historyData = [
     year: "2025",
     title: "Réseau mondial",
     description: "Grâce à la signature d'un partenariat stratégique, CashMoov est connecté à un réseau mondial qui permet d'envoyer de l'argent dans la quasi-totalité des pays du monde. L'application CashMoov ne connaît plus de frontière.",
-    image: "/images/monde.png"
+    image: "/images/reseauMondial.png"
   },
 ];
 
