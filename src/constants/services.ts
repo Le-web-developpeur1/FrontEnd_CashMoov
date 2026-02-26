@@ -1,5 +1,5 @@
 import type { ServiceCardProps } from "@/types";
-import { Wallet, Send, CreditCard, Banknote, Users } from "lucide-react";
+import { Wallet, Send, CreditCard, Banknote, Users, MapPin, Globe, Receipt, Smartphone, ShoppingBag, Building2, ArrowLeftRight } from "lucide-react";
 
 export const SERVICES_PARTICULIERS: Omit<ServiceCardProps, 'onDiscover'>[] = [
   {
@@ -9,8 +9,16 @@ export const SERVICES_PARTICULIERS: Omit<ServiceCardProps, 'onDiscover'>[] = [
     iconColor: "#2A4793",
     image: "/images/services/transfertArgent.png",
     features: [
-      "Transfert local : Envoyez instantanement de d'argent vers vos bénéficiaires au niveau national et recevez des transferts de vos expéditeurs. Transferez de CashMoov vers CashMoov ou de CashMoov vers un autre compte mobile.",
-      "Transfert international instantané : Recevez ou envoyez de fonds vers l'étranger via des partenaires internationaux. Envoyez à destination d’un compte mobile, un compte bancaire ou un service de paiement en cash.",
+      {
+        icon: MapPin,
+        title: "Transfert local",
+        description: "Envoyez instantanement de d'argent vers vos bénéficiaires au niveau national et recevez des transferts de vos expéditeurs. Transferez de CashMoov vers CashMoov ou de CashMoov vers un autre compte mobile."
+      },
+      {
+        icon: Globe,
+        title: "Transfert international instantané",
+        description: "Recevez ou envoyez de fonds vers l'étranger via des partenaires internationaux. Envoyez à destination d'un compte mobile, un compte bancaire ou un service de paiement en cash."
+      },
     ],
   },
   {
@@ -20,9 +28,21 @@ export const SERVICES_PARTICULIERS: Omit<ServiceCardProps, 'onDiscover'>[] = [
     iconColor: "#2A4793",
     image: "/images/services/paiementMobile.png",
     features: [
-      "Paiement de factures : Réglez vos factures (électricité, eau, internet, etc.) sans vous déplacer",
-      "Achat de crédit : Rechargez votre téléphone ou celui de vos proches instantanément",
-      "Paiement marchand : Payez vos achats chez les commerçants, en face-à-face ou à distance (remote)",
+      {
+        icon: Receipt,
+        title: "Paiement de factures",
+        description: "Réglez vos factures (électricité, eau, internet, etc.) sans vous déplacer"
+      },
+      {
+        icon: Smartphone,
+        title: "Achat de crédit",
+        description: "Rechargez votre téléphone ou celui de vos proches instantanément"
+      },
+      {
+        icon: ShoppingBag,
+        title: "Paiement marchand",
+        description: "Payez vos achats chez les commerçants, en face-à-face ou à distance (remote)"
+      },
     ],
   },
   {
@@ -32,9 +52,21 @@ export const SERVICES_PARTICULIERS: Omit<ServiceCardProps, 'onDiscover'>[] = [
     iconColor: "#2A4793",
     image: "/images/services/depotretrait.png",
     features: [
-      "Via Agent : Dépôt et retrait d'argent auprès du réseau d'agents agréés partout sur le territoire",
-      "Via Banque : Transfert d'argent entre un compte bancaire et le compte mobile pour plus de flexibilité",
-      "Via autres services : Intégration avec d'autres plateformes financières (Orange Money vers CashMoov par exemple)",
+      {
+        icon: Users,
+        title: "Via Agent",
+        description: "Dépôt et retrait d'argent auprès du réseau d'agents agréés partout sur le territoire"
+      },
+      {
+        icon: Building2,
+        title: "Via Banque",
+        description: "Transfert d'argent entre un compte bancaire et le compte mobile pour plus de flexibilité"
+      },
+      {
+        icon: ArrowLeftRight,
+        title: "Via autres services",
+        description: "Intégration avec d'autres plateformes financières (Orange Money vers CashMoov par exemple)"
+      },
     ],
   },
 ];

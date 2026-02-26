@@ -1,7 +1,7 @@
 import { SectionBanner } from '@/components/sections/SectionBanner';
 import { SERVICES_PARTICULIERS } from '@/constants';
 import { motion } from 'framer-motion';
-import { UserPlus, Eye, Send, Bell, Check } from 'lucide-react';
+import { UserPlus, Eye, Send, Bell } from 'lucide-react';
 
 export default function ServicesParticuliers() {
 
@@ -80,16 +80,27 @@ export default function ServicesParticuliers() {
                                     {service.description}
                                 </p>
                                 <ul className="space-y-4">
-                                    {service.features?.map((feature, idx) => (
-                                        <li key={idx} className="flex items-start gap-3">
-                                            <div className="w-6 h-6 rounded-full bg-[#2A4793] flex items-center justify-center flex-shrink-0 mt-1">
-                                                <Check className="w-4 h-4 text-white" />
-                                            </div>
-                                            <span className="text-gray-700 text-base sm:text-lg leading-relaxed">
-                                                {feature}
-                                            </span>
-                                        </li>
-                                    ))}
+                                    {service.features?.map((feature, idx) => {
+                                        if (typeof feature === 'object' && 'icon' in feature) {
+                                            const FeatureIcon = feature.icon;
+                                            return (
+                                                <li key={idx} className="flex items-start gap-4">
+                                                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#2A4793]/10 to-[#F7CE47]/10 flex items-center justify-center flex-shrink-0">
+                                                        <FeatureIcon className="w-6 h-6 text-[#2A4793]" />
+                                                    </div>
+                                                    <div className="flex-1">
+                                                        <h4 className="text-lg font-bold text-gray-900 mb-2">
+                                                            {feature.title}
+                                                        </h4>
+                                                        <p className="text-gray-700 text-base leading-relaxed">
+                                                            {feature.description}
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                            );
+                                        }
+                                        return null;
+                                    })}
                                 </ul>
                             </div>
                             

@@ -1,9 +1,15 @@
 import type { LucideIcon } from "lucide-react";
 
+export interface ServiceFeature {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+}
+
 export interface ServiceCardProps {
   title: string;
   description: string;
-  features: string[];
+  features: ServiceFeature[] | string[];
   icon?: LucideIcon;
   iconColor?: string;
   image?: string;
@@ -45,12 +51,6 @@ export interface ContactInfo {
 export interface FAQ {
   questions: string;
   answer: string;
-}
-
-export interface ServiceFeature {
-  title: string;
-  description: string;
-  icon: string;
 }
 
 export interface Message {
