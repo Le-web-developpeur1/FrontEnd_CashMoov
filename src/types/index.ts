@@ -37,7 +37,7 @@ export interface Partner {
 export interface Testimonial {
   name: string;
   country: string;
-  photo: string;
+  // photo: string;
   text: string;
 }
 

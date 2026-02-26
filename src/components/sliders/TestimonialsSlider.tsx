@@ -49,12 +49,12 @@ export default function TestimonialsSlider() {
                 </p>
 
                 <div className="flex items-center gap-2 sm:gap-3 md:gap-4 mt-auto">
-                  <img
+                  {/* <img
                     src={t.photo}
                     alt={t.name}
                     loading="lazy"
                     className="w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full object-cover flex-shrink-0"
-                  />
+                  /> */}
 
                   <div className="min-w-0 flex-1">
                     <p className="font-semibold text-gray-900 text-[0.6875rem] sm:text-sm md:text-base truncate">{t.name}</p>

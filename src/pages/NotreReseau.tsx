@@ -1,16 +1,7 @@
 import { FaUsers } from "react-icons/fa";
 import { motion } from "framer-motion";
-// FaMapMarkerAlt, FaMoneyBillWave,
+
 export default function NotreReseau() {
-  // const stats = [
-  //   { icon: FaGlobe, number: "63+", label: "Pays couverts" },
-  //   { icon: FaMapMarkerAlt, number: "500+", label: "Points de service" },
-  //   { icon: FaMoneyBillWave, number: "150+", label: "Devises disponibles" },
-  //   { icon: FaUsers, number: "100K+", label: "Utilisateurs actifs" },
-  // ];
-
-
-
   return (
     <div className="min-h-screen bg-gray-50">
       
@@ -78,36 +69,6 @@ export default function NotreReseau() {
         </motion.div>
       </motion.div>
 
-      {/* <div className="relative z-10 -mt-12">
-        <div className="max-w-5xl mx-auto px-2 sm:px-4 lg:px-6">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
-          >
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.3 }}
-                className="bg-gradient-to-br from-white to-gray-50 rounded-2xl sm:rounded-3xl p-5 sm:p-6 text-center border border-gray-200 group"
-              >
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-[#2A4793] to-[#1f356d] rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 ">
-                  <stat.icon className="text-white text-xl sm:text-2xl" />
-                </div>
-                <p className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#2A4793] to-[#1f356d] bg-clip-text text-transparent mb-2">
-                  {stat.number}
-                </p>
-                <p className="text-gray-600 text-xs sm:text-sm font-medium">{stat.label}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </div> */}
-
       <div className="py-16 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
@@ -116,30 +77,29 @@ export default function NotreReseau() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="flex flex-col lg:flex-row-reverse items-center gap-8 lg:gap-16"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              En Guinée
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-600 w-full max-w-5xl mx-auto">
-            Nous avons une présence effective dans toutes les préfectures et sous-préfectures de la Guinée. Ce réseau dense de plus de 5000 points de services et une disponibilité de fonds qui assure le paiement dans les points de vente nous permettent de répondre de manière efficace au besoin de l’ensemble de nos clients.
-            </p>
-          </motion.div>
+            <div className="flex-1 w-full">
+              <h2 className="text-3xl text-center sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-16">
+                En Guinée
+              </h2>
+              <p className="text-lg sm:text-2xl text-gray-700 leading-relaxed">
+                Nous avons une présence effective dans toutes les préfectures et sous-préfectures de la Guinée. Ce réseau dense de plus de 5000 points de services et une disponibilité de fonds qui assure le paiement dans les points de vente nous permettent de répondre de manière efficace au besoin de l'ensemble de nos clients.
+              </p>
+            </div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="w-full max-w-4xl mx-auto"
-          >
-            <img
-              src="/images/guinee.png"
-              alt="Carte de la Guinée"
-              className="w-full h-auto rounded-2xl"
-            />
+            <div className="flex-1 w-full flex justify-center">
+              <div className="relative w-full max-w-xl">
+                <img
+                  src="/images/guinee.png"
+                  alt="Carte de la Guinée"
+                  className="w-full h-auto object-cover rounded-xl"
+                />
+              </div>
+            </div>
           </motion.div>
         </div>
+
         <div className="max-w-7xl mx-auto px-4 mt-20 sm:px-6 lg:px-8">
           
           <motion.div
@@ -153,7 +113,7 @@ export default function NotreReseau() {
               Couverture Internationale
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 w-full max-w-5xl mx-auto">
-              Nous avons une présence effective dans toutes les préfectures et sous-préfectures de la Guinée. Ce réseau dense de plus de 5000 points de services et une disponibilité de fonds qui assure le paiement dans les points de vente nous permettent de répondre de manière efficace au besoin de l’ensemble de nos clients.
+              Nous avons une présence effective dans toutes les préfectures et sous-préfectures de la Guinée. Ce réseau dense de plus de 5000 points de services et une disponibilité de fonds qui assure le paiement dans les points de vente nous permettent de répondre de manière efficace au besoin de l'ensemble de nos clients.
             </p>
           </motion.div>
 
@@ -162,16 +122,17 @@ export default function NotreReseau() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="w-full max-w-5xl mx-auto"
+            className="w-full max-w-3xl mx-auto"
           >
             <img
               src="/images/monde.png"
               alt="Carte du monde"
-              className="w-full max-h-[35rem] rounded-2xl"
+              className="w-full max-h-[25rem] object-contain rounded-2xl shadow-xl"
             />
           </motion.div>
         </div>
       </div>
+
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
