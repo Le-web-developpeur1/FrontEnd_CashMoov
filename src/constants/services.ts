@@ -50,7 +50,7 @@ export const SERVICES_PARTICULIERS: Omit<ServiceCardProps, 'onDiscover'>[] = [
     description: "Vous pouvez alimenter votre compte ou retirer votre argent grâce à plusieurs options pratiques.",
     icon: Wallet,
     iconColor: "#2A4793",
-    image: "/images/services/depotretrait.png",
+    image: "/images/services/depot.png",
     features: [
       {
         icon: Users,
