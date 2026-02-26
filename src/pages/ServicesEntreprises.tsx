@@ -52,7 +52,6 @@ export default function ServicesEntreprises() {
         }
     ];
 
-    // Images pour les services entreprises
     const serviceImages = [
         "/images/paiementS.png",
         "/images/point.jfif",
@@ -89,11 +88,11 @@ export default function ServicesEntreprises() {
                                 <p className="text-lg sm:text-xl text-gray-700  mb-6 sm:mb-8">
                                     {service.description}
                                 </p>
-                                <ul className="space-y-4 max-w-2xl mx-auto">
+                                <ul className="space-y-4">
                                     {service.features?.map((feature, idx) => (
                                         <li key={idx} className="flex items-start gap-3">
-                                            <div className="w-6 h-6 rounded-full bg-[#F7CE47] flex items-center justify-center flex-shrink-0 mt-1">
-                                                <svg className="w-4 h-4 text-[#2A4793]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <div className={`${index === 1 ? 'w-6 h-6 rounded-full text-[#F7CE47] bg-[#2A4793] flex items-center justify-center flex-shrink-0 mt-1' : "w-6 h-6 rounded-full text-[#2A4793] bg-[#F7CE47] flex items-center justify-center flex-shrink-0 mt-1"}`}>
+                                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                                 </svg>
                                             </div>
