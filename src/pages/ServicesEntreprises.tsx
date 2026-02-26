@@ -89,18 +89,28 @@ export default function ServicesEntreprises() {
                                     {service.description}
                                 </p>
                                 <ul className="space-y-4">
-                                    {service.features?.map((feature, idx) => (
-                                        <li key={idx} className="flex items-start gap-3">
-                                            <div className={`${index === 1 ? 'w-6 h-6 rounded-full text-[#F7CE47] bg-[#2A4793] flex items-center justify-center flex-shrink-0 mt-1' : "w-6 h-6 rounded-full text-[#2A4793] bg-[#F7CE47] flex items-center justify-center flex-shrink-0 mt-1"}`}>
-                                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                                </svg>
-                                            </div>
-                                            <span className="text-gray-700 text-base sm:text-lg leading-relaxed">
-                                                {typeof feature === 'string' ? feature : feature.description}
-                                            </span>
-                                        </li>
-                                    ))}
+                                    {service.features?.map((feature, idx) => {
+                                        // Check if feature is an object with icon (ServiceFeature)
+                                        if (typeof feature === 'object' && 'icon' in feature) {
+                                            const FeatureIcon = feature.icon;
+                                            return (
+                                                <li key={idx} className="flex items-start gap-4">
+                                                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#F7CE47]/10 to-[#2A4793]/10 flex items-center justify-center flex-shrink-0">
+                                                        <FeatureIcon className="w-6 h-6 text-[#F7CE47]" />
+                                                    </div>
+                                                    <div className="flex-1">
+                                                        <h4 className="text-lg font-bold text-gray-900 mb-2">
+                                                            {feature.title}
+                                                        </h4>
+                                                        <p className="text-gray-700 text-base leading-relaxed">
+                                                            {feature.description}
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                            );
+                                        }
+                                        return null;
+                                    })}
                                 </ul>
                             </div>
                             

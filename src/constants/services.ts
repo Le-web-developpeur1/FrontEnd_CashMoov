@@ -1,5 +1,5 @@
 import type { ServiceCardProps } from "@/types";
-import { Wallet, Send, CreditCard, Banknote, Users, MapPin, Globe, Receipt, Smartphone, ShoppingBag, Building2, ArrowLeftRight } from "lucide-react";
+import { Wallet, Send, CreditCard, Banknote, Users, MapPin, Globe, Receipt, Smartphone, ShoppingBag, Building2, ArrowLeftRight, Zap, FileText, Clock, Briefcase, Shield, FileCheck, Lock, TrendingUp, BarChart3, Headphones } from "lucide-react";
 
 export const SERVICES_PARTICULIERS: Omit<ServiceCardProps, 'onDiscover'>[] = [
   {
@@ -31,7 +31,7 @@ export const SERVICES_PARTICULIERS: Omit<ServiceCardProps, 'onDiscover'>[] = [
       {
         icon: Receipt,
         title: "Paiement de factures",
-        description: "Réglez vos factures (électricité, eau, internet, etc.) sans vous déplacer"
+        description: "Réglez vos factures (électricité, eau...) sans vous déplacer"
       },
       {
         icon: Smartphone,
@@ -78,9 +78,21 @@ export const SERVICES_ENTREPRISES: Omit<ServiceCardProps, 'onDiscover'>[] = [
     icon: Banknote,
     iconColor: "#F7CE47",
     features: [
-      "Gagnez du temps en exécutant vos paiements en un clic",
-      "Facilitez votre gestion avec un état de paie clair et automatisé",
-      "Payez à temps sans aucunes contraintes d'organisation",
+      {
+        icon: Zap,
+        title: "Gain de temps",
+        description: "Gagnez du temps en exécutant vos paiements en un clic"
+      },
+      {
+        icon: FileText,
+        title: "Gestion facilitée",
+        description: "Facilitez votre gestion avec un état de paie clair et automatisé"
+      },
+      {
+        icon: Clock,
+        title: "Paiement à temps",
+        description: "Payez à temps sans aucunes contraintes d'organisation"
+      },
     ],
   },
   {
@@ -89,10 +101,26 @@ export const SERVICES_ENTREPRISES: Omit<ServiceCardProps, 'onDiscover'>[] = [
     icon: Wallet,
     iconColor: "#F7CE47",
     features: [
-      "Service de caisse mobile sur site",
-      "Opérations dans des zones reculées",
-      "Sécurité renforcée",
-      "Traçabilité complète",
+      {
+        icon: Briefcase,
+        title: "Service mobile",
+        description: "Service de caisse mobile sur site"
+      },
+      {
+        icon: MapPin,
+        title: "Zones reculées",
+        description: "Opérations dans des zones reculées"
+      },
+      {
+        icon: Shield,
+        title: "Sécurité renforcée",
+        description: "Sécurité renforcée"
+      },
+      {
+        icon: FileCheck,
+        title: "Traçabilité",
+        description: "Traçabilité complète"
+      },
     ],
   },
   {
@@ -101,10 +129,26 @@ export const SERVICES_ENTREPRISES: Omit<ServiceCardProps, 'onDiscover'>[] = [
     icon: Users,
     iconColor: "#F7CE47",
     features: [
-      "Collecte sécurisée des paiements",
-      "Gestion optimisée de trésorerie",
-      "Rapports détaillés en temps réel",
-      "Support dédié",
+      {
+        icon: Lock,
+        title: "Collecte sécurisée",
+        description: "Collecte sécurisée des paiements"
+      },
+      {
+        icon: TrendingUp,
+        title: "Gestion optimisée",
+        description: "Gestion optimisée de trésorerie"
+      },
+      {
+        icon: BarChart3,
+        title: "Rapports détaillés",
+        description: "Rapports détaillés en temps réel"
+      },
+      {
+        icon: Headphones,
+        title: "Support dédié",
+        description: "Support dédié"
+      },
     ],
   },
 ];
