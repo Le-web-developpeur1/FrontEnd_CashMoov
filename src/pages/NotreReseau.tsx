@@ -121,7 +121,7 @@ export default function NotreReseau() {
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Présence en Guinée :
             </h2>
-            <p className="text-lg sm:text-xl text-gray-600">
+            <p className="text-lg sm:text-xl text-gray-600 w-full max-w-5xl mx-auto">
             Nous avons une présence effective dans toutes les préfectures et sous-préfectures de la Guinée. Ce réseau dense de plus de 5000 points de services et une disponibilité de fonds qui assure le paiement dans les points de vente nous permettent de répondre de manière efficace au besoin de l’ensemble de nos clients.
             </p>
           </motion.div>
@@ -150,10 +150,10 @@ export default function NotreReseau() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              Présence en Guinée :
+              Couverture Internationale
             </h2>
-            <p className="text-lg sm:text-xl text-gray-600">
-            Nous avons une présence effective dans toutes les préfectures et sous-préfectures de la Guinée. Ce réseau dense de plus de 5000 points de services et une disponibilité de fonds qui assure le paiement dans les points de vente nous permettent de répondre de manière efficace au besoin de l’ensemble de nos clients.
+            <p className="text-lg sm:text-xl text-gray-600 w-full max-w-5xl mx-auto">
+              Nous avons une présence effective dans toutes les préfectures et sous-préfectures de la Guinée. Ce réseau dense de plus de 5000 points de services et une disponibilité de fonds qui assure le paiement dans les points de vente nous permettent de répondre de manière efficace au besoin de l’ensemble de nos clients.
             </p>
           </motion.div>
 
