@@ -48,7 +48,7 @@ export const ServiceCard: React.FC<ServiceCardWithOptionalImageProps> = ({
                 <div className="w-9 h-9 sm:w-10 sm:h-10 bg-[#2A4793]/10 rounded-full flex items-center justify-center flex-shrink-0">
                   <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#2A4793]" />
                 </div>
-                <span className="text-sm sm:text-base">{feature}</span>
+                <span className="text-sm sm:text-base">{typeof feature === 'string' ? feature : feature.description}</span>
               </li>
             ))}
           </ul>
