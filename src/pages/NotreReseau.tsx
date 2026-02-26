@@ -109,7 +109,7 @@ export default function NotreReseau() {
             transition={{ duration: 0.6 }}
             className=" mb-12"
           >
-            <div className="bg-gradient-to-r from-[#2A4793] via-[#2A4793] to-[#F7CE47] py-1/2 rounded-2xl overflow-hidden mb-5 items-center justify-center opacity-95">
+            <div className="bg-gradient-to-r from-[#F7CE47] via-[#2A4793] to-[#2A4793] py-1/2 rounded-2xl overflow-hidden mb-5 items-center justify-center opacity-95">
               <h2 className="text-3xl text-center sm:text-4xl font-bold text-white sm:mt-10  mb-4 sm:mb-10">
                 Couverture Internationale
               </h2>
