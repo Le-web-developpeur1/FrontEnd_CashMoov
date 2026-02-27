@@ -78,7 +78,7 @@ export default function NotreReseau() {
                     transition={{ duration: 0.6 }}
                     className="lg:flex-row-reverse items-center gap-8"
                 >
-                    <div className="flex flex-col lg:flex-row gap-6 lg:gap-12">
+                    <div className="flex flex-col-reverse lg:flex-row gap-6 lg:gap-12">
                         <div className="flex-1 w-full flex justify-center">
                             <div className="relative w-full max-w-xl">
                                 <img
@@ -88,9 +88,9 @@ export default function NotreReseau() {
                                 />
                             </div>
                         </div>
-                        <div className="flex-1 w-full">
+                        <div className="flex-1 w-full mt-15">
 
-                            <h2 className="text-3xl sm:text-4xl font-bold text-[#2A4793] mb-4 text-center">
+                            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#2A4793] mb-4 sm:mb-6">
                                 En Guinée
                             </h2>
                             <p className="space-y-6 text-lg sm:text-xl leading-relaxed text-gray-600 w-full max-w-5xl mx-auto">
@@ -102,16 +102,16 @@ export default function NotreReseau() {
 
                 </motion.div>
             </div>
-            <div className="max-w-7xl mx-auto p-5 px-4 mt-30 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto p-5 px-4 mt-15 sm:px-6 lg:px-8">
 
-               <div className="flex flex-col lg:flex-row gap-6 lg:gap-12">
+               <div className="flex flex-col lg:flex-row gap-6 lg:gap-10">
 
-                    <div className=" flex items-center justify-center text-center">
-                        <p className="text-xl lg:text-2xl font-bold text-[#2A4793]">
+                    <div className="flex-1 flex items-center justify-center text-center">
+                        <p className="text-3xl sm:text-4xl font-bold text-[#2A4793] sm:mt-10  mb-4 sm:mb-10">
                             Le service financier le plus proche de vous !
                         </p>
                     </div>
-                    <div className="flex-1 w-full">
+                    <div className="flex-1 w-full max-w-5xl mx-auto">
                         <div className="flex flex-col gap-6">
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div className="relative">
@@ -120,9 +120,9 @@ export default function NotreReseau() {
                                         alt="Image 1" 
                                         className="w-full h-auto sm:h-50 object-cover rounded-lg" 
                                     />
-                                    <div className="absolute top-0 left-0 w-25 bg-black/60 text-white text-center py-2 rounded-br-lg rounded-tl-lg">
+                                    {/* <div className="absolute bottom-0 left-23 w-25 bg-black/60 text-white text-center py-2 rounded-br-lg rounded-tl-lg">
                                         <p className="">N'zérékoré</p>
-                                    </div>
+                                    </div> */}
                                 </div>
                                 <div className="relative">
                                     <img 
@@ -130,9 +130,9 @@ export default function NotreReseau() {
                                         alt="Image 2" 
                                         className="w-full h-auto sm:h-50 object-cover rounded-lg" 
                                     />
-                                    <div className="absolute top-0 right-0 w-25 bg-black/60 text-white text-center py-2 rounded-bl-lg rounded-tr-lg">
+                                    {/* <div className="absolute top-0 right-0 w-25 bg-black/60 text-white text-center py-2 rounded-bl-lg rounded-tr-lg">
                                         <p className="">Labé</p>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         
@@ -143,9 +143,9 @@ export default function NotreReseau() {
                                         alt="Image 3" 
                                         className="w-full h-auto sm:h-50 object-cover rounded-lg" 
                                     />
-                                    <div className="absolute top-0 left-0 w-25 bg-black/60 text-white text-center py-2 rounded-br-lg rounded-tl-lg">
+                                    {/* <div className="absolute top-0 left-0 w-25 bg-black/60 text-white text-center py-2 rounded-br-lg rounded-tl-lg">
                                         <p className="">Kankan</p>
-                                    </div>
+                                    </div> */}
                                 </div>
                                 <div className="relative">
                                     <img 
@@ -153,9 +153,9 @@ export default function NotreReseau() {
                                         alt="Image 4" 
                                         className="w-full h-auto sm:h-50 object-cover rounded-lg" 
                                     />
-                                    <div className="absolute top-0 right-0 w-25 bg-black/60 text-white text-center py-2 rounded-bl-lg rounded-tr-lg">
+                                    {/* <div className="absolute top-0 right-0 w-25 bg-black/60 text-white text-center py-2 rounded-bl-lg rounded-tr-lg">
                                         <p className="">Kindia</p>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>
@@ -165,16 +165,16 @@ export default function NotreReseau() {
 
             <div className="bg-gray-100">
 
-                <div className="max-w-7xl mx-auto p-5 px-4 mt-30 sm:px-6 lg:px-8">
+                <div className="max-w-7xl mx-auto p-5 px-4 mt-10 sm:px-6 lg:px-8">
                     <div className="flex flex-col lg:flex-row gap-6 lg:gap-12">
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
-                            className=" mb-12"
+                            className="mb-10 mt-15"
                         >
-                            <h2 className="text-3xl sm:text-4xl font-bold text-[#2A4793] sm:mt-10  mb-4 sm:mb-10">
+                            <h2 className="text-3xl sm:text-4xl lg:text-4xl font-bold text-[#2A4793] mb-4 sm:mb-6">
                                 Couverture Internationale
                             </h2>
                             <p className="space-y-6 text-lg sm:text-xl leading-relaxed text-gray-600 w-full max-w-5xl mx-auto">

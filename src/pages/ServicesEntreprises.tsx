@@ -119,7 +119,7 @@ export default function ServicesEntreprises() {
                                         src={serviceImages[index]}
                                         alt={service.title}
                                         loading="lazy"
-                                        className="w-full h-auto min-h-[25rem] sm:min-h-[31.25rem] object-cover rounded-xl"
+                                        className="w-full h-auto min-h-[20rem] sm:min-h-[31.25rem] object-cover rounded-xl"
                                     />
                                 </div>
                             </div>
