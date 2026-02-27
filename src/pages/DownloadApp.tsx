@@ -111,6 +111,7 @@ export default function DownloadApp() {
                 <img 
                   src="/images/phone.png" 
                   alt="Cash Moov App"
+                  loading="lazy"
                   className="w-full h-auto drop-shadow-2xl"
                 />
               </motion.div>

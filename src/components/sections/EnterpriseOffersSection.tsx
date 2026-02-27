@@ -53,6 +53,7 @@ export default function EnterpriseOffersSection() {
                   src="/images/salair.png"
                   alt="CashMoov Entreprises"
                   loading="lazy"
+                  loading="lazy"
                   className="w-full h-auto object-cover scale-103"
                 />
               </div>

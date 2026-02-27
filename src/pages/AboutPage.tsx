@@ -103,7 +103,7 @@ export default function AboutPage() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                     >
-                        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8 text-center">
+                        <h2 className="text-3xl sm:text-4xl font-bold text-[#2A4793] mb-8 text-center">
                             Leader du transfert d'argent en Guinée !
                         </h2>
                         <div className="space-y-6 text-gray-600 leading-relaxed text-lg max-w-5xl mx-auto">

@@ -53,7 +53,7 @@ export default function Login() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-center mb-8"
         >
-          <img src="/logocm.png" alt="Logo CashMoov" className='align-center mb-2 ml-4'/>
+          <img src="/logocm.png" alt="Logo CashMoov" className='align-center mb-2 ml-4' loading="lazy"/>
           <p className="text-white text-lg">Espace Administration</p>
         </motion.div>
 

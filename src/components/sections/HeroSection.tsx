@@ -55,6 +55,7 @@ export function HeroSection() {
           <img 
             src="/images/PNG (1).png" 
             alt="Sticker" 
+            loading="lazy" 
             className="w-full h-full object-contain drop-shadow-2xl"
           />
         </motion.div>
@@ -218,6 +219,7 @@ export function HeroSection() {
               <img
                 src="/images/App CashMoov.png"
                 alt="CashMoov App"
+                loading="lazy"
                 loading="eager"
                 fetchPriority="high"
                 className="w-full h-auto drop-shadow-2xl"

@@ -57,6 +57,7 @@ export default function LeaderSection() {
                 <img
                   src="/images/LeadTrans.png"
                   alt="CashMoov Leader"
+                  loading="lazy"
                   className="w-full h-auto object-cover"
                 />
               </div>

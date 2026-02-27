@@ -110,13 +110,13 @@ export function Chatbot({ ws, roomName }: ChatbotProps) {
   const getAvatar = (sender: string) => {
     if (sender === "assistant") {
       return (
-        <img src="/images/assistant.jpg" alt="assistant" className="w-8 h-8 rounded-full object-cover" />
+        <img src="/images/assistant.jpg" alt="assistant" className="w-8 h-8 rounded-full object-cover" loading="lazy" />
       );
     }
     if (sender === "bot") {
-      return <img src='/images/sticker.png' className="w-8 h-8 rounded-full object-cover" />;
+      return <img src='/images/sticker.png' className="w-8 h-8 rounded-full object-cover" loading="lazy" />;
     }
-    return <img src='/images/client.png' className="w-8 h-8 rounded-full object-cover" />;
+    return <img src='/images/client.png' className="w-8 h-8 rounded-full object-cover" loading="lazy" />;
   };
   
 
@@ -295,6 +295,7 @@ export default function ChatbotWidget() {
               <img 
                 src='/images/sticker.png' 
                 alt="Chat"
+                loading="lazy"
               className="w-8 h-8 sm:w-14 sm:h-14 object-contain" 
               />
             </motion.div>

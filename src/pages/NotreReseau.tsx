@@ -78,10 +78,10 @@ export default function NotreReseau() {
                     transition={{ duration: 0.6 }}
                     className="lg:flex-row-reverse items-center gap-8"
                 >
-                    <h2 className="text-3xl text-center sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-8">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-[#2A4793] mb-4 text-center">
                         En Guinée
                     </h2>
-                    <p className="text-lg sm:text-xl text-gray-700 leading-relaxed mb-10">
+                    <p className="space-y-6 text-gray-600 leading-relaxed text-lg max-w-5xl mx-auto mb-8">
                         Nous avons une présence effective dans toutes les préfectures et sous-préfectures de la Guinée. 
                         Ce réseau dense de plus de 5000 points de services répartis dans tout le pays et une maîtrise de l'écosystème financier local dans l'approvisionnement des points de vente nous permettent de répondre de manière efficace au besoin de l'ensemble de nos clients.
                     </p>
@@ -91,6 +91,7 @@ export default function NotreReseau() {
                                 <img
                                     src="/images/guinee.png"
                                     alt="Carte de la Guinée"
+                                    loading="lazy"
                                     className="w-full h-auto object-cover rounded-xl"
                                 />
                             </div>
@@ -101,35 +102,39 @@ export default function NotreReseau() {
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                     <div>
                                         <img 
-                                            src="/images/fond.png" 
+                                            src="/images/nzerekore.png" 
                                             alt="Image 1" 
+                                            loading="lazy" 
                                             className="w-full h-auto sm:h-50 object-cover rounded-lg" />
                                     </div>
                                     <div>
                                         <img 
-                                            src="/images/fond.png" 
+                                            src="/images/labe.png" 
                                             alt="Image 2" 
+                                            loading="lazy" 
                                             className="w-full h-auto sm:h-50 object-cover rounded-lg" />
                                     </div>
                                 </div>
                                 
                                 <div className=" rounded-xl shadow-lg border-2">
                                     <p className="text-xl lg:text-2xl font-bold text-[#2A4793] text-center">
-                                        Cashmoov le plus proche de vous !
+                                        Le service financier le plus proche de vous !
                                     </p>
                                 </div>
                         
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                     <div>
                                         <img 
-                                            src="/images/fond.png" 
+                                            src="/images/kankan.png" 
                                             alt="Image 3" 
+                                            loading="lazy" 
                                             className="w-full h-auto sm:h-50 object-cover rounded-lg" />
                                     </div>
                                     <div>
                                         <img 
-                                            src="/images/fond.png" 
+                                            src="/images/kindia.png" 
                                             alt="Image 4" 
+                                            loading="lazy" 
                                             className="w-full h-auto sm:h-50 object-cover rounded-lg" />
                                     </div>
                                 </div>
@@ -140,39 +145,43 @@ export default function NotreReseau() {
                 </motion.div>
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 mt-20 sm:px-6 lg:px-8">
-            
-            <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className=" mb-12"
-            >
-                <div className="bg-gradient-to-r from-[#F7CE47] via-[#2A4793] to-[#2A4793] py-1/2 rounded-2xl overflow-hidden mb-5 items-center justify-center opacity-95">
-                <h2 className="text-3xl text-center sm:text-4xl font-bold text-white sm:mt-10  mb-4 sm:mb-10">
-                    Couverture Internationale
-                </h2>
-                </div>
-                <p className="text-lg sm:text-xl text-gray-600 w-full max-w-5xl mx-auto">
-                Nous avons une présence effective dans toutes les préfectures et sous-préfectures de la Guinée. Ce réseau dense de plus de 5000 points de services et une disponibilité de fonds qui assure le paiement dans les points de vente nous permettent de répondre de manière efficace au besoin de l'ensemble de nos clients.
-                </p>
-            </motion.div>
+            <div className="bg-gray-100">
 
-            <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="w-full max-w-5xl mx-auto"
-            >
-                <img
-                src="/images/monde.png"
-                alt="Carte du monde"
-                className="w-full max-h-[32rem] rounded-2xl shadow-xl"
-                />
-            </motion.div>
+            <div className="max-w-7xl mx-auto p-5 px-4 mt-30 sm:px-6 lg:px-8">
+                <div className="flex flex-col lg:flex-row gap-6 lg:gap-12">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className=" mb-12"
+                    >
+                        <h2 className="text-3xl sm:text-4xl font-bold text-[#2A4793] sm:mt-10  mb-4 sm:mb-10">
+                            Couverture Internationale
+                        </h2>
+                        <p className="space-y-6 text-lg sm:text-xl leading-relaxed text-gray-600 w-full max-w-5xl mx-auto">
+                            Nous avons une présence effective dans toutes les préfectures et sous-préfectures de la Guinée. <br /> <br /> Ce réseau dense de plus de 5000 points de services et une disponibilité de fonds qui assure le paiement dans les points de vente nous permettent de répondre de manière efficace au besoin de l'ensemble de nos clients.
+                        </p>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="w-full max-w-5xl mx-auto"
+                    >
+                        <img
+                        src="/images/carteM4.png"
+                        alt="Carte du monde"
+                        loading="lazy"
+                        className="w-full max-h-[32rem] rounded-xl "
+                        />
+                    </motion.div>
+                </div>
             </div>
+            </div>
+            
         </div>
 
         <motion.div
