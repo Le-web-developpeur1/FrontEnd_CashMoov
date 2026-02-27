@@ -99,19 +99,21 @@ export default function EnterpriseOffersSection() {
                   whileHover={{ scale: 1.03, y: -3 }}
                   className="bg-gradient-to-br from-gray-50 to-white p-4 rounded-xl border border-gray-100 hover:border-[#F7CE47]/30 hover:shadow-md transition-all duration-300"
                 >
-                  <div className="flex items-start gap-3">
-                    <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-lg flex items-center justify-center flex-shrink-0 bg-gradient-to-br from-[#F7CE47] to-[#e6bd3a]">
-                      <offer.icon className="w-7 h-7 sm:w-8 sm:h-8 text-[#2A4793]" />
+                  <a href="/services-entreprises/">
+                    <div className="flex items-start gap-3">
+                      <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-lg flex items-center justify-center flex-shrink-0 bg-gradient-to-br from-[#F7CE47] to-[#e6bd3a]">
+                        <offer.icon className="w-7 h-7 sm:w-8 sm:h-8 text-[#2A4793]" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 leading-tight">
+                          {offer.title}
+                        </h3>
+                        <p className="text-[0.625rem] sm:text-xs text-gray-600 leading-relaxed">
+                          {offer.description}
+                        </p>
+                      </div>
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 leading-tight">
-                        {offer.title}
-                      </h3>
-                      <p className="text-[0.625rem] sm:text-xs text-gray-600 leading-relaxed">
-                        {offer.description}
-                      </p>
-                    </div>
-                  </div>
+                  </a>
                 </motion.div>
               ))}
             </div>

@@ -1,7 +1,7 @@
 import { FaUsers } from "react-icons/fa";
 import { motion } from "framer-motion";
 
-export default function NotreReseau() {
+export default function Reseau() {
   return (
     <div className="min-h-screen bg-gray-50">
       

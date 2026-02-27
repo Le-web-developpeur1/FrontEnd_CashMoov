@@ -56,10 +56,10 @@ function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.25 }}
-                  className="absolute left-0 mt-2 w-48 bg-[#1f356d] border border-[#2A4793] shadow-lg rounded-md py-2"
+                  className="absolute left-0 mt-2 w-30 bg-[#1f356d] border border-[#2A4793] shadow-lg rounded-md py-2"
                 >
                   <NavLink
-                    to="/services-particuliers"
+                    to="/services-particuliers/"
                     className="block px-4 py-2 hover:bg-[#2A4793] text-white"
                   >
                     Particuliers
@@ -68,7 +68,7 @@ function Navbar() {
                   <div className="border-b my-1 border-[#2A4793]"></div>
 
                   <NavLink
-                    to="/services-entreprises"
+                    to="/services-entreprises/"
                     className="block px-4 py-2 hover:bg-[#2A4793] text-white"
                   >
                     Entreprises
@@ -78,14 +78,14 @@ function Navbar() {
             </AnimatePresence>
           </div>
 
-          <NavLink to="/notre-reseau" className="hover:text-[#F7CE47] transition">
+          <NavLink to="/notre-reseau/" className="hover:text-[#F7CE47] transition">
             Notre Réseau
           </NavLink>
-          <NavLink to="/about" className="hover:text-[#F7CE47] transition">
+          <NavLink to="/about/" className="hover:text-[#F7CE47] transition">
             A Propos
           </NavLink>
 
-          <NavLink to="/contact" className="hover:text-[#F7CE47] transition">
+          <NavLink to="/contact/" className="hover:text-[#F7CE47] transition">
             Contact
           </NavLink>
         </div>
@@ -145,10 +145,10 @@ function Navbar() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.25 }}
-                    className="w-56 mt-2 bg-[#1f356d] border border-[#2A4793] shadow-lg rounded-md py-2"
+                    className="w-30 mt-2 bg-[#1f356d] border border-[#2A4793] shadow-lg rounded-md py-2"
                   >
                     <NavLink
-                      to="/services-particuliers"
+                      to="/services-particuliers/"
                       onClick={() => setMenuOpen(false)}
                       className="block px-4 py-2 hover:bg-[#2A4793] text-white"
                     >
@@ -156,7 +156,7 @@ function Navbar() {
                     </NavLink>
 
                     <NavLink
-                      to="/services-entreprises"
+                      to="/services-entreprises/"
                       onClick={() => setMenuOpen(false)}
                       className="block px-4 py-2 hover:bg-[#2A4793] text-white"
                     >
@@ -167,15 +167,15 @@ function Navbar() {
               </AnimatePresence>
             </div>
 
-            <NavLink to="/notre-reseau" onClick={() => setMenuOpen(false)}>
+            <NavLink to="/notre-reseau/" onClick={() => setMenuOpen(false)}>
               Notre Réseau
             </NavLink>
 
-            <NavLink to="/about" onClick={() => setMenuOpen(false)}>
+            <NavLink to="/about/" onClick={() => setMenuOpen(false)}>
               A Propos
             </NavLink>
 
-            <NavLink to="/contact" onClick={() => setMenuOpen(false)}>
+            <NavLink to="/contact/" onClick={() => setMenuOpen(false)}>
               Contact
             </NavLink>
           </motion.div>

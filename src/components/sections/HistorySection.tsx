@@ -43,7 +43,7 @@ export default function HistorySection() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % historyData.length);
-    }, 4000);
+    }, 8000);
 
     return () => clearInterval(timer);
   }, []);

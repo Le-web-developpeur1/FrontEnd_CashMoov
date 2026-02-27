@@ -5,8 +5,8 @@ export default function TestimonialsSlider() {
   const loopTestimonials = [...TESTIMONIALS, ...TESTIMONIALS];
 
   return (
-    <section className="bg-gray-50 p-3">
-      <div className="max-full mx-auto text-center">
+    <section className="bg-gray-50 p-3 ">
+      <div className="max-full mx-auto text-center mt-10">
 
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
