@@ -78,108 +78,125 @@ export default function NotreReseau() {
                     transition={{ duration: 0.6 }}
                     className="lg:flex-row-reverse items-center gap-8"
                 >
-                    <h2 className="text-3xl sm:text-4xl font-bold text-[#2A4793] mb-4 text-center">
-                        En Guinée
-                    </h2>
-                    <p className="space-y-6 text-gray-600 leading-relaxed text-lg max-w-5xl mx-auto mb-8">
-                        Nous avons une présence effective dans toutes les préfectures et sous-préfectures de la Guinée. 
-                        Ce réseau dense de plus de 5000 points de services répartis dans tout le pays et une maîtrise de l'écosystème financier local dans l'approvisionnement des points de vente nous permettent de répondre de manière efficace au besoin de l'ensemble de nos clients.
-                    </p>
-                    <div className="flex flex-col lg:flex-row gap-6 lg:gap-12">
+                    <div className="flex flex-col-reverse lg:flex-row gap-6 lg:gap-12">
                         <div className="flex-1 w-full flex justify-center">
                             <div className="relative w-full max-w-xl">
                                 <img
-                                    src="/images/guinee.png"
+                                    src="/images/carteGuinee1.png"
                                     alt="Carte de la Guinée"
-                                    loading="lazy"
                                     className="w-full h-auto object-cover rounded-xl"
                                 />
                             </div>
                         </div>
+                        <div className="flex-1 w-full mt-15">
 
-                        <div className="flex-1 w-full">
-                            <div className="flex flex-col gap-6">
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                    <div>
-                                        <img 
-                                            src="/images/nzerekore.png" 
-                                            alt="Image 1" 
-                                            loading="lazy" 
-                                            className="w-full h-auto sm:h-50 object-cover rounded-lg" />
-                                    </div>
-                                    <div>
-                                        <img 
-                                            src="/images/labe.png" 
-                                            alt="Image 2" 
-                                            loading="lazy" 
-                                            className="w-full h-auto sm:h-50 object-cover rounded-lg" />
-                                    </div>
-                                </div>
-                                
-                                <div className=" rounded-xl shadow-lg border-2">
-                                    <p className="text-xl lg:text-2xl font-bold text-[#2A4793] text-center">
-                                        Le service financier le plus proche de vous !
-                                    </p>
-                                </div>
-                        
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                    <div>
-                                        <img 
-                                            src="/images/kankan.png" 
-                                            alt="Image 3" 
-                                            loading="lazy" 
-                                            className="w-full h-auto sm:h-50 object-cover rounded-lg" />
-                                    </div>
-                                    <div>
-                                        <img 
-                                            src="/images/kindia.png" 
-                                            alt="Image 4" 
-                                            loading="lazy" 
-                                            className="w-full h-auto sm:h-50 object-cover rounded-lg" />
-                                    </div>
-                                </div>
-                            </div>
+                            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#2A4793] mb-4 sm:mb-6">
+                                En Guinée
+                            </h2>
+                            <p className="space-y-6 text-lg sm:text-xl leading-relaxed text-gray-600 w-full max-w-5xl mx-auto">
+                                Nous avons une présence effective dans toutes les préfectures et sous-préfectures de la Guinée. <br /> <br />
+                                Ce réseau dense de plus de 5000 points de services répartis dans tout le pays et une maîtrise de l'écosystème financier local dans l'approvisionnement des points de vente nous permettent de répondre de manière efficace au besoin de l'ensemble de nos clients.
+                            </p>
                         </div>
                     </div>
 
                 </motion.div>
             </div>
+            <div className="max-w-7xl mx-auto p-5 px-4 mt-15 sm:px-6 lg:px-8">
+
+               <div className="flex flex-col lg:flex-row gap-6 lg:gap-10">
+
+                    <div className="flex-1 flex items-center justify-center text-center">
+                        <p className="text-3xl sm:text-4xl font-bold text-[#2A4793] sm:mt-10  mb-4 sm:mb-10">
+                            Le service financier le plus proche de vous !
+                        </p>
+                    </div>
+                    <div className="flex-1 w-full max-w-5xl mx-auto">
+                        <div className="flex flex-col gap-6">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div className="relative">
+                                    <img 
+                                        src="/images/nzerekore.png" 
+                                        alt="Image 1" 
+                                        className="w-full h-auto sm:h-50 object-cover rounded-lg" 
+                                    />
+                                    {/* <div className="absolute bottom-0 left-23 w-25 bg-black/60 text-white text-center py-2 rounded-br-lg rounded-tl-lg">
+                                        <p className="">N'zérékoré</p>
+                                    </div> */}
+                                </div>
+                                <div className="relative">
+                                    <img 
+                                        src="/images/labe.png" 
+                                        alt="Image 2" 
+                                        className="w-full h-auto sm:h-50 object-cover rounded-lg" 
+                                    />
+                                    {/* <div className="absolute top-0 right-0 w-25 bg-black/60 text-white text-center py-2 rounded-bl-lg rounded-tr-lg">
+                                        <p className="">Labé</p>
+                                    </div> */}
+                                </div>
+                            </div>
+                        
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div className="relative">
+                                    <img 
+                                        src="/images/kankan.png" 
+                                        alt="Image 3" 
+                                        className="w-full h-auto sm:h-50 object-cover rounded-lg" 
+                                    />
+                                    {/* <div className="absolute top-0 left-0 w-25 bg-black/60 text-white text-center py-2 rounded-br-lg rounded-tl-lg">
+                                        <p className="">Kankan</p>
+                                    </div> */}
+                                </div>
+                                <div className="relative">
+                                    <img 
+                                        src="/images/kindia.png" 
+                                        alt="Image 4" 
+                                        className="w-full h-auto sm:h-50 object-cover rounded-lg" 
+                                    />
+                                    {/* <div className="absolute top-0 right-0 w-25 bg-black/60 text-white text-center py-2 rounded-bl-lg rounded-tr-lg">
+                                        <p className="">Kindia</p>
+                                    </div> */}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div className="bg-gray-100">
 
-            <div className="max-w-7xl mx-auto p-5 px-4 mt-30 sm:px-6 lg:px-8">
-                <div className="flex flex-col lg:flex-row gap-6 lg:gap-12">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className=" mb-12"
-                    >
-                        <h2 className="text-3xl sm:text-4xl font-bold text-[#2A4793] sm:mt-10  mb-4 sm:mb-10">
-                            Couverture Internationale
-                        </h2>
-                        <p className="space-y-6 text-lg sm:text-xl leading-relaxed text-gray-600 w-full max-w-5xl mx-auto">
-                            Nous avons une présence effective dans toutes les préfectures et sous-préfectures de la Guinée. <br /> <br /> Ce réseau dense de plus de 5000 points de services et une disponibilité de fonds qui assure le paiement dans les points de vente nous permettent de répondre de manière efficace au besoin de l'ensemble de nos clients.
-                        </p>
-                    </motion.div>
+                <div className="max-w-7xl mx-auto p-5 px-4 mt-10 sm:px-6 lg:px-8">
+                    <div className="flex flex-col lg:flex-row gap-6 lg:gap-12">
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            className="mt-15"
+                        >
+                            <h2 className="text-3xl sm:text-4xl lg:text-4xl font-bold text-[#2A4793] mb-4 sm:mb-6">
+                                Couverture Internationale
+                            </h2>
+                            <p className="space-y-6 text-lg sm:text-xl leading-relaxed text-gray-600 w-full max-w-5xl mx-auto">
+                                Nous avons une présence effective dans toutes les préfectures et sous-préfectures de la Guinée. <br /> <br /> Ce réseau dense de plus de 5000 points de services et une disponibilité de fonds qui assure le paiement dans les points de vente nous permettent de répondre de manière efficace au besoin de l'ensemble de nos clients.
+                            </p>
+                        </motion.div>
 
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="w-full max-w-5xl mx-auto"
-                    >
-                        <img
-                        src="/images/carteM4.png"
-                        alt="Carte du monde"
-                        loading="lazy"
-                        className="w-full max-h-[32rem] rounded-xl "
-                        />
-                    </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            className="w-full max-w-5xl mx-auto"
+                        >
+                            <img
+                            src="/images/carteM4.png"
+                            alt="Carte du monde"
+                            className="w-full max-h-[32rem] rounded-xl "
+                            />
+                        </motion.div>
+                    </div>
                 </div>
-            </div>
             </div>
             
         </div>
@@ -189,7 +206,7 @@ export default function NotreReseau() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-gray-50 py-12 sm:py-16"
+            className="bg-gray-50 py-2 sm:py-16"
         >
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
