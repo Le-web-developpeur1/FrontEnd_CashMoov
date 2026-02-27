@@ -9,67 +9,67 @@ export default function NotreReseau() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="relative bg-gradient-to-r from-[#2A4793] via-[#2A4793] to-[#F7CE47] py-16 sm:py-20 lg:py-24 overflow-hidden mt-10"
+            className="relative bg-gradient-to-r from-[#2A4793] via-[#2A4793] to-[#F7CE47] py-16 sm:py- lg:py-24 overflow-hidden mt-10"
         >
             
             <div className="absolute inset-0 opacity-20">
-            <motion.div
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 3, repeat: Infinity }}
-                className="absolute top-10 left-10 w-16 h-16 rounded-full border-4 border-white flex items-center justify-center"
-            >
-                <FaUsers className="text-white text-2xl" />
-            </motion.div>
-            <motion.div
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
-                className="absolute top-20 right-20 w-12 h-12 rounded-full border-4 border-white flex items-center justify-center"
-            >
-                <FaUsers className="text-white text-xl" />
-            </motion.div>
-            <motion.div
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 3, repeat: Infinity, delay: 1 }}
-                className="absolute bottom-20 left-1/4 w-14 h-14 rounded-full border-4 border-white flex items-center justify-center"
-            >
-                <FaUsers className="text-white text-xl" />
-            </motion.div>
-            <motion.div
+              <motion.div
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                  className="absolute top-10 left-10 w-16 h-16 rounded-full border-4 border-white flex items-center justify-center"
+              >
+                  <FaUsers className="text-white text-2xl" />
+              </motion.div>
+              <motion.div
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
+                  className="absolute top-20 right-20 w-12 h-12 rounded-full border-4 border-white flex items-center justify-center"
+              >
+                  <FaUsers className="text-white text-xl" />
+              </motion.div>
+              <motion.div
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 3, repeat: Infinity, delay: 1 }}
+                  className="absolute bottom-20 left-1/4 w-14 h-14 rounded-full border-4 border-white flex items-center justify-center"
+              >
+                  <FaUsers className="text-white text-xl" />
+              </motion.div>
+              <motion.div
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}
                 className="absolute top-1/3 right-1/3 w-20 h-20 rounded-full border-4 border-white flex items-center justify-center"
-            >
+              >
                 <FaUsers className="text-white text-3xl" />
-            </motion.div>
-            <motion.div
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 3, repeat: Infinity, delay: 2 }}
-                className="absolute bottom-10 right-10 w-16 h-16 rounded-full border-4 border-white flex items-center justify-center"
-            >
-                <FaUsers className="text-white text-2xl" />
-            </motion.div>
-            
-            <svg className="absolute inset-0 w-full h-full">
+              </motion.div>
+              <motion.div
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 3, repeat: Infinity, delay: 2 }}
+                  className="absolute bottom-10 right-10 w-16 h-16 rounded-full border-4 border-white flex items-center justify-center"
+              >
+                  <FaUsers className="text-white text-2xl" />
+              </motion.div>
+              
+              <svg className="absolute inset-0 w-full h-full">
                 <line x1="10%" y1="20%" x2="30%" y2="60%" stroke="white" strokeWidth="2" opacity="0.3" />
                 <line x1="30%" y1="60%" x2="60%" y2="40%" stroke="white" strokeWidth="2" opacity="0.3" />
                 <line x1="60%" y1="40%" x2="80%" y2="30%" stroke="white" strokeWidth="2" opacity="0.3" />
                 <line x1="80%" y1="30%" x2="85%" y2="70%" stroke="white" strokeWidth="2" opacity="0.3" />
-            </svg>
+              </svg>
             </div>
 
             <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative z-10 max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative z-10 max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
             >
-            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl  text-white leading-tight">
-                Un réseau mondial pour vous accompagner partout
-            </p>
+              <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl  text-white leading-tight">
+                  Un réseau mondial pour vous accompagner partout
+              </p>
             </motion.div>
         </motion.div>
 
-        <div className="py-16 sm:py-20 lg:py-24">
+        <div className="py-12 sm:py-10 lg:py-16">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}

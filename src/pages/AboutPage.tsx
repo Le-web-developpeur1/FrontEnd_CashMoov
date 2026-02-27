@@ -95,7 +95,7 @@ export default function AboutPage() {
 
            
 
-            <div className="py-16 sm:py-20 bg-white">
+            <div className="py-12 sm:py-10 lg:py-16 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
