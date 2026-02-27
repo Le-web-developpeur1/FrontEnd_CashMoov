@@ -166,7 +166,20 @@ export default function NotreReseau() {
             <div className="bg-gray-100">
 
                 <div className="max-w-7xl mx-auto p-5 px-4 mt-10 sm:px-6 lg:px-8">
-                    <div className="flex flex-col lg:flex-row gap-6 lg:gap-12">
+                    <div className="flex flex-col-reverse lg:flex-row gap-6 lg:gap-12">
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            className="w-full max-w-5xl mx-auto"
+                        >
+                            <img
+                            src="/images/carteM4.png"
+                            alt="Carte du monde"
+                            className="w-full max-h-[32rem] rounded-xl "
+                            />
+                        </motion.div>
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -180,20 +193,6 @@ export default function NotreReseau() {
                             <p className="space-y-6 text-lg sm:text-xl leading-relaxed text-gray-600 w-full max-w-5xl mx-auto">
                                 Nous avons une présence effective dans toutes les préfectures et sous-préfectures de la Guinée. <br /> <br /> Ce réseau dense de plus de 5000 points de services et une disponibilité de fonds qui assure le paiement dans les points de vente nous permettent de répondre de manière efficace au besoin de l'ensemble de nos clients.
                             </p>
-                        </motion.div>
-
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                            className="w-full max-w-5xl mx-auto"
-                        >
-                            <img
-                            src="/images/carteM4.png"
-                            alt="Carte du monde"
-                            className="w-full max-h-[32rem] rounded-xl "
-                            />
                         </motion.div>
                     </div>
                 </div>
