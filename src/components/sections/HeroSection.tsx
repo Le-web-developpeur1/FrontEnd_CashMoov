@@ -40,7 +40,7 @@ export function HeroSection() {
             alt="Background"
             loading="eager"
             fetchPriority="high"
-            className="w-full h-full object-contain opacity-30 sm:opacity-40"
+            className="w-full h-full object-contain opacity-30 sm:opacity-30"
           />
         </motion.div>
 
@@ -126,14 +126,6 @@ export function HeroSection() {
               </AnimatePresence>
             </motion.p>
 
-            {/* <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-              className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto lg:mx-0"
-            >
-              CashMoov est un portefeuille électronique qui vous permet de : Transférez de l'argent dans la quasi-totalité des pays du monde (plus de 63 pays), Payez vos factures et vos articles en boutique ou en ligne, Rechargez du crédit téléphonique et Recevoir votre salaire à temps.
-            </motion.p> */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

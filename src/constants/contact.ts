@@ -23,7 +23,11 @@ export const CONTACT_INFO: ContactInfo[] = [
   {
     icone: Clock,
     title: "Horaires",
-    details: ["Lun-Ven: 8h-17h30"],
+    details: [
+      "Bureau ouvert",
+      "Lun-Ven : 8h30-17h30",
+      "Service disponible : 24/7",
+    ],
     color: "bg-[#F7CE47]",
   },
 ];

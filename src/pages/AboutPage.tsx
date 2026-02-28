@@ -104,7 +104,7 @@ export default function AboutPage() {
                         transition={{ duration: 0.6 }}
                     >
                         <h2 className="text-3xl sm:text-4xl font-bold text-[#2A4793] mb-8 text-center">
-                            Leader du transfert d'argent en Guinée !
+                            Acteur de l’inclusion financière en Afrique
                         </h2>
                         <div className="space-y-6 text-gray-600 leading-relaxed text-lg max-w-5xl mx-auto">
                             <p>
@@ -179,7 +179,7 @@ export default function AboutPage() {
                             className="bg-gradient-to-br from-[#2A4793] to-[#1f356d] rounded-3xl p-8 text-white"
                         >
                             <div className="flex items-start gap-4 mb-4">
-                                <div className="w-12 h-12 bg-[#F7CE47] rounded-xl flex items-center justify-center flex-shrink-0">
+                                <div className="w-12 h-15 bg-[#F7CE47] mt-1.5 rounded-xl flex-1 items-center justify-center flex-shrink-0">
                                     <Target className="w-6 h-6 text-[#2A4793]" />
                                 </div>
                                 <div>
@@ -199,7 +199,7 @@ export default function AboutPage() {
                             className="bg-gradient-to-br from-[#F7CE47] to-[#e6bd3a] rounded-3xl p-8"
                         >
                             <div className="flex items-start gap-4 mb-4">
-                                <div className="w-12 h-12 bg-[#2A4793] rounded-xl flex items-center justify-center flex-shrink-0">
+                                <div className="w-12 h-15 bg-[#2A4793] mt-1.5 rounded-xl flex-1 items-center justify-center flex-shrink-0">
                                     <Eye className="w-6 h-6 text-[#F7CE47]" />
                                 </div>
                                 <div>
@@ -243,9 +243,9 @@ export default function AboutPage() {
                                 key={index}
                                 variants={itemVariants}
                                 whileHover={{ y: -5 }}
-                                className="bg-white rounded-2xl p-6 border border-gray-200 items-center justify-center"
+                                className="bg-white rounded-2xl p-6 border border-gray-200 text-center items-center justify-center"
                             >
-                                <div className="w-16 h-16 bg-gradient-to-br from-[#2A4793] to-[#1f356d] rounded-xl flex items-center justify-center mb-4">
+                                <div className="w-16 h-16 bg-gradient-to-br from-[#2A4793] to-[#1f356d] rounded-xl flex items-center justify-center mx-auto mb-4">
                                     <value.icon className="w-8 h-8 text-[#F7CE47]" />
                                 </div>
                                 <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>

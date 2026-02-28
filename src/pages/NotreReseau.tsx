@@ -109,10 +109,17 @@ export default function NotreReseau() {
 
                     <div className="flex flex-col lg:flex-row gap-6 lg:gap-10">
 
-                        <div className="flex-1 flex items-center justify-center text-center">
-                            <p className="text-3xl sm:text-4xl font-bold text-[#2A4793] sm:mt-10  mb-4 sm:mb-10">
-                                Le service financier le plus proche de vous !
-                            </p>
+                        <div className="flex-1 flex">
+                            <div className="w-full items-center justify-center">
+                                <h2 className="text-3xl sm:text-5xl font-bold text-[#2A4793] sm:mt-10  mb-4 sm:mb-10">
+                                    Le service financier le plus proche de vous !
+                                </h2>
+                                <p className="space-y-6 text-lg sm:text-xl leading-relaxed text-gray-600 w-full max-w-5xl mx-auto">
+                                    Nos points de vente sont présents dans les zones les plus éloignées du pays.
+                                    Où que vous soyez en Guinée, vous pouvez envoyer et recevoir de l’argent, mais aussi accéder à des services financiers innovants.
+                                    Parce qu’être proches de vous, c’est plus qu’un message : c’est notre manière d’agir au quotidien.
+                                </p>
+                            </div>
                         </div>
                         <div className="flex-1 w-full max-w-5xl mx-auto">
                             <div className="flex flex-col gap-6">
@@ -188,13 +195,29 @@ export default function NotreReseau() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="mt-15"
+                        className="mt-3 w-full items-center justify-center"
                     >
-                        <h2 className="text-3xl sm:text-4xl lg:text-4xl font-bold text-[#2A4793] mb-4 sm:mb-6">
+                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#2A4793] mb-4 sm:mb-2">
                             Couverture Internationale
                         </h2>
+                        <p className="space-y-6 text-lg sm:text-xl leading-relaxed text-gray-600 w-full max-w-5xl mx-auto mb-4 sm:mb-3">
+                            Accédez à plus de 36 destinations partout dans le monde et recevez vos transactions internationales sur votre compte CashMoov en toute quiétude.
+                            De votre application , vous pouvez achetez de la marchandise en asie, payez un fournisseur en Europe ou les études de vos enfants au Canada.
+                            Vous avez le choix d'envoyer vers:   
+                        </p>
+                        <ul className="space-y-2 text-lg sm:text-xl sm:ml-5 leading-relaxed text-gray-600 w-full max-w-5xl mx-auto mb-4 sm:mb-3">
+                            <li>
+                                Un Compte bancaire avec le transfert international instantané. 
+                            </li>
+                            <li>
+                                Un Compte mobile (Orange Money, Wechat, Alipay …)          
+                            </li>
+                            <li>
+                                Un Service de paiement en cash
+                            </li>
+                        </ul>
                         <p className="space-y-6 text-lg sm:text-xl leading-relaxed text-gray-600 w-full max-w-5xl mx-auto">
-                            Nous avons une présence effective dans toutes les préfectures et sous-préfectures de la Guinée. <br /> <br /> Ce réseau dense de plus de 5000 points de services et une disponibilité de fonds qui assure le paiement dans les points de vente nous permettent de répondre de manière efficace au besoin de l'ensemble de nos clients.
+                            Toutes vos transactions sont sécurisées, nos processus respectent les standards internationaux et les exigences  en termes de conformité.
                         </p>
                     </motion.div>
                 </div>
