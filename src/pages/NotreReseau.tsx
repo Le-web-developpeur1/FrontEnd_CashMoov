@@ -1,6 +1,26 @@
 import { FaUsers } from "react-icons/fa";
 import { motion } from "framer-motion";
 
+// Liste complète de tous les pays
+const allCountries = [
+  // Afrique de l'Ouest
+  'Bénin', 'Burkina Faso', 'Cap-Vert', 'Côte d\'Ivoire', 'Gambie', 'Ghana', 'Guinée', 'Guinée-Bissau', 
+  'Liberia', 'Mali', 'Niger', 'Nigeria', 'Sénégal', 'Sierra Leone', 'Togo',
+  // Afrique Centrale
+  'Cameroun', 'Congo-Brazzaville', 'Gabon', 'Guinée Équatoriale', 'RD Congo', 'République Centrafricaine', 'Tchad',
+  // Afrique du Nord, Est & Australe
+  'Afrique du Sud', 'Algérie', 'Angola', 'Botswana', 'Burundi', 'Comores', 'Djibouti', 'Égypte', 'Érythrée', 
+  'Éthiopie', 'Kenya', 'Lesotho', 'Libye', 'Madagascar', 'Malawi', 'Maroc', 'Maurice', 'Mauritanie', 
+  'Mozambique', 'Namibie', 'Ouganda', 'Rwanda', 'Seychelles', 'Somalie', 'Soudan', 'Soudan du Sud', 
+  'Tanzanie', 'Tunisie', 'Zambie', 'Zimbabwe',
+  // Europe
+  'France', 'Belgique', 'Espagne', 'Italie', 'Portugal', 'Royaume-Uni',
+  // Amérique
+  'États-Unis', 'Canada',
+  // Asie & Moyen-Orient
+  'Chine', 'Émirats Arabes Unis', 'Inde'
+];
+
 export default function NotreReseau() {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -223,6 +243,43 @@ export default function NotreReseau() {
                 </div>
             </div>
             
+        </div>
+
+        {/* Section des pays - tous dans une seule grille */}
+        <div className="bg-white py-16 sm:py-20">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="text-center mb-12"
+                >
+                    <h2 className="text-3xl sm:text-4xl font-bold text-[#2A4793] mb-4">
+                        Nos destinations
+                    </h2>
+                    <p className="text-lg sm:text-xl text-gray-600">
+                        Découvrez tous les pays où CashMoov est disponible
+                    </p>
+                </motion.div>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3"
+                >
+                    {allCountries.map((pays, idx) => (
+                        <div 
+                            key={idx} 
+                            className="bg-white border border-gray-200 rounded-lg  py-2 text-center text-sm text-gray-700"
+                        >
+                            {pays}
+                        </div>
+                    ))}
+                </motion.div>
+            </div>
         </div>
 
         <motion.div
