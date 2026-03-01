@@ -245,7 +245,7 @@ export default function NotreReseau() {
             
         </div>
 
-        <div className="bg-white py-8 sm:py-5">
+        <div className="bg-gray-100 py-8 sm:py-5">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -267,7 +267,7 @@ export default function NotreReseau() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3"
+                    className=" grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3"
                 >
                     {allCountries.map((pays, idx) => (
                         <div 
@@ -286,7 +286,7 @@ export default function NotreReseau() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-gray-100 py-10 sm:py-16"
+            className="py-10 sm:py-16"
         >
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
