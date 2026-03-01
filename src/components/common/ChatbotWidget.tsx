@@ -190,7 +190,7 @@ export function Chatbot({ ws, roomName }: ChatbotProps) {
             className="flex justify-start"
           >
             <div className="px-6 py-2 bg-white border rounded-xl text-gray-500 text-sm animate-pulse">
-              …
+              • • •
             </div>
           </motion.div>
         )}

@@ -108,7 +108,7 @@ export default function NotreReseau() {
                                 />
                             </div>
                         </div>
-                        <div className="flex-1 w-full mt-15">
+                        <div className="flex-1 w-full sm:mt-15">
 
                             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#2A4793] mb-4 sm:mb-6">
                                 En Guinée
@@ -195,7 +195,7 @@ export default function NotreReseau() {
             </div>
 
 
-            <div className="max-w-7xl mx-auto p-5 px-4 mt-10 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto p-5 px-4 sm:mt-8 sm:px-6 lg:px-8">
                 <div className="flex flex-col-reverse lg:flex-row gap-6 lg:gap-12">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
@@ -245,8 +245,7 @@ export default function NotreReseau() {
             
         </div>
 
-        {/* Section des pays - tous dans une seule grille */}
-        <div className="bg-white py-16 sm:py-20">
+        <div className="bg-white py-8 sm:py-5">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -287,7 +286,7 @@ export default function NotreReseau() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-gray-100 py-2 sm:py-16"
+            className="bg-gray-100 py-10 sm:py-16"
         >
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
