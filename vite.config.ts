@@ -21,16 +21,11 @@ export default defineConfig({
         target: 'https://dev-dounoh.xyz',
         changeOrigin: true,
         secure: false,
-        // Préserver les headers d'authentification
         configure: (proxy, _options) => {
           proxy.on('proxyReq', (proxyReq, req, _res) => {
-            // S'assurer que les headers d'authentification sont transmis
             if (req.headers.authorization) {
               proxyReq.setHeader('Authorization', req.headers.authorization);
             }
-            console.log('[Proxy]', req.method, req.url, {
-              hasAuth: !!req.headers.authorization
-            });
           });
         }
       }

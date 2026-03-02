@@ -11,7 +11,6 @@ import Home from './pages/Home'
 import ContactPage from './pages/ContactPage'
 import ServicesParticuliers from './pages/ServicesParticuliers'
 import ServicesEntreprises from './pages/ServicesEntreprises'
-// import DownloadApp from './pages/DownloadApp'
 import NotreReseau from './pages/NotreReseau'
 import NotFound from './pages/NotFound'
 
@@ -40,7 +39,6 @@ function App() {
             <Route path='/services-particuliers' element={<ServicesParticuliers />} />
             <Route path='/services-entreprises' element={<ServicesEntreprises />} />
             <Route path='/contact' element={<ContactPage />} />
-            {/* <Route path='/telecharger-app' element={<DownloadApp />} /> */}
             <Route path='/notre-reseau' element={<NotreReseau />} />
             <Route path='/about' element={<AboutPage />} />
             <Route path='/reseau' element={<Reseau />} />

@@ -81,8 +81,16 @@ export function NotifProvider({ children }: { children: React.ReactNode }) {
 
     socket.addEventListener("message", handleMessage);
 
-    socket.onopen = () => console.log("Notifications connecté");
-    socket.onclose = () => console.log("Notifications fermé");
+    socket.onopen = () => {
+      if (import.meta.env.DEV) {
+        console.log("Notifications connecté");
+      }
+    }
+    socket.onclose = () => {
+      if (import.meta.env.DEV) {
+        console.log("Notifications fermé");
+      }
+    }
 
     return () => {
       socket.removeEventListener("message", handleMessage);

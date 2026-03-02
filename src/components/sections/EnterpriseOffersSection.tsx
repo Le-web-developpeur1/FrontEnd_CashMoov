@@ -22,16 +22,6 @@ const enterpriseOffers = [
     title: "Cash collection",
     description: "Collectez les paiements de vos clients en toute simplicité"
   },
-  // {
-  //   icon: TrendingUp,
-  //   title: "Gestion de trésorerie",
-  //   description: "Optimisez la gestion de vos flux financiers"
-  // },
-  // { TrendingUp, Layers,
-  //   icon: Layers,
-  //   title: "Paiements en masse",
-  //   description: "Effectuez plusieurs paiements simultanément"
-  // }
 ];
 
 export default function EnterpriseOffersSection() {

@@ -31,6 +31,17 @@ api.interceptors.response.use(
     return response;
   },
   (error) => {
+
+    const status = error.response?.status;
+
+    if (status === 401 || status === 403) {
+      localStorage.removeItem('access');
+      localStorage.removeItem('user');
+      localStorage.removeItem('refresh');
+
+      window.location.href = "/admin/login"
+    }
+
     const message = error.response?.data?.message || 
                     error.response?.data?.detail || 
                     error.message || 
