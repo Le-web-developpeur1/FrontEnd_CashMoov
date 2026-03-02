@@ -18,7 +18,7 @@ const historyData = [
   },
   {
     year: "2017",
-    title: "Première agence en Afrique",
+    title: "Première agence africaine hors du pays",
     description: "Afin d'explorer de nouveaux marchés, l'entreprise démarre son expansion continentale en ouvrant sa première agence africaine au Mali (Bamako).",
     image: "/images/afri.png"
   },

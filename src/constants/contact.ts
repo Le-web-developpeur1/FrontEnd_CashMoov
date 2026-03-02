@@ -5,7 +5,7 @@ export const CONTACT_INFO: ContactInfo[] = [
   {
     icone: Phone,
     title: "Téléphone",
-    details: ["+224621640000", "+224657640000"],
+    details: ["+224 621640000", "+224 661640000", "+224 657640000"],
     color: "bg-[#2A4793]",
   },
   {
@@ -44,9 +44,9 @@ export const FAQS: FAQ[] = [
       "Nos frais sont transparents et  varient selon le montant et la destination. ",
   },
   {
-    questions: "Comment suivre mon transfert ?",
+    questions: "Comment annuler une transaction ?",
     answer:
-      "Vous recevez un numéro de suivi unique pour chaque transfert. Connectez-vous à votre compte pour suivre l'état en temps réel.",
+      "Pour annuler une transaction, vous devez contacter le service client et fournir les informations suivantes : le motif de l'annulation, l'identifiant et le montant de la transaction",
   },
   {
     questions: "Mes données sont-elles sécurisées ?",

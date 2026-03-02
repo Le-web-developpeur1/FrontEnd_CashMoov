@@ -32,19 +32,19 @@ export default function AboutPage() {
 
     const values = [
         {
-            icon: Shield,
-            title: "Fiabilité",
-            description: "Un réseau de distribution fiable et maîtrisé partout en Guinée"
-        },
-        {
-            icon: Zap,
-            title: "Rapidité",
-            description: "Des transactions instantanées pour répondre à vos besoins urgents"
-        },
-        {
             icon: Users,
             title: "Proximité",
             description: "Une présence locale forte pour être au plus près de nos clients"
+        },
+        {
+            icon: Shield,
+            title: "Écoute",
+            description: "Nous prêtons une attention particulière aux retours de nos clients. Notre service client est dédié à cette tâche"
+        },
+        {
+            icon: Zap,
+            title: "Réactivité",
+            description: "La rapidité dans nos prises de décision et notre agilité opérationnelle nous permettent de nous adapter au besoin évolutif du marché"
         },
         {
             icon: TrendingUp,

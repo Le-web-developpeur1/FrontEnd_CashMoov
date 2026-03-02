@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 // Liste complète de tous les pays
 const allCountries = [
   // Afrique de l'Ouest
-  'Bénin', 'Burkina Faso', 'Cap-Vert', 'Côte d\'Ivoire', 'Gambie', 'Ghana', 'Guinée', 'Guinée-Bissau', 
+  'Guinée', 'Bénin', 'Burkina Faso', 'Cap-Vert', 'Côte d\'Ivoire', 'Gambie', 'Ghana', 'Guinée-Bissau', 
   'Liberia', 'Mali', 'Niger', 'Nigeria', 'Sénégal', 'Sierra Leone', 'Togo',
   // Afrique Centrale
   'Cameroun', 'Congo-Brazzaville', 'Gabon', 'Guinée Équatoriale', 'RD Congo', 'République Centrafricaine', 'Tchad',
@@ -111,7 +111,7 @@ export default function NotreReseau() {
                         <div className="flex-1 w-full sm:mt-15">
 
                             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#2A4793] mb-4 sm:mb-6">
-                                En Guinée
+                                Couverture du territoire guinéen 
                             </h2>
                             <p className="space-y-6 text-lg sm:text-xl leading-relaxed text-gray-600 w-full max-w-5xl mx-auto">
                                 Nous avons une présence effective dans toutes les préfectures et sous-préfectures de la Guinée. <br /> <br />
@@ -136,7 +136,7 @@ export default function NotreReseau() {
                                 </h2>
                                 <p className="space-y-6 text-lg sm:text-xl leading-relaxed text-gray-600 w-full max-w-5xl mx-auto">
                                     Nos points de vente sont présents dans les zones les plus éloignées du pays.
-                                    Où que vous soyez en Guinée, vous pouvez envoyer et recevoir de l’argent, mais aussi accéder à des services financiers innovants.
+                                    Où que vous soyez en Guinée, vous pouvez envoyer et recevoir de l’argent, mais aussi accéder à des services financiers innovants. <br />
                                     Parce qu’être proches de vous, c’est plus qu’un message : c’est notre manière d’agir au quotidien.
                                 </p>
                             </div>
@@ -218,24 +218,16 @@ export default function NotreReseau() {
                         className="mt-3 w-full items-center justify-center"
                     >
                         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#2A4793] mb-4 sm:mb-2">
-                            Couverture Internationale
+                            Présence à l’international
                         </h2>
                         <p className="space-y-6 text-lg sm:text-xl leading-relaxed text-gray-600 w-full max-w-5xl mx-auto mb-4 sm:mb-3">
-                            Accédez à plus de 36 destinations partout dans le monde et recevez vos transactions internationales sur votre compte CashMoov en toute quiétude.
-                            De votre application , vous pouvez achetez de la marchandise en asie, payez un fournisseur en Europe ou les études de vos enfants au Canada.
-                            Vous avez le choix d'envoyer vers:   
+                            Accédez à plus de 36 destinations partout dans le monde et recevez vos transactions internationales sur votre compte CashMoov en toute quiétude. <br />
+                            De votre application , vous pouvez achetez de la marchandise en asie, payez un fournisseur en Europe ou les études de vos enfants au Canada. <br />
+                            Vous avez le choix d'envoyer vers : un compte bancaire, un compte mobile ou un service de paiement en cash
+
                         </p>
-                        <ul className="space-y-2 text-lg sm:text-xl sm:ml-5 leading-relaxed text-gray-600 w-full max-w-5xl mx-auto mb-4 sm:mb-3">
-                            <li>
-                                Un Compte bancaire avec le transfert international instantané. 
-                            </li>
-                            <li>
-                                Un Compte mobile (Orange Money, Wechat, Alipay …)          
-                            </li>
-                            <li>
-                                Un Service de paiement en cash
-                            </li>
-                        </ul>
+                        
+                        
                         <p className="space-y-6 text-lg sm:text-xl leading-relaxed text-gray-600 w-full max-w-5xl mx-auto">
                             Toutes vos transactions sont sécurisées, nos processus respectent les standards internationaux et les exigences  en termes de conformité.
                         </p>
@@ -257,9 +249,6 @@ export default function NotreReseau() {
                     <h2 className="text-3xl sm:text-4xl font-bold text-[#2A4793] mb-4">
                         Nos destinations
                     </h2>
-                    <p className="text-lg sm:text-xl text-gray-600">
-                        Découvrez tous les pays où CashMoov est disponible
-                    </p>
                 </motion.div>
 
                 <motion.div

@@ -171,7 +171,7 @@ export default function ContactPage() {
                   <motion.a
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    href="https://wa.me/224621640000?text=Bonjour%20l'équipe%20Cash%20Moov"
+                    href="https://wa.me/224661640000?text=Bonjour%20l'équipe%20CashMoov"
                     target="blank"
                     rel="noopener noreferrer"
                     className="bg-green-500 text-white px-3 py-2 rounded-lg font-medium flex items-center justify-center gap-1 hover:bg-green-600 transition shadow-lg text-sm"

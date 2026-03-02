@@ -13,6 +13,7 @@ interface ContactFormData {
 
 export default function ContactForm() {
   const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const {
@@ -49,9 +50,13 @@ export default function ContactForm() {
         reset();
     } catch (error: unknown) { 
         setLoading(false); 
-        
         if (error instanceof Error) { 
-          alert(error.message); 
+          setError(error.message);
+          
+          setTimeout(() => {
+            setError("")
+          }, 2000);
+            reset();
         } else { 
           alert('Erreur lors de l\'envoi du message'); 
         }
@@ -76,6 +81,20 @@ export default function ContactForm() {
               className="text-green-600 text-sm"
         >
               {success}
+            </motion.p>
+          )}
+
+        </AnimatePresence>
+        <AnimatePresence>
+          {error && ( 
+            <motion.p
+              initial={{ opacity: 0, y: -5 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -5 }}
+              transition={{ duration: 0.25}}
+              className="text-red-600 text-sm"
+        >
+              {error}
             </motion.p>
           )}
 

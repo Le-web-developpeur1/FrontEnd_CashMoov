@@ -114,7 +114,7 @@ export const SERVICES_ENTREPRISES: Omit<ServiceCardProps, 'onDiscover'>[] = [
       {
         icon: Shield,
         title: "Sécurité renforcée",
-        description: "Sécurité renforcée"
+        description: "Point de paiement sécurisé"
       },
       {
         icon: FileCheck,
