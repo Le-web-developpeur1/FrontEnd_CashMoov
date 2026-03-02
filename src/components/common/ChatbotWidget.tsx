@@ -222,6 +222,7 @@ export function Chatbot({ ws, roomName }: ChatbotProps) {
 }
 
 
+
 export default function ChatbotWidget() {
   const [open, setOpen] = useState(false);
   const [showChat, setShowChat] = useState(false);
@@ -232,8 +233,10 @@ export default function ChatbotWidget() {
     const newRoom = "conv_" + Date.now().toString();   
     setRoomName(newRoom);
 
-    const baseUrl = import.meta.env.VITE_WS_BASE_URL;
+    const baseUrl = import.meta.env.VITE_WS_BASE_URL;                
+
     const wsUrl = `${baseUrl}${newRoom}/`;
+
     if (!ws) {
       const socket = new WebSocket(wsUrl);     
       setWs(socket);
