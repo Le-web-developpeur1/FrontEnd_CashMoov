@@ -26,7 +26,6 @@ import AssistantConversations from './pages/assistant/AssistantConversations'
 import AssistantChat from './pages/assistant/AssistantChat'
 import ProfilePage from './pages/ProfilePage'
 import AboutPage from './pages/AboutPage'
-import Reseau from './pages/test/Reseau'
 
 function App() {
   return (
@@ -41,7 +40,6 @@ function App() {
             <Route path='/contact' element={<ContactPage />} />
             <Route path='/notre-reseau' element={<NotreReseau />} />
             <Route path='/about' element={<AboutPage />} />
-            <Route path='/reseau' element={<Reseau />} />
             <Route path='*' element={<NotFound />} />
           </Route>
 
