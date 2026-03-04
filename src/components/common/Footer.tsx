@@ -197,7 +197,7 @@ const Footer = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.7 }}
-        className="w-full mx-auto grid grid-cols-1 md:ml-20 md:grid-cols-2 lg:grid-cols-3 gap-10 text-[#F7CE47] text-sm"
+        className="w-full mx-auto grid grid-cols-1 md:ml-20 md:grid-cols-2  lg:grid-cols-3 gap-5 text-[#F7CE47] text-sm"
       >
         <p>&copy; {date} CashMoov | Tous droits réservés.</p>
         <motion.a 

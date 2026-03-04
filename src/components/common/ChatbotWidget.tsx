@@ -298,7 +298,8 @@ export default function ChatbotWidget() {
               <img 
                 src='/images/sticker.png' 
                 alt="Chat"
-                loading="lazy"
+                loading="eager"
+                fetchPriority='high'
               className="w-8 h-8 sm:w-14 sm:h-14 object-contain" 
               />
             </motion.div>

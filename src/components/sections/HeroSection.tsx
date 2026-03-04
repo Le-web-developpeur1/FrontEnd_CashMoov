@@ -36,8 +36,8 @@ export function HeroSection() {
           }}
         >
           <img
-            src="/images/PNG (1).png"
-            alt="Background"
+            src="/images/Sourire.png"
+            alt="Le sourire"
             loading="eager"
             fetchPriority="high"
             className="w-full h-full object-contain opacity-30 sm:opacity-30"
@@ -203,13 +203,13 @@ export function HeroSection() {
                 y: [0, -15, 0],
               }}
               transition={{
-                duration: 4,
+                duration: 8,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
             >
               <img
-                src="/images/App CashMoov.png"
+                src="/images/AppCashMoov.png"
                 alt="CashMoov App"
                 loading="lazy"
                 fetchPriority="high"
