@@ -214,7 +214,6 @@ export function Chatbot({ ws, roomName }: ChatbotProps) {
           className="bg-[#2A4793] text-white px-4 py-2 rounded-xl hover:bg-[#1f356d] transition w-full sm:w-auto flex items-center justify-center gap-2"
         >
           <Send className="w-4 h-4" />
-          <span>Envoyer</span>
         </motion.button>
       </div>
     </motion.div>

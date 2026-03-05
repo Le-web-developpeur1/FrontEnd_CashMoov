@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /assistant/
+
+Sitemap: https://cashmoov.net/sitemap.xml

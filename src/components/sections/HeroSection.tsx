@@ -43,48 +43,6 @@ export function HeroSection() {
             className="w-full h-full object-contain opacity-30 sm:opacity-30"
           />
         </motion.div>
-
-        {/* <motion.div
-          animate={{ 
-            y: [0, -10, 0],
-            rotate: [0, 5, 0]
-          }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-30 left-10 w-16 h-16 sm:w-20 sm:h-20 z-20"
-        >
-          <img 
-            src="/images/PNG (1).png" 
-            alt="Sticker" 
-            loading="lazy" 
-            className="w-full h-full object-contain drop-shadow-2xl"
-          />
-        </motion.div>
-
-        <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
-          <motion.line 
-            x1="15%" y1="25%" 
-            x2="30%" y2="80%" 
-            stroke="#F7CE47"
-            opacity={0.2} 
-            strokeWidth="1" 
-            strokeDasharray="8,4"
-            initial={{ pathLength: 0, opacity: 0 }}
-            animate={{ pathLength: 1, opacity: 0.4 }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
-          />
-          
-          <motion.line 
-            x1="50%" y1="65%" 
-            x2="75%" y2="50%" 
-            stroke="#F7CE47"
-            opacity={0.2} 
-            strokeWidth="1" 
-            strokeDasharray="8,4"
-            initial={{ pathLength: 0, opacity: 0 }}
-            animate={{ pathLength: 1, opacity: 0.4 }}
-            transition={{ duration: 1.5, delay: 0.5, ease: "easeInOut" }}
-          />
-        </svg> */}
       </div>
 
       <div className="relative z-10 w-full mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-0">

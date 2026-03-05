@@ -209,7 +209,7 @@ const Footer = () => {
         </motion.a>
         <motion.a 
           whileHover={{ scale: 1.05 }}
-          href="/conditions/" 
+          href="/terms/" 
           className="hover:text-white transition"
         >
           Conditions d'utilisation

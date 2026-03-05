@@ -58,7 +58,7 @@ export default function FeaturesSection() {
               <div className="relative rounded-xl overflow-hidden">
                 <img
                   src="/images/lesaviez.png"
-                  alt="CashMoov Features"
+                  alt="Cashmoov services particuliers"
                   loading="lazy"
                   className="w-full h-auto object-cover scale-103"
                 />
