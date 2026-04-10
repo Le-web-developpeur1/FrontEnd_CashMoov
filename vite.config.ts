@@ -15,22 +15,6 @@ export default defineConfig({
       src: path.resolve(__dirname, "./src"),
     },
   },
-  server: {
-    proxy: {
-      '/api': {
-        target: 'https://api.cashmoov.net',
-        changeOrigin: true,
-        secure: false,
-        configure: (proxy, _options) => {
-          proxy.on('proxyReq', (proxyReq, req, _res) => {
-            if (req.headers.authorization) {
-              proxyReq.setHeader('Authorization', req.headers.authorization);
-            }
-          });
-        }
-      }
-    }
-  },
   build: {
     rollupOptions: {
       output: {
