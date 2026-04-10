@@ -18,7 +18,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://dev-dounoh.xyz',
+        target: 'https://api.cashmoov.net',
         changeOrigin: true,
         secure: false,
         configure: (proxy, _options) => {

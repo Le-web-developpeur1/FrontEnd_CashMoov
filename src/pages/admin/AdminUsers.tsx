@@ -32,7 +32,7 @@ export default function AdminUsers() {
     try {
       setLoading(true);
       const data = await usersAPI.getAll();
-      const usersList = Array.isArray(data) ? data : (data.results || []);
+      const usersList = Array.isArray(data) ? data : (data.items || []);
       setUsers(usersList);
     } catch {
       alert('Erreur lors du chargement des utilisateurs');

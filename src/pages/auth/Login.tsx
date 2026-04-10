@@ -5,7 +5,7 @@ import { Mail, Lock, AlertCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function Login() {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -29,9 +29,9 @@ export default function Login() {
     setLoading(true);
 
     try {
-      await login(email, password);
+      await login(username, password);
     } catch (err: any) {
-      setError(err.message || 'Email ou mot de passe incorrect');
+      setError(err.message || 'Username ou mot de passe incorrect');
     } finally {
       setLoading(false);
     }
@@ -46,14 +46,14 @@ export default function Login() {
         transition={{ duration: 0.5 }}
         className="max-w-md w-full"
       >
-        
+
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-center mb-8"
+          className="justify-items-center mb-8"
         >
-          <img src="/logocm.png" alt="Logo CashMoov" className='align-center mb-2 ml-4' loading="lazy"/>
+          <img src="/images/LogoCashMoov.png" alt="Logo CashMoov" className=' mb-2 w-25 h-25' loading="lazy"/>
           <p className="text-white text-lg">Espace Administration</p>
         </motion.div>
 
@@ -86,16 +86,16 @@ export default function Login() {
               transition={{ duration: 0.5, delay: 0.3 }}
             >
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Email
+                Addresse Email
               </label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                 <input
                   type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                   className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2A4793] focus:border-[#2A4793] outline-none transition"
-                  placeholder="votre@email.com"
+                  placeholder="votre@gmail.com"
                   required
                 />
               </div>

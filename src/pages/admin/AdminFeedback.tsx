@@ -6,7 +6,7 @@ import FeedbackListItem from '@/components/feedback/FeedbackListItem';
 import FeedbackDetailModal from '@/components/feedback/FeedbackDetailModal';
 
 interface Feedback {
-  slug: string;
+  uid: string;
   first_name: string;
   last_name: string;
   email: string;
@@ -27,10 +27,10 @@ const getReadMessages = (): string[] => {
   }
 };
 
-const markMessageAsRead = (slug: string) => {
+const markMessageAsRead = (uid: string) => {
   const readMessages = getReadMessages();
-  if (!readMessages.includes(slug)) {
-    readMessages.push(slug);
+  if (!readMessages.includes(uid)) {
+    readMessages.push(uid);
     localStorage.setItem(READ_MESSAGES_KEY, JSON.stringify(readMessages));
   }
 };
@@ -56,9 +56,9 @@ export default function AdminFeedback() {
             
       const readMessages = getReadMessages();
       
-      const feedbacksWithReadStatus = (Array.isArray(data) ? data : data.results || []).map((feedback: Feedback) => ({
+      const feedbacksWithReadStatus = (Array.isArray(data) ? data : data.items || []).map((feedback: Feedback) => ({
         ...feedback,
-        is_read: readMessages.includes(feedback.slug)
+        is_read: readMessages.includes(feedback.uid)
       }));
       
       setFeedbacks(feedbacksWithReadStatus);
@@ -91,23 +91,27 @@ export default function AdminFeedback() {
 
   const handleOpenMessage = async (feedback: Feedback) => {
     try {
+      // Afficher le modal immédiatement avec les données de base
+      setSelectedFeedback(feedback);
       setLoadingDetails(true);
       
- 
-      const fullDetails = await feedbackAPI.getById(feedback.slug);
+      // Charger les détails complets
+      const fullDetails = await feedbackAPI.getById(feedback.uid);
       
-      const detailsWithSlug = {
-        ...fullDetails,
-        slug: fullDetails.slug || feedback.slug 
+      // Fusionner les données : garder les données initiales et ajouter/écraser avec les nouvelles
+      const detailsWithuSlug = {
+        ...feedback, // Garder les données initiales
+        ...fullDetails, // Ajouter les détails du backend (s'il y en a)
+        uid: fullDetails.uid || feedback.uid // S'assurer que l'uid est présent
       };
       
-      setSelectedFeedback(detailsWithSlug);
+      setSelectedFeedback(detailsWithuSlug);
       
       if (!feedback.is_read) {
-        markMessageAsRead(feedback.slug);
+        markMessageAsRead(feedback.uid);
         
         setFeedbacks(feedbacks.map(f => 
-          f.slug === feedback.slug ? { ...f, is_read: true } : f
+          f.uid === feedback.uid ? { ...f, is_read: true } : f
         ));
       }
     } catch (err: unknown) { 
@@ -127,13 +131,13 @@ export default function AdminFeedback() {
     read: feedbacks.filter(f => f.is_read).length,
   };
 
-  const handleDelete = async (slug: string) => {
+  const handleDelete = async (uid: string) => {
     if (confirm('Êtes-vous sûr de vouloir supprimer ce message ?')) {
       try {
        
-         await feedbackAPI.delete(slug);
+         await feedbackAPI.delete(uid);
         
-        if (selectedFeedback?.slug === slug) {
+        if (selectedFeedback?.uid === uid) {
           setSelectedFeedback(null);
         }
         
@@ -218,9 +222,9 @@ export default function AdminFeedback() {
       ) : (
         <div className="bg-white rounded-lg shadow-sm overflow-hidden">
           <div className="divide-y divide-gray-100">
-            {filteredFeedbacks.map((feedback) => (
+            {filteredFeedbacks.map((feedback, index) => (
               <FeedbackListItem
-                key={feedback.slug}
+                key={index}
                 feedback={feedback}
                 onView={handleOpenMessage}
                 onDelete={handleDelete}

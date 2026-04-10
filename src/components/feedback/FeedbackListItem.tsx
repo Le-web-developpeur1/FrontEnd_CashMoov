@@ -1,7 +1,7 @@
 import { Mail, Phone, Eye, Trash2 } from 'lucide-react';
 
 interface Feedback {
-  slug: string;
+  uid: string;
   first_name: string;
   last_name: string;
   email: string;
@@ -14,7 +14,7 @@ interface Feedback {
 interface FeedbackListItemProps {
   feedback: Feedback;
   onView: (feedback: Feedback) => void;
-  onDelete: (slug: string) => void;
+  onDelete: (uid: string) => void;
 }
 
 export default function FeedbackListItem({ feedback, onView, onDelete }: FeedbackListItemProps) {
@@ -88,7 +88,7 @@ export default function FeedbackListItem({ feedback, onView, onDelete }: Feedbac
             <Eye className="w-4 h-4" />
           </button>
           <button
-            onClick={() => onDelete(feedback.slug)}
+            onClick={() => onDelete(feedback.uid)}
             className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition"
             title="Supprimer"
           >

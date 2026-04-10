@@ -31,7 +31,7 @@ export default function ContactPage() {
     <>
         <SEO
           title="Contact"
-          description="Contactez Cashmoov pour toute question ou assistance. Notre équipe est votre écoute pour vous accompagner."
+          description="Contactez Cashmoov pour toute question ou assistance. Notre équipe est à votre écoute pour vous accompagner."
           keywords="contact cashmoov, support client, assistance cashmoov"
           url="https://cashmoov.net/contact"
         />
@@ -170,7 +170,7 @@ export default function ContactPage() {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         href="mailto:contact@cashmoov.com"
-                        className="bg-white text-[#2A4793] px-3 py-2 rounded-lg font-medium flex items-center justify-center gap-1 hover:bg-gray-100 transition shadow-lg text-sm"
+                        className="bg-white text-[#2A4793] px-3 py-2 rounded-lg font-medium flex items-center justify-center gap-1 hover:bg-gray-100 transition shadow-lg text-sm cursor-pointer"
                       >
                         <Mail className="h-4 w-4" />
                         <span className="hidden sm:inline">Email</span>

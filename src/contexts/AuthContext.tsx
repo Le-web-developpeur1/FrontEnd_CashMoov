@@ -52,6 +52,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   
     const storedToken = localStorage.getItem('access');
+    
     if (!storedToken) {
       throw new Error('Erreur lors du stockage du token');
     }

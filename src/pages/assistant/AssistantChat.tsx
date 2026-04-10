@@ -36,7 +36,7 @@ export default function AssistantChat() {
       `${import.meta.env.VITE_WS_BASE_URL}${id}/?token=${token}`
     );
     wsRef.current = ws;
-    console.log("WS URL:", `${import.meta.env.VITE_WS_CHAT_URL}${id}/?token=${token}`);
+    console.log("WS URL:", `${import.meta.env.VITE_WS_BASE_URL}${id}/?token=${token}`);
 
     ws.onopen = () => {
       ws.send(JSON.stringify({

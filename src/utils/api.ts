@@ -56,9 +56,9 @@ api.interceptors.response.use(
 
 export const authAPI = {
 
-  login: async (email: string, password: string) => {
+  login: async (username: string, password: string) => {
     try {
-      const { data } = await api.post('/auth/token/', { email, password });
+      const { data } = await api.post('/auth/web/sign-in', { username, password });
       return data;
     } catch (error: any) {
       throw new Error(error.message || 'Email ou mot de passe incorrect');
@@ -67,7 +67,7 @@ export const authAPI = {
 
   getUserInfo: async () => {
   try {
-    const { data } = await api.get('/profile/users/me/');
+    const { data } = await api.get('/profile/users/me');
     return data;
   } catch (error: any) {
     throw new Error(error.response?.data?.detail || error.message || 'Erreur récupération infos utilisateur');
@@ -85,14 +85,14 @@ export const feedbackAPI = {
 
   //Envoie du message
   send: async (data: {
-    last_name: string;
     first_name: string;
+    last_name: string;
     email: string;
     phone_number?: string;
     message?: string;
   }) => {
     try {
-      const response = await api.post('/feedback/', data);
+      const response = await api.post('/feedback/create', data);
       return response.data;
     } catch (error: any) {
       throw new Error(error.message || 'Erreur lors de l\'envoi du message');
@@ -102,7 +102,7 @@ export const feedbackAPI = {
   // Récupérer tous les messages de contact
   getAll: async () => {
     try {
-      const { data } = await api.get('/feedback/');
+      const { data } = await api.get('/feedback/list');
       return data;
     } catch (error: any) {
       throw new Error(error.message || 'Erreur lors de la récupération des messages');
@@ -110,9 +110,9 @@ export const feedbackAPI = {
   },
 
   // Récupérer un message spécifique par slug
-  getById: async (slug: string) => {
+  getById: async (uid: string) => {
     try {
-      const { data } = await api.get(`/feedback/${slug}/`);
+      const { data } = await api.get(`/feedback/get/${uid}`);
       return data;
     } catch (error: any) {
       throw new Error(error.message || 'Erreur lors de la récupération du message');
@@ -120,9 +120,9 @@ export const feedbackAPI = {
   },
 
   // Supprimer un message
-  delete: async (slug: string) => {
+  delete: async (uid: string) => {
     try {
-      const { data } = await api.delete(`/feedback/${slug}/`);
+      const { data } = await api.delete(`/feedback/delete/${uid}`);
       return data;
     } catch (error: any) {
       throw new Error(error.message || 'Erreur lors de la suppression');
@@ -141,7 +141,7 @@ export const chatbotAPI = {
     conversationId?: string
   }) => {
     try {
-      const response = await api.post('/chatbot/chatbots/ask/', data);
+      const response = await api.post('/chatbot/ask/', data);
       return response.data;
     } catch (error: any) {
       throw new Error(error.message || 'Erreur lors de l\'envoi du message');
@@ -203,7 +203,7 @@ export const profileAPI = {
     address?: string;
   }) => {
     try {
-      const response = await api.patch('/profile/users/me/', data);
+      const response = await api.patch('/profile/users/me', data);
       return response.data;
     } catch (error: any) {
       throw new Error(error.message || 'Erreur lors de la mise à jour du profil');
@@ -213,7 +213,7 @@ export const profileAPI = {
   // Changer l'email
   changeEmail: async (newEmail: string, currentPassword: string) => {
     try {
-      const response = await api.post('/profile/users/set_email/', {
+      const response = await api.post('/profile/users/set_email', {
         new_email: newEmail,
         current_password: currentPassword,
       });
@@ -250,8 +250,8 @@ export const profileAPI = {
   // Changer le mot de passe (utilisateur connecté)
   changePassword: async (currentPassword: string, newPassword: string) => {
     try {
-      const response = await api.post('/profile/users/set_password/', {
-        current_password: currentPassword,
+      const response = await api.post('/profile/users/me/reset_password/', {
+        password: currentPassword,
         new_password: newPassword,
       });
       return response.data;
@@ -271,7 +271,7 @@ export const usersAPI = {
   getAll: async () => {
     try {
       // Demander une grande limite pour avoir tous les utilisateurs
-      const { data } = await api.get('/profile/users/?limit=1000');
+      const { data } = await api.get('/profile/users/profile/users?limit=1000');
       return data;
     } catch (error: any) {
       throw new Error(error.message || 'Erreur lors de la récupération des utilisateurs');
@@ -287,7 +287,7 @@ export const usersAPI = {
     address?: string;
   }) => {
     try {
-      const { data } = await api.post('/profile/users/', userData);
+      const { data } = await api.post('/profile/users/profile/users/', userData);
       return data;
     } catch (error: any) {
       throw new Error(error.message || 'Erreur lors de la création de l\'utilisateur');
@@ -303,7 +303,7 @@ export const usersAPI = {
     address?: string;
   }) => {
     try {
-      const { data } = await api.patch(`/profile/users/${slug}/`, userData);
+      const { data } = await api.patch(`/profile/users/profile/users/${slug}`, userData);
       return data;
     } catch (error: any) {
       throw new Error(error.message || 'Erreur lors de la mise à jour');
@@ -313,7 +313,7 @@ export const usersAPI = {
   // Supprimer un utilisateur
   delete: async (slug: string, currentPassord: string) => {
     try {
-      const { data } = await api.delete(`/profile/users/${slug}/`, {
+      const { data } = await api.delete(`/profile/users/profile/users/${slug}/`, {
         data: {current_password: currentPassord }
       });
       return data;

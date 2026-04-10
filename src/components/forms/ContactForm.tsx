@@ -43,7 +43,6 @@ export default function ContactForm() {
       
       await feedbackAPI.send(data);
       setSuccess('Message envoyé avec succès !');
-
       setTimeout(() => {
         setSuccess("")
       }, 2000);
@@ -193,7 +192,7 @@ export default function ContactForm() {
         <div className="md:col-span-5 flex justify-center">
           <button
             type="submit"
-            className="flex w-full items-center justify-center gap-2 bg-[#2A4793] text-white px-4 py-2 rounded-md disabled:opacity-50"
+            className="flex w-full items-center justify-center gap-2 bg-[#2A4793] text-white px-4 py-3 rounded-md disabled:opacity-50 cursor-pointer"
             disabled={loading}
           >
             {loading ? (

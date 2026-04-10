@@ -1,7 +1,7 @@
 import { Mail, Phone, Trash2, X } from 'lucide-react';
 
 interface Feedback {
-  slug: string;
+  uid: string;
   first_name: string;
   last_name: string;
   email: string;
@@ -14,7 +14,7 @@ interface FeedbackDetailModalProps {
   feedback: Feedback | null;
   loading: boolean;
   onClose: () => void;
-  onDelete: (slug: string) => void;
+  onDelete: (uid: string) => void;
 }
 
 export default function FeedbackDetailModal({ feedback, loading, onClose, onDelete }: FeedbackDetailModalProps) {
@@ -142,11 +142,11 @@ export default function FeedbackDetailModal({ feedback, loading, onClose, onDele
               </button>
               <button
                 onClick={() => {
-                  if (!feedback.slug) {
-                    alert('Erreur: Impossible de supprimer, slug manquant');
+                  if (!feedback.uid) {
+                    alert('Erreur: Impossible de supprimer, uid manquant');
                     return;
                   }
-                  onDelete(feedback.slug);
+                  onDelete(feedback.uid);
                 }}
                 className="px-6 py-3 border border-red-300 text-red-600 rounded-lg hover:bg-red-50 transition font-medium flex items-center gap-2"
               >
